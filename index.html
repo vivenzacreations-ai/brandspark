@@ -89,7 +89,7 @@
         }
     </style>
 </head>
-<body class="bg-neon-midnight text-gray-200 selection:bg-neon-pink selection:text-white">
+<body class="bg-neon-midnight text-gray-200 selection:bg-neon-pink selection:text-white overflow-x-hidden">
 
     <svg style="position:absolute; width:0; height:0;">
       <filter id="fisheye-lens-filter">
@@ -105,9 +105,9 @@
 
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-40 hidden"></div>
 
-    <div class="sticky top-0 z-50 p-4">
+    <div class="sticky top-0 z-50 p-2 md:p-4">
         <header id="header" class="container mx-auto relative rounded-full liquid-glass-header">
-            <div class="relative z-10 w-full flex justify-between items-center px-8 py-4">
+            <div class="relative z-10 w-full flex justify-between items-center px-4 py-3 md:px-8 md:py-4">
                 <a href="#home" class="flex items-center text-2xl font-bold text-white tracking-wider">
                     <svg class="h-8 w-8 text-cyan-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -181,7 +181,7 @@
             </div>
         </section>
 
-        <section id="services" class="py-20 bg-neon-midnight relative">
+        <section id="services" class="py-20 bg-neon-midnight relative overflow-hidden">
              <!-- Decorative glowing orb -->
             <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-neon-deep opacity-20 blur-3xl rounded-full pointer-events-none"></div>
 
