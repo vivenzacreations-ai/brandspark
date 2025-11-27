@@ -52,11 +52,13 @@
              border-color: #B131FA;
         }
         .glassy-menu-button {
-            background: rgba(74, 0, 116, 0.3); /* neon-deep base */
-            backdrop-filter: blur(12px) saturate(180%);
-            -webkit-backdrop-filter: blur(12px) saturate(180%);
-            border: 1px solid rgba(177, 49, 250, 0.3); /* neon-purple border */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(9px)
+               saturate(180%);
+            -webkit-backdrop-filter: blur(9px)
+               saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 9999px;
             padding: 0.75rem;
             width: 50px;
@@ -70,7 +72,7 @@
         /* === FINAL FISH-EYE LENS HEADER === */
         .liquid-glass-header {
             /* 1. Base opacity for the glass layer */
-            background: rgba(28, 58, 255, 0.05); /* Tinted with neon-blue */
+            background: rgba(255, 255, 255, 0.10);
 
             /* 2. Gaussian blur for softening + the new fish-eye SVG filter */
             -webkit-backdrop-filter: blur(30px)
@@ -79,10 +81,10 @@
               saturate(145%) url(#fisheye-lens-filter);
             
             /* 3. Crisp border for definition */
-            border: 1px solid rgba(177, 49, 250, 0.2); /* neon-purple border */
+            border: 1px solid rgba(255, 255, 255, 0.25);
             
             /* 4. Shadows for the 3D floating effect */
-            box-shadow: inset 0px 4px 30px rgba(255, 28, 192, 0.05), /* Subtle pink inner highlight */
+            box-shadow: inset 0px 4px 30px rgba(0, 0, 0, 0.1), /* Subtle inner highlight */
                         0px 2px 30px rgba(0, 0, 0, 0.8); /* Soft drop shadow */
         }
     </style>
@@ -107,20 +109,18 @@
         <header id="header" class="container mx-auto relative rounded-full liquid-glass-header">
             <div class="relative z-10 w-full flex justify-between items-center px-8 py-4">
                 <a href="#home" class="flex items-center text-2xl font-bold text-white tracking-wider">
-                    <!-- Logo Icon color changed to Neon Blue -->
-                    <svg class="h-8 w-8 text-neon-blue mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-8 w-8 text-cyan-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                     Norex Studio
                 </a>
                 <nav class="hidden md:flex space-x-8">
-                    <!-- Hover text changed to Neon Pink -->
-                    <a href="#home" class="text-gray-300 hover:text-neon-pink transition duration-300">Home</a>
-                    <a href="#about" class="text-gray-300 hover:text-neon-pink transition duration-300">About</a>
-                    <a href="#services" class="text-gray-300 hover:text-neon-pink transition duration-300">Services</a>
-                    <a href="#portfolio" class="text-gray-300 hover:text-neon-pink transition duration-300">Portfolio</a>
-                    <a href="#testimonials" class="text-gray-300 hover:text-neon-pink transition duration-300">Testimonials</a>
-                    <a href="#contact" class="text-gray-300 hover:text-neon-pink transition duration-300">Contact</a>
+                    <a href="#home" class="text-gray-300 hover:text-fuchsia-400 transition">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-fuchsia-400 transition">About</a>
+                    <a href="#services" class="text-gray-300 hover:text-fuchsia-400 transition">Services</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-fuchsia-400 transition">Portfolio</a>
+                    <a href="#testimonials" class="text-gray-300 hover:text-fuchsia-400 transition">Testimonials</a>
+                    <a href="#contact" class="text-gray-300 hover:text-fuchsia-400 transition">Contact</a>
                 </nav>
                 <button id="mobile-menu-button" class="md:hidden focus:outline-none z-50 glassy-menu-button">
                     <i id="menu-open-icon" class="fas fa-bars fa-lg"></i>
