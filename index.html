@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Norex Studio - Your Digital Partner</title>
-    <script src="https://cdn.tailwindcss.com"></scrittpt>
-    <link rel="stylesheet" href="hps://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Thin.ttf" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 100; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Ultralight.ttf"); }
+        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 200; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Thin.ttf"); }
+        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 300; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Light.ttf"); }
+        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 400; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Regular.ttf"); }
+        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 500; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Medium.ttf"); }
+        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 600; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-SemiBold.ttf"); }
+        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 700; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Bold.ttf"); }
+        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 800; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Black.ttf"); }
+        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 900; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Heavy.ttf"); }
+
         body {
-            font-family: "SF Pro Display thin";
+            font-family: 'SF Pro Display', sans-serif;
             background-color: #0f172a;
         }
         .hero-bg {
-            background-color: #0e293;
+            background-color: #0f172a; /* Fixed invalid hex from source */
         }
         .glow-button:hover {
             box-shadow: 0 0 15px 5px rgba(192, 132, 252, 0.4);
@@ -22,7 +31,7 @@
              box-shadow: 0 0 20px 8px rgba(34, 211, 238, 0.3);
         }
         .glassy-menu-button {
-            background: rgba(255, 255, 255, );
+            background: rgba(255, 255, 255, 0.1); /* Fixed missing alpha value */
             backdrop-filter: blur(9px)
                saturate(180%);
             -webkit-backdrop-filter: blur(9px)
