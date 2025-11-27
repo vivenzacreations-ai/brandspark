@@ -42,7 +42,10 @@
         }
         .hero-bg {
             background-color: #090014;
-            background-image: radial-gradient(circle at 50% 50%, #18002b 0%, #090014 100%);
+            /* Updated to be deep but with a rich theme-colored haze at the top */
+            background-image: 
+                radial-gradient(circle at 50% 20%, rgba(74, 0, 116, 0.4) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, #120024 0%, #090014 100%);
         }
         .glow-button:hover {
             box-shadow: 0 0 20px 5px rgba(255, 28, 192, 0.5); /* Neon Pink Glow */
@@ -127,18 +130,18 @@
                 </button>
             </div>
         </header>
-        <div id="mobile-menu" class="hidden md:hidden fixed top-24 left-1/2 -translate-x-1/2 container w-11/12 bg-neon-dark/95 backdrop-blur-lg rounded-xl mt-2 z-50 border border-neon-deep">
+        <div id="mobile-menu" class="hidden md:hidden fixed top-24 left-1/2 -translate-x-1/2 container w-11/12 bg-neon-dark/95 backdrop-blur-lg rounded-[2rem] mt-2 z-50 border border-neon-deep">
             <div class="flex justify-end p-4">
                  <button id="mobile-menu-close-button" class="focus:outline-none glassy-menu-button">
                     <i class="fas fa-times fa-lg"></i>
                 </button>
             </div>
-            <a href="#home" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition rounded-t-xl">Home</a>
+            <a href="#home" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition rounded-t-[2rem]">Home</a>
             <a href="#about" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition">About</a>
             <a href="#services" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition">Services</a>
             <a href="#portfolio" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition">Portfolio</a>
             <a href="#testimonials" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition">Testimonials</a>
-            <a href="#contact" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition rounded-b-xl">Contact</a>
+            <a href="#contact" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition rounded-b-[2rem]">Contact</a>
         </div>
     </div>
 
@@ -148,8 +151,8 @@
                  alt="An aesthetic and professional image of a laptop with abstract glowing digital waves"
                  class="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-color-dodge">
             
-            <!-- Added a gradient overlay to blend the image better with the new purple theme -->
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neon-midnight/80 to-neon-midnight"></div>
+            <!-- Updated gradient overlay to have a deep theme tint at the top instead of being fully transparent or black -->
+            <div class="absolute inset-0 bg-gradient-to-b from-neon-deep/30 via-neon-midnight/80 to-neon-midnight"></div>
 
             <div class="container mx-auto px-6 text-center relative z-10">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">Crafting Digital Experiences That <span class="text-neon-pink">Inspire</span></h1>
@@ -169,8 +172,10 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-12">
                     <div class="md:w-1/2 relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-neon-pink to-neon-blue rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto-format&fit=crop" alt="A charismatic tech team collaborating in a modern office" class="relative rounded-lg shadow-2xl w-full border border-gray-800">
+                        <!-- Updated to rounded-[3rem] -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-neon-pink to-neon-blue rounded-[3rem] blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                        <!-- Updated to rounded-[3rem] -->
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto-format&fit=crop" alt="A charismatic tech team collaborating in a modern office" class="relative rounded-[3rem] shadow-2xl w-full border border-white-800">
                     </div>
                     <div class="md:w-1/2 text-center md:text-left">
                         <h3 class="text-2xl font-semibold text-white mb-4">Who We Are</h3>
@@ -194,38 +199,39 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Service Cards: Changed bg to neon-card and borders to transparent with hover border neon-purple -->
                     <!-- Icons changed to Neon Blue -->
+                    <!-- All cards updated to rounded-[3rem] -->
                     
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-lg text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-laptop-code fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">Web Development</h3>
                         <p class="text-gray-400">We build fast, responsive, and secure websites tailored to your business needs.</p>
                     </div>
 
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-lg text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-paint-brush fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">UI/UX Design</h3>
                         <p class="text-gray-400">Creating intuitive and visually stunning interfaces for an exceptional user experience.</p>
                     </div>
 
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-lg text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-chart-line fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">Digital Marketing</h3>
                         <p class="text-gray-400">Boosting your online presence and driving growth with strategic marketing campaigns.</p>
                     </div>
 
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-lg text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-bullhorn fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">SEO Optimization</h3>
                         <p class="text-gray-400">Improving your search engine rankings to attract more organic traffic.</p>
                     </div>
 
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-lg text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-mobile-alt fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">App Development</h3>
                         <p class="text-gray-400">Building native and cross-platform mobile apps that users love.</p>
                     </div>
 
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-lg text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-copyright fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">Branding</h3>
                         <p class="text-gray-400">Developing a strong brand identity that resonates with your target audience.</p>
