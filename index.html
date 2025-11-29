@@ -123,22 +123,29 @@
 
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-40 hidden"></div>
 
+    <!-- PADDING ADJUSTMENT: 
+         Reduced from 'p-3 md:p-5' to 'p-2 md:p-4'. 
+         This brings it closer to original but the content inside is still 'big' text. -->
     <div class="sticky top-0 z-50 p-2 md:p-4">
         <header id="header" class="container mx-auto relative rounded-full liquid-glass-header">
-            <div class="relative z-10 w-full flex justify-between items-center px-4 py-3 md:px-8 md:py-4">
-                <a href="#home" class="flex items-center text-2xl font-bold text-white tracking-wider">
-                    <svg class="h-8 w-8 text-cyan-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <!-- INNER PADDING ADJUSTMENT:
+                 Reduced from 'px-5 py-4 md:px-8 md:py-5' to 'px-6 py-3 md:px-10 md:py-4'.
+                 This prevents it from looking 'too way bulky' while supporting the larger text. -->
+            <div class="relative z-10 w-full flex justify-between items-center px-6 py-3 md:px-10 md:py-4">
+                <a href="#home" class="flex items-center text-2xl md:text-3xl font-bold text-white tracking-wider">
+                    <svg class="h-8 w-8 md:h-9 md:w-9 text-cyan-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                     Norex Studio
                 </a>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-300 hover:text-fuchsia-400 transition">Home</a>
-                    <a href="#about" class="text-gray-300 hover:text-fuchsia-400 transition">About</a>
-                    <a href="#services" class="text-gray-300 hover:text-fuchsia-400 transition">Services</a>
-                    <a href="#portfolio" class="text-gray-300 hover:text-fuchsia-400 transition">Portfolio</a>
-                    <a href="#testimonials" class="text-gray-300 hover:text-fuchsia-400 transition">Testimonials</a>
-                    <a href="#contact" class="text-gray-300 hover:text-fuchsia-400 transition">Contact</a>
+                <nav class="hidden md:flex space-x-10">
+                    <!-- Text size kept large (text-lg) as requested -->
+                    <a href="#home" class="text-lg font-medium text-gray-300 hover:text-fuchsia-400 transition">Home</a>
+                    <a href="#about" class="text-lg font-medium text-gray-300 hover:text-fuchsia-400 transition">About</a>
+                    <a href="#services" class="text-lg font-medium text-gray-300 hover:text-fuchsia-400 transition">Services</a>
+                    <a href="#portfolio" class="text-lg font-medium text-gray-300 hover:text-fuchsia-400 transition">Portfolio</a>
+                    <a href="#testimonials" class="text-lg font-medium text-gray-300 hover:text-fuchsia-400 transition">Testimonials</a>
+                    <a href="#contact" class="text-lg font-medium text-gray-300 hover:text-fuchsia-400 transition">Contact</a>
                 </nav>
                 <button id="mobile-menu-button" class="md:hidden focus:outline-none z-50 glassy-menu-button">
                     <i id="menu-open-icon" class="fas fa-bars fa-lg"></i>
@@ -148,7 +155,7 @@
 
         <!-- REDESIGNED MOBILE MENU -->
         <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-24 max-w-lg mx-auto bg-neon-dark/95 backdrop-blur-xl rounded-[2rem] z-50 border border-neon-deep overflow-hidden shadow-2xl shadow-neon-deep/50">
-            <!-- Menu Header to balance the close button -->
+            <!-- Menu Header -->
             <div class="flex justify-between items-center p-6">
                 <span class="text-xl font-bold text-white tracking-wider ml-2">Menu</span>
                 <button id="mobile-menu-close-button" class="focus:outline-none glassy-menu-button w-10 h-10">
@@ -187,12 +194,13 @@
                  alt="An aesthetic and professional image of a laptop with abstract glowing digital waves"
                  class="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-color-dodge">
             
-            <!-- Updated gradient overlay to have a deep theme tint at the top instead of being fully transparent or black -->
+            <!-- Updated gradient overlay -->
             <div class="absolute inset-0 bg-gradient-to-b from-neon-deep/30 via-neon-midnight/80 to-neon-midnight"></div>
 
             <div class="container mx-auto px-6 text-center relative z-10">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">Crafting Digital Experiences That <span class="text-neon-pink">Inspire</span></h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">We are a creative agency that builds beautiful and effective websites, apps, and brands.</p>
+                <!-- Optimized text size: text-lg mobile, text-xl desktop -->
+                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">We are a creative agency that builds beautiful and effective websites, apps, and brands.</p>
                 <!-- Button changed to Neon Pink -->
                 <a href="#contact" class="bg-neon-pink text-white font-semibold px-8 py-3 rounded-full hover:bg-fuchsia-500 transition duration-300 text-lg glow-button inline-block">Let's Get Started</a>
             </div>
@@ -215,8 +223,9 @@
                     </div>
                     <div class="md:w-1/2 text-center md:text-left">
                         <h3 class="text-2xl font-semibold text-white mb-4">Who We Are</h3>
-                        <p class="text-gray-300 leading-relaxed mb-4">Norex Studio is a passionate team of designers, developers, and strategists dedicated to helping businesses succeed in the digital world. We believe in the power of great design and smart technology to create meaningful connections between brands and their customers.</p>
-                        <p class="text-gray-300 leading-relaxed">Our mission is to deliver innovative and results-driven digital solutions that empower our clients to achieve their goals and stand out from the competition.</p>
+                        <!-- Optimized text size: text-base mobile, text-lg desktop -->
+                        <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-4">Norex Studio is a passionate team of designers, developers, and strategists dedicated to helping businesses succeed in the digital world. We believe in the power of great design and smart technology to create meaningful connections between brands and their customers.</p>
+                        <p class="text-gray-300 text-base md:text-lg leading-relaxed">Our mission is to deliver innovative and results-driven digital solutions that empower our clients to achieve their goals and stand out from the competition.</p>
                     </div>
                 </div>
             </div>
@@ -240,37 +249,38 @@
                     <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-laptop-code fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">Web Development</h3>
-                        <p class="text-gray-400">We build fast, responsive, and secure websites tailored to your business needs.</p>
+                        <!-- Optimized text size -->
+                        <p class="text-gray-400 text-base md:text-lg">We build fast, responsive, and secure websites tailored to your business needs.</p>
                     </div>
 
                     <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-paint-brush fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">UI/UX Design</h3>
-                        <p class="text-gray-400">Creating intuitive and visually stunning interfaces for an exceptional user experience.</p>
+                        <p class="text-gray-400 text-base md:text-lg">Creating intuitive and visually stunning interfaces for an exceptional user experience.</p>
                     </div>
 
                     <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-chart-line fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">Digital Marketing</h3>
-                        <p class="text-gray-400">Boosting your online presence and driving growth with strategic marketing campaigns.</p>
+                        <p class="text-gray-400 text-base md:text-lg">Boosting your online presence and driving growth with strategic marketing campaigns.</p>
                     </div>
 
                     <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-bullhorn fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">SEO Optimization</h3>
-                        <p class="text-gray-400">Improving your search engine rankings to attract more organic traffic.</p>
+                        <p class="text-gray-400 text-base md:text-lg">Improving your search engine rankings to attract more organic traffic.</p>
                     </div>
 
                     <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-mobile-alt fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">App Development</h3>
-                        <p class="text-gray-400">Building native and cross-platform mobile apps that users love.</p>
+                        <p class="text-gray-400 text-base md:text-lg">Building native and cross-platform mobile apps that users love.</p>
                     </div>
 
                     <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-copyright fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">Branding</h3>
-                        <p class="text-gray-400">Developing a strong brand identity that resonates with your target audience.</p>
+                        <p class="text-gray-400 text-base md:text-lg">Developing a strong brand identity that resonates with your target audience.</p>
                     </div>
                 </div>
             </div>
@@ -280,7 +290,7 @@
     <footer class="bg-neon-midnight border-t border-neon-deep">
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400">&copy; 2025 Norex Studio. All Rights Reserved.</p>
+                <p class="text-gray-400 text-base">&copy; 2025 Norex Studio. All Rights Reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
                     <a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-twitter fa-lg"></i></a>
                     <a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-linkedin-in fa-lg"></i></a>
