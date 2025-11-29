@@ -130,18 +130,26 @@
                 </button>
             </div>
         </header>
-        <div id="mobile-menu" class="hidden md:hidden fixed top-24 left-1/2 -translate-x-1/2 container w-11/12 bg-neon-dark/95 backdrop-blur-lg rounded-[2rem] mt-2 z-50 border border-neon-deep">
-            <div class="flex justify-end p-4">
-                 <button id="mobile-menu-close-button" class="focus:outline-none glassy-menu-button">
-                    <i class="fas fa-times fa-lg"></i>
+
+        <!-- REDESIGNED MOBILE MENU -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-24 max-w-lg mx-auto bg-neon-dark/95 backdrop-blur-xl rounded-[2rem] z-50 border border-neon-deep overflow-hidden shadow-2xl shadow-neon-deep/50">
+            <!-- Menu Header to balance the close button -->
+            <div class="flex justify-between items-center p-6 border-b border-neon-deep/30">
+                <span class="text-xl font-bold text-white tracking-wider ml-2">Menu</span>
+                <button id="mobile-menu-close-button" class="focus:outline-none glassy-menu-button w-10 h-10">
+                    <i class="fas fa-times"></i>
                 </button>
             </div>
-            <a href="#home" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition rounded-t-[2rem]">Home</a>
-            <a href="#about" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition">About</a>
-            <a href="#services" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition">Services</a>
-            <a href="#portfolio" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition">Portfolio</a>
-            <a href="#testimonials" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition">Testimonials</a>
-            <a href="#contact" class="block text-center py-3 px-4 text-sm hover:bg-neon-pink hover:text-white transition rounded-b-[2rem]">Contact</a>
+            
+            <!-- Menu Links with dividers -->
+            <div class="flex flex-col">
+                <a href="#home" class="block text-center py-4 text-lg hover:bg-neon-pink/20 hover:text-neon-pink transition border-b border-neon-deep/30">Home</a>
+                <a href="#about" class="block text-center py-4 text-lg hover:bg-neon-pink/20 hover:text-neon-pink transition border-b border-neon-deep/30">About</a>
+                <a href="#services" class="block text-center py-4 text-lg hover:bg-neon-pink/20 hover:text-neon-pink transition border-b border-neon-deep/30">Services</a>
+                <a href="#portfolio" class="block text-center py-4 text-lg hover:bg-neon-pink/20 hover:text-neon-pink transition border-b border-neon-deep/30">Portfolio</a>
+                <a href="#testimonials" class="block text-center py-4 text-lg hover:bg-neon-pink/20 hover:text-neon-pink transition border-b border-neon-deep/30">Testimonials</a>
+                <a href="#contact" class="block text-center py-4 text-lg hover:bg-neon-pink/20 hover:text-neon-pink transition">Contact</a>
+            </div>
         </div>
     </div>
 
@@ -175,7 +183,7 @@
                         <!-- Updated to rounded-[3rem] -->
                         <div class="absolute -inset-1 bg-gradient-to-r from-neon-pink to-neon-blue rounded-[3rem] blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                         <!-- Updated to rounded-[3rem] -->
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto-format&fit=crop" alt="A charismatic tech team collaborating in a modern office" class="relative rounded-[3rem] shadow-2xl w-full border border-white-800">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto-format&fit=crop" alt="A charismatic tech team collaborating in a modern office" class="relative rounded-[3rem] shadow-2xl w-full border border-gray-800">
                     </div>
                     <div class="md:w-1/2 text-center md:text-left">
                         <h3 class="text-2xl font-semibold text-white mb-4">Who We Are</h3>
