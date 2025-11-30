@@ -15,9 +15,9 @@
                             purple: '#B131FA',
                             deep: '#4A0074',
                             blue: '#1C3AFF',
-                            midnight: '#090014',
-                            dark: '#18002b',
-                            card: '#240040'
+                            midnight: '#090014', // Very dark base for body
+                            dark: '#18002b',     // Secondary dark for sections
+                            card: '#240040'      // Tertiary dark for cards
                         }
                     },
                     fontFamily: {
@@ -35,19 +35,19 @@
 
         body {
             font-family: 'SF Pro Display', sans-serif;
-            background-color: #090014;
+            background-color: #090014; /* neon-midnight */
         }
         .hero-bg {
             background-color: #090014;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 50% 20%, rgba(74, 0, 116, 0.4) 0%, transparent 60%),
                 radial-gradient(circle at 50% 50%, #120024 0%, #090014 100%);
         }
         .glow-button:hover {
-            box-shadow: 0 0 20px 5px rgba(255, 28, 192, 0.5);
+            box-shadow: 0 0 20px 5px rgba(255, 28, 192, 0.5); /* Neon Pink Glow */
         }
         .glow-element:hover {
-             box-shadow: 0 0 20px 8px rgba(28, 58, 255, 0.4);
+             box-shadow: 0 0 20px 8px rgba(28, 58, 255, 0.4); /* Neon Blue Glow */
              border-color: #B131FA;
         }
         .glassy-menu-button {
@@ -66,19 +66,23 @@
             color: white;
             cursor: pointer;
         }
-        
-        /* === MODIFIED HEADER CSS === */
-        /* Removed the CSS filter effects to let JS handle the liquid distortion */
+       
+        /* === FINAL FISH-EYE LENS HEADER === */
+        /* This class defines the base 'turbulence' effect via CSS */
         .liquid-glass-header {
-            /* Base opacity for the glass layer (visual fallback) */
-            background: rgba(255, 255, 255, 0.05);
-            /* Crisp border */
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            /* Shadows for depth */
-            box-shadow: inset 0px 4px 30px rgba(0, 0, 0, 0.1),
-                        0px 10px 40px rgba(0, 0, 0, 0.5);
-            /* Transition for smooth resizing */
-            transition: backdrop-filter 0.3s ease;
+            /* 1. Base opacity for the glass layer */
+            background: rgba(255, 255, 255, 0.10);
+
+            /* 2. Gaussian blur for softening + the new fish-eye SVG filter */
+            -webkit-backdrop-filter: blur(30px) saturate(145%) url(#fisheye-lens-filter);
+            backdrop-filter: blur(0px) saturate(145%) url(#fisheye-lens-filter);
+           
+            /* 3. Crisp border for definition */
+            border: 1px solid rgba(255, 255, 255, 0.25);
+           
+            /* 4. Shadows for the 3D floating effect */
+            box-shadow: inset 0px 4px 30px rgba(0, 0, 0, 0.1), /* Subtle inner highlight */
+                        0px 2px 30px rgba(0, 0, 0, 0.8); /* Soft drop shadow */
         }
 
         /* === ANIMATED MENU DIVIDERS === */
@@ -94,7 +98,8 @@
             animation: shimmer 3s infinite linear;
             opacity: 1;
         }
-        
+       
+        /* Portfolio Overlay */
         .portfolio-overlay {
             background: linear-gradient(to top, rgba(9, 0, 20, 0.95), rgba(9, 0, 20, 0.6), transparent);
         }
@@ -102,23 +107,36 @@
 </head>
 <body class="bg-neon-midnight text-gray-200 selection:bg-neon-pink selection:text-white overflow-x-hidden">
 
+    <!-- This is the Filter for the "Passive" Turbulence Effect -->
+    <svg style="position:absolute; width:0; height:0; pointer-events: none;">
+      <filter id="fisheye-lens-filter">
+        <feTurbulence id="turbulence" type="fractalNoise" baseFrequency="0.01 0.04" numOctaves="1" seed="2" result="noise"/>
+        <feImage xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0id2hpdGUiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJibGFjayIgLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0idXJsKCNnKSIgLz48L3N2Zz4=" x="0" y="0" width="100%" height="100%" result="radial-map"/>
+        <feBlend in="noise" in2="radial-map" mode="multiply" result="final-map"/>
+        <feDisplacementMap in="SourceGraphic" in2="final-map" scale="100" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </svg>
+
     <!-- MOBILE MENU OVERLAY & MENU -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/90 backdrop-blur-md z-[60] hidden transition-opacity duration-300"></div>
 
     <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-24 max-w-lg mx-auto bg-neon-dark/95 backdrop-blur-xl rounded-[2rem] z-[70] border border-neon-deep overflow-hidden shadow-2xl shadow-neon-deep/50 transition-all duration-300">
+        <!-- Menu Header -->
         <div class="flex justify-between items-center p-6 bg-white/5">
             <span class="text-xl font-bold text-white tracking-wider ml-2">Menu</span>
             <button id="mobile-menu-close-button" class="focus:outline-none glassy-menu-button w-10 h-10 hover:bg-red-500/20 hover:border-red-500/50">
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        
+       
+        <!-- Animated Top Divider -->
         <div class="menu-divider"></div>
 
+        <!-- Menu Links with animated dividers -->
         <div class="flex flex-col p-2">
             <a href="#home" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Home</a>
             <div class="menu-divider opacity-30"></div>
-            
+           
             <a href="#about" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">About</a>
             <div class="menu-divider opacity-30"></div>
 
@@ -137,8 +155,7 @@
 
     <!-- HEADER SECTION -->
     <div class="sticky top-0 z-50 p-2 md:p-4">
-        <!-- Added ID for JS targeting -->
-        <header id="header" class="container mx-auto relative rounded-full liquid-glass-header transition-all duration-300">
+        <header id="header" class="container mx-auto relative rounded-full liquid-glass-header">
             <div class="relative z-10 w-full flex justify-between items-center px-6 py-3 md:px-10 md:py-4">
                 <a href="#home" class="flex items-center text-2xl md:text-3xl font-bold text-white tracking-wider group">
                     <svg class="h-8 w-8 md:h-9 md:w-9 text-cyan-400 mr-3 group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -167,7 +184,7 @@
             <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1920&auto-format&fit=crop"
                  alt="Background Tech"
                  class="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-color-dodge">
-            
+           
             <div class="absolute inset-0 bg-gradient-to-b from-neon-deep/30 via-neon-midnight/80 to-neon-midnight"></div>
 
             <div class="container mx-auto px-6 text-center relative z-10 pt-20">
@@ -208,6 +225,7 @@
                     <div class="w-24 h-1 bg-neon-pink mx-auto mt-4 rounded"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Cards with restored rounded-[3rem] and styles -->
                     <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
                         <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-laptop-code fa-3x"></i></div>
                         <h3 class="text-xl font-bold text-white mb-2">Web Development</h3>
@@ -326,7 +344,7 @@
             </div>
         </div>
     </footer>
-    
+   
     <script>
         // --- Mobile menu toggle ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -348,7 +366,7 @@
 
         if(mobileMenuButton) mobileMenuButton.addEventListener('click', toggleMenu);
         if(mobileMenuCloseButton) mobileMenuCloseButton.addEventListener('click', toggleMenu);
-        
+       
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (!mobileMenu.classList.contains('hidden')) {
@@ -359,14 +377,32 @@
 
         if(mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', toggleMenu);
 
-        // --- LIQUID GLASS INTEGRATION ---
+        // --- CODE PART 1: LIVE LIQUID ANIMATION (Passive Turbulence) ---
+        // This is from your second code block. It animates the filter defined in CSS/HTML
+        document.addEventListener('DOMContentLoaded', () => {
+            const turbulence = document.getElementById('turbulence');
+            if (turbulence) {
+                let time = 0;
+                const animateTurbulence = () => {
+                    const bfX = 0.01 + Math.sin(time) * 0.002;
+                    const bfY = 0.03 + Math.cos(time * 0.5) * 0.002;
+                    turbulence.setAttribute('baseFrequency', `${bfX} ${bfY}`);
+                    time += 0.005;
+                    requestAnimationFrame(animateTurbulence);
+                };
+                animateTurbulence();
+            }
+        });
+
+        // --- CODE PART 2: INTERACTIVE LIQUID GLASS (Mouse Movement) ---
+        // This is from your first code block.
         (function() {
           'use strict';
-          
+         
           if (window.liquidGlass) {
             window.liquidGlass.destroy();
           }
-          
+         
           function smoothStep(a, b, t) {
             t = Math.max(0, Math.min(1, (t - a) / (b - a)));
             return t * t * (3 - 2 * t);
@@ -392,34 +428,34 @@
 
           class Shader {
             constructor(options = {}) {
-              // Target the specific element provided or fallback
               this.targetElement = options.targetElement || document.body;
-              
-              // Initial dimensions from target
+             
               this.width = this.targetElement.offsetWidth;
               this.height = this.targetElement.offsetHeight;
-              
+             
               this.fragment = options.fragment || ((uv) => texture(uv.x, uv.y));
-              this.canvasDPI = 1; // Keep 1 for performance on large headers
+              this.canvasDPI = 1;
               this.id = generateId();
-              
-              // No offset/dragging logic needed for fixed header integration
-              
+             
               this.mouse = { x: 0, y: 0 };
               this.mouseUsed = false;
-              
+             
               this.initElement();
               this.setupObservers();
               this.updateShader();
             }
 
             initElement() {
-              // Apply styles to EXISTING target element instead of creating new div
-              // MODIFIED: blur set to 0px
-              this.targetElement.style.backdropFilter = `url(#${this.id}_filter) blur(0px) brightness(1.1)`;
-              this.targetElement.style.webkitBackdropFilter = `url(#${this.id}_filter) blur(0px) brightness(1.1)`;
+              // === THE MERGE HAPPENS HERE ===
+              // Originally, this line only applied the new interactive filter:
+              // this.targetElement.style.backdropFilter = `url(#${this.id}_filter) blur(0px) brightness(1.1)`;
+              //
+              // We changed it to include BOTH:
+              // 1. url(#fisheye-lens-filter) -> The passive turbulence from Code 2
+              // 2. url(#${this.id}_filter)   -> The interactive mouse effect from Code 1
+              this.targetElement.style.backdropFilter = `url(#fisheye-lens-filter) url(#${this.id}_filter) blur(0px) brightness(1.1)`;
+              this.targetElement.style.webkitBackdropFilter = `url(#fisheye-lens-filter) url(#${this.id}_filter) blur(0px) brightness(1.1)`;
 
-              // Create SVG filter system
               this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
               this.svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
               this.svg.style.cssText = 'position: absolute; width: 0; height: 0; pointer-events: none;';
@@ -427,7 +463,7 @@
               const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
               const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
               filter.setAttribute('id', `${this.id}_filter`);
-              filter.setAttribute('filterUnits', 'userSpaceOnUse'); // Important for mapping to element size
+              filter.setAttribute('filterUnits', 'userSpaceOnUse');
               filter.setAttribute('colorInterpolationFilters', 'sRGB');
               filter.setAttribute('x', '0');
               filter.setAttribute('y', '0');
@@ -436,15 +472,14 @@
 
               this.feImage = document.createElementNS('http://www.w3.org/2000/svg', 'feImage');
               this.feImage.setAttribute('id', `${this.id}_map`);
-              // Use percentage to ensure it stretches with container
-              this.feImage.setAttribute('width', '100%'); 
+              this.feImage.setAttribute('width', '100%');
               this.feImage.setAttribute('height', '100%');
               this.feImage.setAttribute('preserveAspectRatio', 'none');
 
               this.feDisplacementMap = document.createElementNS('http://www.w3.org/2000/svg', 'feDisplacementMap');
               this.feDisplacementMap.setAttribute('in', 'SourceGraphic');
               this.feDisplacementMap.setAttribute('in2', `${this.id}_map`);
-              this.feDisplacementMap.setAttribute('scale', '30'); // Intensity of glass effect
+              this.feDisplacementMap.setAttribute('scale', '30');
               this.feDisplacementMap.setAttribute('xChannelSelector', 'R');
               this.feDisplacementMap.setAttribute('yChannelSelector', 'G');
 
@@ -453,18 +488,16 @@
               defs.appendChild(filter);
               this.svg.appendChild(defs);
 
-              // Canvas for generating the displacement map texture
               this.canvas = document.createElement('canvas');
               this.canvas.width = this.width;
               this.canvas.height = this.height;
-              
+             
               this.context = this.canvas.getContext('2d');
-              
+             
               document.body.appendChild(this.svg);
             }
 
             setupObservers() {
-               // Resize Observer to handle window resizing
                this.resizeObserver = new ResizeObserver(entries => {
                    for (let entry of entries) {
                        const { width, height } = entry.contentRect;
@@ -477,12 +510,10 @@
                });
                this.resizeObserver.observe(this.targetElement);
 
-              // Basic mouse tracking for potential interactive effects
               document.addEventListener('mousemove', (e) => {
                 const rect = this.targetElement.getBoundingClientRect();
                 this.mouse.x = (e.clientX - rect.left) / rect.width;
                 this.mouse.y = (e.clientY - rect.top) / rect.height;
-                // Only update if mouse is near/over header to save performance
                 if (this.mouseUsed && e.clientY < rect.bottom + 100) {
                   this.updateShader();
                 }
@@ -492,31 +523,25 @@
             updateShader() {
               const w = this.width;
               const h = this.height;
-              // If size is 0 (hidden), skip
               if (w === 0 || h === 0) return;
 
               const data = new Uint8ClampedArray(w * h * 4);
               let maxScale = 0;
               const rawValues = [];
-
-              // We calculate aspect ratio to pass to SDF
               const aspect = w / h;
 
-              // Optimization: Render at lower resolution if needed, but 1:1 is best for glass
-              // Loop through pixels
               for (let i = 0; i < data.length; i += 4) {
                 const idx = i / 4;
                 const x = idx % w;
                 const y = Math.floor(idx / w);
-                
-                // Normalized UV coordinates (0 to 1)
+               
                 const uvX = x / w;
                 const uvY = y / h;
 
                 const pos = this.fragment(
                   { x: uvX, y: uvY },
                   this.mouse,
-                  aspect 
+                  aspect
                 );
 
                 const dx = pos.x * w - x;
@@ -525,7 +550,7 @@
                 rawValues.push(dx, dy);
               }
 
-              maxScale = Math.max(maxScale, 0.1) * 0.5; // Prevent divide by zero
+              maxScale = Math.max(maxScale, 0.1) * 0.5;
 
               let index = 0;
               for (let i = 0; i < data.length; i += 4) {
@@ -538,11 +563,7 @@
               }
 
               this.context.putImageData(new ImageData(data, w, h), 0, 0);
-              
-              // Apply generated map to SVG
               this.feImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', this.canvas.toDataURL());
-              // Update displacement scale if dynamic
-              // this.feDisplacementMap.setAttribute('scale', maxScale.toString()); 
             }
 
             destroy() {
@@ -560,31 +581,20 @@
             const shader = new Shader({
               targetElement: headerElement,
               fragment: (uv, mouse, aspect) => {
-                // Center coordinates (-0.5 to 0.5)
                 const ix = uv.x - 0.5;
                 const iy = uv.y - 0.5;
-                
-                // Adjust for Aspect Ratio so physics don't stretch weirdly
-                // We want a capsule shape (rounded rectangle) that matches the header
-                // Header is roughly width=1.0 (relative), height=1.0 (relative) in UV
-                
-                // We want the glass curve to be near the edges.
-                // We create a rounded rect that is slightly smaller than the container 
-                // to create the "beveled edge" effect.
-                
+               
                 const distanceToEdge = roundedRectSDF(
-                  ix, 
-                  iy, 
-                  0.48, // Width (almost full width of 0.5)
-                  0.45, // Height (almost full height of 0.5)
-                  0.1   // Corner radius
+                  ix,
+                  iy,
+                  0.48,
+                  0.45,
+                  0.1  
                 );
-                
-                // This curve creates the glass refraction profile
-                const displacement = smoothStep(0.2, 0, distanceToEdge); 
+               
+                const displacement = smoothStep(0.2, 0, distanceToEdge);
                 const scaled = smoothStep(0, 1, displacement);
-                
-                // Apply slight distortion based on the calculated curve
+               
                 return texture(ix * scaled + 0.5, iy * scaled + 0.5);
               }
             });
@@ -592,7 +602,6 @@
             window.liquidGlass = shader;
           }
 
-          // Initialize when DOM is ready
           if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', createLiquidGlass);
           } else {
@@ -600,5 +609,6 @@
           }
         })();
     </script>
+
 </body>
 </html>
