@@ -415,8 +415,9 @@
 
             initElement() {
               // Apply styles to EXISTING target element instead of creating new div
-              this.targetElement.style.backdropFilter = `url(#${this.id}_filter) blur(8px) brightness(1.1)`;
-              this.targetElement.style.webkitBackdropFilter = `url(#${this.id}_filter) blur(8px) brightness(1.1)`;
+              // MODIFIED: blur set to 0px
+              this.targetElement.style.backdropFilter = `url(#${this.id}_filter) blur(0px) brightness(1.1)`;
+              this.targetElement.style.webkitBackdropFilter = `url(#${this.id}_filter) blur(0px) brightness(1.1)`;
 
               // Create SVG filter system
               this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
