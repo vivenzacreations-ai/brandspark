@@ -15,9 +15,9 @@
                             purple: '#B131FA',
                             deep: '#4A0074',
                             blue: '#1C3AFF',
-                            midnight: '#090014', // Very dark base for body
-                            dark: '#18002b',     // Secondary dark for sections
-                            card: '#240040'      // Tertiary dark for cards
+                            midnight: '#090014',
+                            dark: '#18002b',
+                            card: '#240040'
                         }
                     },
                     transitionProperty: {
@@ -79,34 +79,71 @@
             border-color: #FF1CC0;
         }
         
-        /* === STRICTLY PRESERVED LIQUID GLASS HEADER === */
+        /* === ENHANCED LIQUID GLASS HEADER (colors preserved) === */
         .liquid-glass-header {
-            /* 1. Base opacity for the glass layer */
             background: rgba(255, 255, 255, 0.10);
-
-            /* 2. Gaussian blur + Fish-eye SVG filter */
-            -webkit-backdrop-filter: blur(30px) saturate(145%) url(#fisheye-lens-filter);
-            backdrop-filter: blur(0px) saturate(145%) url(#fisheye-lens-filter);
-            
-            /* 3. Crisp border */
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            
-            /* 4. 3D Floating Shadows */
-            box-shadow: inset 0px 4px 30px rgba(0, 0, 0, 0.1), 
-                        0px 2px 30px rgba(0, 0, 0, 0.8);
-            
-            /* Animation for scroll resize */
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-backdrop-filter: blur(26px) saturate(155%) url(#fisheye-lens-filter);
+            backdrop-filter: blur(26px) saturate(155%) url(#fisheye-lens-filter);
+            border: 1px solid rgba(255, 255, 255, 0.26);
+            box-shadow:
+                0 18px 45px rgba(0, 0, 0, 0.85),
+                0 0 0 1px rgba(255, 255, 255, 0.03);
+            border-radius: 9999px;
+            position: relative;
+            overflow: hidden;
+            transition:
+                background 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Scrolled state for the header wrapper (added for requirement #4) */
+        .liquid-glass-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.32), transparent 55%),
+                radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.12), transparent 60%);
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .liquid-glass-header::after {
+            content: "";
+            position: absolute;
+            top: -40%;
+            left: -20%;
+            width: 40%;
+            height: 180%;
+            border-radius: 9999px;
+            background: linear-gradient(
+                120deg,
+                rgba(255, 255, 255, 0.35),
+                rgba(255, 255, 255, 0.05)
+            );
+            filter: blur(12px);
+            opacity: 0;
+            transform: translateX(-40%);
+            pointer-events: none;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .liquid-glass-header:hover::after {
+            opacity: 0.65;
+            transform: translateX(120%);
+        }
+
+        /* Scrolled state for the header wrapper */
         .header-scrolled .liquid-glass-header {
-            background: rgba(255, 255, 255, 0.15); /* Slightly more opaque for readability */
-            box-shadow: inset 0px 4px 30px rgba(0, 0, 0, 0.1), 
-                        0px 10px 40px rgba(0, 0, 0, 0.9);
+            background: rgba(255, 255, 255, 0.16); /* Slightly more opaque for readability */
+            box-shadow:
+                0 14px 36px rgba(0, 0, 0, 0.9),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
         }
 
-        /* === NAV LINK HOVER ANIMATION (Requirement #3) === */
+        /* === NAV LINK HOVER ANIMATION === */
         .nav-link {
             position: relative;
             padding-bottom: 2px;
@@ -160,19 +197,10 @@
 
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-40 hidden transition-opacity duration-300"></div>
 
-    <!-- UPDATED HEADER SECTION -->
-    <!-- Added id="main-header-container" for scroll logic -->
+    <!-- UPDATED HEADER SECTION WITH ENHANCED LIQUID GLASS -->
     <div id="main-header-container" class="sticky top-0 z-50 p-2 md:p-6 transition-all duration-500 ease-in-out">
-        
         <header id="header" class="container mx-auto relative rounded-full liquid-glass-header transition-all duration-300">
-            <!-- 
-               Changes implemented here:
-               1. Increased initial padding (py-4 to py-5/6) for spaciousness
-               2. Flex alignment fixes
-            -->
             <div class="relative z-10 w-full flex justify-between items-center px-6 py-4 md:px-10 md:py-5 transition-all duration-300" id="header-inner">
-                
-                <!-- LOGO: Increased weight and tracking for dominance (Req #1) -->
                 <a href="#home" class="flex items-center group">
                     <div class="relative">
                         <svg class="h-10 w-10 text-cyan-400 mr-3 transform group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -183,7 +211,6 @@
                     <span class="text-3xl font-extrabold text-white tracking-wide drop-shadow-md">Norex Studio</span>
                 </a>
 
-                <!-- DESKTOP NAV: Improved typography, spacing, and hover effects (Req #1, #2, #3) -->
                 <nav class="hidden md:flex items-center space-x-10">
                     <a href="#home" class="nav-link text-sm font-medium uppercase tracking-widest text-gray-200 hover:text-white transition-colors duration-300">Home</a>
                     <a href="#about" class="nav-link text-sm font-medium uppercase tracking-widest text-gray-200 hover:text-white transition-colors duration-300">About</a>
@@ -193,16 +220,13 @@
                     <a href="#contact" class="px-6 py-2.5 rounded-full border border-neon-pink/50 text-neon-pink text-sm font-bold uppercase tracking-wider hover:bg-neon-pink hover:text-white transition-all duration-300 hover:shadow-[0_0_15px_#FF1CC0]">Contact</a>
                 </nav>
 
-                <!-- MOBILE BURGER (Req #5) -->
                 <button id="mobile-menu-button" class="md:hidden focus:outline-none z-50 glassy-menu-button group" aria-label="Open Menu">
                     <i id="menu-open-icon" class="fas fa-bars fa-lg group-hover:text-neon-pink transition-colors"></i>
                 </button>
             </div>
         </header>
 
-        <!-- REDESIGNED MOBILE MENU (Req #5) -->
         <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-24 bg-neon-dark/95 backdrop-blur-xl rounded-[2rem] z-50 border border-neon-deep overflow-hidden shadow-2xl shadow-neon-deep/50 transform transition-all duration-300 origin-top scale-95 opacity-0">
-            <!-- Header for mobile menu -->
             <div class="flex justify-between items-center p-6 bg-white/5">
                 <span class="text-xl font-bold text-white tracking-wider ml-2">Menu</span>
                 <button id="mobile-menu-close-button" class="focus:outline-none glassy-menu-button w-10 h-10 hover:bg-red-500/20 hover:border-red-500/50">
@@ -233,146 +257,8 @@
         </div>
     </div>
 
-    <!-- MAIN CONTENT (Untouched) -->
-    <main>
-        <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1920&auto-format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                 alt="An aesthetic and professional image of a laptop with abstract glowing digital waves"
-                 class="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-color-dodge">
-            
-            <div class="absolute inset-0 bg-gradient-to-b from-neon-deep/30 via-neon-midnight/80 to-neon-midnight"></div>
+    <!-- MAIN CONTENT (your sections can be pasted below this in your real file) -->
 
-            <div class="container mx-auto px-6 text-center relative z-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">Crafting Digital Experiences That <span class="text-neon-pink">Inspire</span></h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">We are a creative agency that builds beautiful and effective websites, apps, and brands.</p>
-                <a href="#contact" class="bg-neon-pink text-white font-semibold px-8 py-3 rounded-full hover:bg-fuchsia-500 transition duration-300 text-lg glow-button inline-block">Let's Get Started</a>
-            </div>
-        </section>
-
-        <section id="about" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">About Us</h2>
-                    <div class="w-24 h-1 bg-neon-blue mx-auto mt-4 rounded box-shadow-[0_0_10px_#1C3AFF]"></div>
-                </div>
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2 relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-neon-pink to-neon-blue rounded-[3rem] blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto-format&fit=crop" alt="A charismatic tech team collaborating in a modern office" class="relative rounded-[3rem] shadow-2xl w-full border border-gray-800">
-                    </div>
-                    <div class="md:w-1/2 text-center md:text-left">
-                        <h3 class="text-2xl font-semibold text-white mb-4">Who We Are</h3>
-                        <p class="text-gray-300 leading-relaxed mb-4">Norex Studio is a passionate team of designers, developers, and strategists dedicated to helping businesses succeed in the digital world. We believe in the power of great design and smart technology to create meaningful connections between brands and their customers.</p>
-                        <p class="text-gray-300 leading-relaxed">Our mission is to deliver innovative and results-driven digital solutions that empower our clients to achieve their goals and stand out from the competition.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="py-20 bg-neon-midnight relative overflow-hidden">
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-neon-deep opacity-20 blur-3xl rounded-full pointer-events-none"></div>
-
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Our Services</h2>
-                    <div class="w-24 h-1 bg-neon-pink mx-auto mt-4 rounded"></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-laptop-code fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Web Development</h3>
-                        <p class="text-gray-400">We build fast, responsive, and secure websites tailored to your business needs.</p>
-                    </div>
-
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-paint-brush fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">UI/UX Design</h3>
-                        <p class="text-gray-400">Creating intuitive and visually stunning interfaces for an exceptional user experience.</p>
-                    </div>
-
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-chart-line fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Digital Marketing</h3>
-                        <p class="text-gray-400">Boosting your online presence and driving growth with strategic marketing campaigns.</p>
-                    </div>
-
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-bullhorn fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">SEO Optimization</h3>
-                        <p class="text-gray-400">Improving your search engine rankings to attract more organic traffic.</p>
-                    </div>
-
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-mobile-alt fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">App Development</h3>
-                        <p class="text-gray-400">Building native and cross-platform mobile apps that users love.</p>
-                    </div>
-
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-copyright fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Branding</h3>
-                        <p class="text-gray-400">Developing a strong brand identity that resonates with your target audience.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="portfolio" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
-            <div class="container mx-auto px-6">
-                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Portfolio</h2>
-                    <div class="w-24 h-1 bg-neon-blue mx-auto mt-4 rounded box-shadow-[0_0_10px_#1C3AFF]"></div>
-                </div>
-                <!-- Placeholder for portfolio content to make the page scrollable -->
-                <div class="text-center text-gray-400">
-                    <p class="mb-8">Check out some of our recent projects.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="h-64 rounded-2xl bg-neon-card border border-neon-deep flex items-center justify-center">Project 1</div>
-                        <div class="h-64 rounded-2xl bg-neon-card border border-neon-deep flex items-center justify-center">Project 2</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="py-20 bg-neon-midnight relative border-t border-neon-deep/30">
-             <div class="container mx-auto px-6">
-                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Testimonials</h2>
-                    <div class="w-24 h-1 bg-neon-pink mx-auto mt-4 rounded"></div>
-                </div>
-                 <!-- Placeholder for testimonials -->
-                 <div class="text-center text-gray-400">
-                    <div class="p-8 rounded-2xl bg-neon-card border border-neon-deep/50 max-w-2xl mx-auto">
-                        <p class="italic">"Norex Studio transformed our digital presence completely. Highly recommended!"</p>
-                        <p class="mt-4 font-bold text-neon-blue">- Jane Doe, CEO</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
-             <div class="container mx-auto px-6 text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Get In Touch</h2>
-                 <p class="text-gray-300 mb-8">Ready to start your next project? Contact us today.</p>
-                 <a href="mailto:hello@norexstudio.com" class="bg-neon-blue text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-600 transition duration-300 text-lg glow-button inline-block">Contact Us</a>
-             </div>
-        </section>
-    </main>
-
-    <footer class="bg-neon-midnight border-t border-neon-deep">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400">&copy; 2025 Norex Studio. All Rights Reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-twitter fa-lg"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-linkedin-in fa-lg"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-github fa-lg"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
     <script>
         // --- Mobile menu toggle ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -387,7 +273,6 @@
             if (isHidden) {
                 mobileMenu.classList.remove('hidden');
                 mobileMenuOverlay.classList.remove('hidden');
-                // Small timeout for animation trigger
                 setTimeout(() => {
                     mobileMenu.classList.remove('scale-95', 'opacity-0');
                     mobileMenu.classList.add('scale-100', 'opacity-100');
@@ -398,7 +283,7 @@
                 setTimeout(() => {
                     mobileMenu.classList.add('hidden');
                     mobileMenuOverlay.classList.add('hidden');
-                }, 300); // Match CSS duration
+                }, 300);
             }
         };
 
@@ -415,21 +300,19 @@
 
         mobileMenuOverlay.addEventListener('click', toggleMenu);
 
-        // --- SCROLL BEHAVIOR FOR HEADER (Requirement #4) ---
+        // --- SCROLL BEHAVIOR FOR HEADER ---
         const mainHeaderContainer = document.getElementById('main-header-container');
         const headerInner = document.getElementById('header-inner');
         
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                // Shrink effect
                 mainHeaderContainer.classList.add('header-scrolled');
                 mainHeaderContainer.classList.remove('md:p-6', 'p-2');
-                mainHeaderContainer.classList.add('md:p-2', 'p-1'); // Reduce wrapper padding
+                mainHeaderContainer.classList.add('md:p-2', 'p-1');
                 
                 headerInner.classList.remove('md:py-5', 'py-4');
-                headerInner.classList.add('md:py-3', 'py-2'); // Reduce inner padding
+                headerInner.classList.add('md:py-3', 'py-2');
             } else {
-                // Expand effect
                 mainHeaderContainer.classList.remove('header-scrolled');
                 mainHeaderContainer.classList.add('md:p-6', 'p-2');
                 mainHeaderContainer.classList.remove('md:p-2', 'p-1');
@@ -439,23 +322,20 @@
             }
         });
 
-        // --- ACTIVE LINK HIGHLIGHTER (Requirement #3) ---
+        // --- ACTIVE LINK HIGHLIGHTER ---
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.5 // Trigger when 50% of section is visible
+            threshold: 0.5
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Remove active class from all links
                     navLinks.forEach(link => link.classList.remove('active'));
-                    
-                    // Add active class to corresponding link
                     const id = entry.target.getAttribute('id');
                     const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
                     if (activeLink) {
