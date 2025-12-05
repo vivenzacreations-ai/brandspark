@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resing Art'S - By Labonno Paul</title>
+    <title>Resing Art'S - Premium Handcrafted Art</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -69,19 +69,12 @@
        
         /* === FINAL FISH-EYE LENS HEADER === */
         .liquid-glass-header {
-            /* 1. Base opacity for the glass layer */
             background: rgba(255, 255, 255, 0.10);
-
-            /* 2. Gaussian blur for softening + the new fish-eye SVG filter */
             -webkit-backdrop-filter: blur(30px) saturate(145%) url(#fisheye-lens-filter);
             backdrop-filter: blur(0px) saturate(145%) url(#fisheye-lens-filter);
-           
-            /* 3. Crisp border for definition */
             border: 1px solid rgba(255, 255, 255, 0.25);
-           
-            /* 4. Shadows for the 3D floating effect */
-            box-shadow: inset 0px 4px 30px rgba(0, 0, 0, 0.1), /* Subtle inner highlight */
-                        0px 2px 30px rgba(0, 0, 0, 0.8); /* Soft drop shadow */
+            box-shadow: inset 0px 4px 30px rgba(0, 0, 0, 0.1), 
+                        0px 2px 30px rgba(0, 0, 0, 0.8);
         }
 
         /* === ANIMATED MENU DIVIDERS === */
@@ -106,7 +99,7 @@
 </head>
 <body class="bg-neon-midnight text-gray-200 selection:bg-neon-pink selection:text-white overflow-x-hidden">
 
-    <!-- This is the Filter for the "Passive" Turbulence Effect -->
+    <!-- Passive Turbulence Filter -->
     <svg style="position:absolute; width:0; height:0; pointer-events: none;">
       <filter id="fisheye-lens-filter">
         <feTurbulence id="turbulence" type="fractalNoise" baseFrequency="0.01 0.04" numOctaves="1" seed="2" result="noise"/>
@@ -116,38 +109,24 @@
       </filter>
     </svg>
 
-    <!-- MOBILE MENU OVERLAY & MENU -->
+    <!-- MOBILE MENU -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/90 backdrop-blur-md z-[60] hidden transition-opacity duration-300"></div>
 
     <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-24 max-w-lg mx-auto bg-neon-dark/95 backdrop-blur-xl rounded-[2rem] z-[70] border border-neon-deep overflow-hidden shadow-2xl shadow-neon-deep/50 transition-all duration-300">
-        <!-- Menu Header -->
         <div class="flex justify-between items-center p-6 bg-white/5">
             <span class="text-xl font-bold text-white tracking-wider ml-2">Menu</span>
             <button id="mobile-menu-close-button" class="focus:outline-none glassy-menu-button w-10 h-10 hover:bg-red-500/20 hover:border-red-500/50">
                 <i class="fas fa-times"></i>
             </button>
         </div>
-       
-        <!-- Animated Top Divider -->
         <div class="menu-divider"></div>
-
-        <!-- Menu Links with animated dividers -->
         <div class="flex flex-col p-2">
             <a href="#home" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Home</a>
             <div class="menu-divider opacity-30"></div>
-           
-            <a href="#about" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">About Labonno</a>
+            <a href="#about" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">About</a>
             <div class="menu-divider opacity-30"></div>
-
-            <a href="#services" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Services</a>
+            <a href="#products" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Products</a>
             <div class="menu-divider opacity-30"></div>
-
-            <a href="#products" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Resin Shop</a>
-            <div class="menu-divider opacity-30"></div>
-
-            <a href="#testimonials" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Reviews</a>
-            <div class="menu-divider opacity-30"></div>
-
             <a href="#contact" class="block text-center py-4 text-lg font-bold text-neon-pink hover:bg-neon-pink/10 transition rounded-xl mt-2 mb-2">Contact</a>
         </div>
     </div>
@@ -163,9 +142,7 @@
                 <nav class="hidden md:flex space-x-10">
                     <a href="#home" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Home</a>
                     <a href="#about" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">About</a>
-                    <a href="#services" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Services</a>
-                    <a href="#products" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Shop</a>
-                    <a href="#testimonials" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Reviews</a>
+                    <a href="#products" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Products</a>
                     <a href="#contact" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Contact</a>
                 </nav>
                 <button id="mobile-menu-button" class="md:hidden focus:outline-none z-50 glassy-menu-button hover:text-neon-pink transition-colors">
@@ -178,6 +155,7 @@
     <main>
         <!-- HERO SECTION -->
         <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+            <!-- Ocean themed background for Resin art vibe -->
             <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=1920&auto-format&fit=crop"
                  alt="Resin Art Background"
                  class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-color-dodge">
@@ -185,9 +163,12 @@
             <div class="absolute inset-0 bg-gradient-to-b from-neon-deep/30 via-neon-midnight/80 to-neon-midnight"></div>
 
             <div class="container mx-auto px-6 text-center relative z-10 pt-20">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">Creative <span class="text-neon-pink">Resin Art</span> & <span class="text-neon-blue">Makeovers</span></h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">Handcrafted resin lamps, candles, and accessories by Labonno Paul. Best quality at affordable prices.</p>
-                <a href="#products" class="bg-neon-pink text-white font-semibold px-8 py-3 rounded-full hover:bg-fuchsia-500 transition duration-300 text-lg glow-button inline-block">Shop Collection</a>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">Welcome to <span class="text-neon-pink">Resing Art'S</span></h1>
+                <p class="text-xl md:text-2xl text-neon-blue font-semibold mb-6 tracking-wide italic">"Very low price and best quality"</p>
+                <p class="text-lg text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Resing art's All Products available. Experience the beauty of handcrafted resin.
+                </p>
+                <a href="#products" class="bg-neon-pink text-white font-semibold px-8 py-3 rounded-full hover:bg-fuchsia-500 transition duration-300 text-lg glow-button inline-block">Explore Collection</a>
             </div>
         </section>
 
@@ -195,138 +176,87 @@
         <section id="about" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">About Labonno</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Who We Are</h2>
                     <div class="w-24 h-1 bg-neon-blue mx-auto mt-4 rounded box-shadow-[0_0_10px_#1C3AFF]"></div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-12">
                     <div class="md:w-1/2 relative group">
                         <div class="absolute -inset-1 bg-gradient-to-r from-neon-pink to-neon-blue rounded-[3rem] blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                        <!-- Placeholder for Labonno's Image -->
-                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1920&auto-format&fit=crop" alt="Labonno Paul" class="relative rounded-[3rem] shadow-2xl w-full border border-gray-800 object-cover h-96">
+                        <!-- Profile Pic Recreation: Resin Art Piece -->
+                        <img src="https://images.unsplash.com/photo-1577083288073-40811c800886?q=80&w=1920&auto-format&fit=crop" alt="Resing Art'S Profile" class="relative rounded-[3rem] shadow-2xl w-full border border-gray-800 object-cover h-96">
                     </div>
                     <div class="md:w-1/2 text-center md:text-left">
-                        <h3 class="text-2xl font-semibold text-white mb-4">Professional MUA & Resin Artist</h3>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Resing Art'S</h3>
+                        <p class="text-neon-pink font-bold mb-4">The Artist</p>
+                        
                         <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
-                            Hello! I am <span class="text-neon-pink font-bold">Labonno Paul</span>. I'm a professional makeover artist, YouTuber, and a passionate resin artist.
+                            Welcome to my profile ☺️. We are passionate about creating unique, high-quality resin art pieces that add elegance to your life.
                         </p>
                         <p class="text-gray-300 text-base md:text-lg leading-relaxed">
-                             I am a true <span class="text-neon-purple">Highlighter Lover</span> and an absolute <span class="text-neon-blue">Dog Lover</span> 🐶. My brand, <strong>Resing Art'S</strong>, is where I pour my creativity into making unique resin lamps, keychains, earrings, and beautiful candles.
+                            Our promise is simple: <strong>Very low price and best quality</strong>. From decor to accessories, everything is handcrafted with love.
                         </p>
-                        <div class="mt-6 flex justify-center md:justify-start space-x-4">
-                             <span class="px-4 py-2 bg-neon-card rounded-full text-sm text-neon-blue border border-neon-blue/30">MUA</span>
-                             <span class="px-4 py-2 bg-neon-card rounded-full text-sm text-neon-pink border border-neon-pink/30">YouTuber</span>
-                             <span class="px-4 py-2 bg-neon-card rounded-full text-sm text-neon-purple border border-neon-purple/30">Dog Mom</span>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SERVICES SECTION -->
-        <section id="services" class="py-20 bg-neon-midnight relative overflow-hidden">
+        <!-- PRODUCTS SECTION -->
+        <section id="products" class="py-20 bg-neon-midnight relative overflow-hidden">
             <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-neon-deep opacity-20 blur-3xl rounded-full pointer-events-none"></div>
 
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">My Services</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">All Products Available</h2>
                     <div class="w-24 h-1 bg-neon-pink mx-auto mt-4 rounded"></div>
+                    <p class="text-gray-400 mt-4">Handcrafted excellence.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Cards -->
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-lightbulb fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Resin Lamps</h3>
-                        <p class="text-gray-400 text-base md:text-lg">Custom ocean-themed and floral resin lamps to light up your room.</p>
-                    </div>
-
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-key fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Accessories</h3>
-                        <p class="text-gray-400 text-base md:text-lg">Handmade resin earrings and keychains. Cute, durable, and affordable.</p>
-                    </div>
-
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-fire fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Flower Candles</h3>
-                        <p class="text-gray-400 text-base md:text-lg">Beautifully shaped floral wax candles in various colors and scents.</p>
-                    </div>
-
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-magic fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Professional Makeup</h3>
-                        <p class="text-gray-400 text-base md:text-lg">Expert makeover services for weddings, parties, and photoshoots.</p>
-                    </div>
-
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fab fa-youtube fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">YouTube Content</h3>
-                        <p class="text-gray-400 text-base md:text-lg">Tutorials, vlogs, and beauty tips on my channel.</p>
-                    </div>
-
-                    <div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
-                        <div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-paw fa-3x"></i></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Pet Lovers Art</h3>
-                        <p class="text-gray-400 text-base md:text-lg">Special custom items for fellow dog lovers.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PRODUCTS / PORTFOLIO SECTION -->
-        <section id="products" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
-            <div class="container mx-auto px-6">
-                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Resing Art'S Gallery</h2>
-                    <div class="w-24 h-1 bg-neon-blue mx-auto mt-4 rounded box-shadow-[0_0_10px_#1C3AFF]"></div>
-                    <p class="text-gray-400 mt-4">Order via WhatsApp for the best prices!</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Product 1: Ocean Lamp -->
+                    <!-- Product 1: Flower Candles -->
                     <div class="bg-neon-card rounded-[2.5rem] overflow-hidden border border-neon-deep/30 flex flex-col group">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1563293670-36365448386e?q=80&w=1920&auto-format&fit=crop" alt="Ocean Resin Lamp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img src="https://images.unsplash.com/photo-1602523961358-f9f03dd557db?q=80&w=1920&auto-format&fit=crop" alt="Flower Candles" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-2">Ocean Resin Lamp</h3>
-                            <p class="text-gray-400 text-sm mb-4">A stunning night light capturing the depths of the ocean. Wooden base included.</p>
+                            <h3 class="text-2xl font-bold text-white mb-2">Flower Candles</h3>
+                            <p class="text-gray-400 text-sm mb-4">Intricate flower shaped candles. Available in multiple colors.</p>
                             <div class="mt-auto pt-4 border-t border-neon-deep/50">
-                                <a href="https://wa.me/919123728993?text=Hi%20Labonno,%20I%20am%20interested%20in%20the%20Ocean%20Resin%20Lamp." target="_blank" class="flex items-center justify-center w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
-                                    <i class="fab fa-whatsapp fa-lg mr-2"></i> Buy on WhatsApp
+                                <a href="https://wa.me/919876543210?text=Hi%20Resing%20Art'S,%20I%20am%20interested%20in%20your%20Flower%20Candles." target="_blank" class="flex items-center justify-center w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
+                                    <i class="fab fa-whatsapp fa-lg mr-2"></i> Buy Now
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Product 2: Flower Candles -->
+                    <!-- Product 2: Earrings -->
                     <div class="bg-neon-card rounded-[2.5rem] overflow-hidden border border-neon-deep/30 flex flex-col group">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1602523961358-f9f03dd557db?q=80&w=1920&auto-format&fit=crop" alt="Flower Shaped Candles" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1920&auto-format&fit=crop" alt="Resin Earrings" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-2">Rose & Peony Candles</h3>
-                            <p class="text-gray-400 text-sm mb-4">Intricately carved floral wax candles. Available in Pink, Orange, and White.</p>
+                            <h3 class="text-2xl font-bold text-white mb-2">Designer Earrings</h3>
+                            <p class="text-gray-400 text-sm mb-4">Handmade resin earrings. Stylish, lightweight, and unique.</p>
                             <div class="mt-auto pt-4 border-t border-neon-deep/50">
-                                <a href="https://wa.me/919123728993?text=Hi%20Labonno,%20I%20am%20interested%20in%20the%20Flower%20Candles." target="_blank" class="flex items-center justify-center w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
-                                    <i class="fab fa-whatsapp fa-lg mr-2"></i> Buy on WhatsApp
+                                <a href="https://wa.me/919876543210?text=Hi%20Resing%20Art'S,%20I%20am%20interested%20in%20your%20Earrings." target="_blank" class="flex items-center justify-center w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
+                                    <i class="fab fa-whatsapp fa-lg mr-2"></i> Buy Now
                                 </a>
                             </div>
                         </div>
                     </div>
                    
-                    <!-- Product 3: Earrings/Keychains -->
+                    <!-- Product 3: Keychains -->
                     <div class="bg-neon-card rounded-[2.5rem] overflow-hidden border border-neon-deep/30 flex flex-col group">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1920&auto-format&fit=crop" alt="Resin Earrings & Keychains" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <img src="https://images.unsplash.com/photo-1596541223844-3c137d53d267?q=80&w=1920&auto-format&fit=crop" alt="Resin Keychains" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-2">Keychains & Earrings</h3>
-                            <p class="text-gray-400 text-sm mb-4">Custom alphabet keychains and stylish resin earrings for daily wear.</p>
+                            <h3 class="text-2xl font-bold text-white mb-2">Custom Keychains</h3>
+                            <p class="text-gray-400 text-sm mb-4">Personalized resin keychains. A perfect gift for yourself or loved ones.</p>
                             <div class="mt-auto pt-4 border-t border-neon-deep/50">
-                                <a href="https://wa.me/919123728993?text=Hi%20Labonno,%20I%20am%20interested%20in%20Keychains%20and%20Earrings." target="_blank" class="flex items-center justify-center w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
-                                    <i class="fab fa-whatsapp fa-lg mr-2"></i> Inquire on WhatsApp
+                                <a href="https://wa.me/919876543210?text=Hi%20Resing%20Art'S,%20I%20am%20interested%20in%20your%20Keychains." target="_blank" class="flex items-center justify-center w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
+                                    <i class="fab fa-whatsapp fa-lg mr-2"></i> Buy Now
                                 </a>
                             </div>
                         </div>
@@ -338,17 +268,17 @@
         <!-- CONTACT SECTION -->
         <section id="contact" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
              <div class="container mx-auto px-6 text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Contact Labonno</h2>
-                 <p class="text-gray-300 mb-8 max-w-2xl mx-auto">For makeup bookings or resin art orders, get in touch!</p>
+                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Contact Us</h2>
+                 <p class="text-gray-300 mb-8 max-w-2xl mx-auto">Get in touch for orders and custom requests.</p>
                  <div class="flex flex-col md:flex-row justify-center gap-4">
-                     <a href="mailto:paultrisha12345@gmail.com" class="bg-neon-blue text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-600 transition duration-300 text-lg glow-button">
-                        <i class="fas fa-envelope mr-2"></i> Email Me
+                     <a href="mailto:hello@resingarts.com" class="bg-neon-blue text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-600 transition duration-300 text-lg glow-button">
+                        <i class="fas fa-envelope mr-2"></i> Email Us
                      </a>
-                     <a href="https://wa.me/919123728993" target="_blank" class="bg-green-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-green-500 transition duration-300 text-lg glow-button">
-                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp Me
+                     <a href="https://wa.me/919876543210" target="_blank" class="bg-green-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-green-500 transition duration-300 text-lg glow-button">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
                      </a>
                  </div>
-                 <p class="mt-4 text-gray-400">Email: paultrisha12345@gmail.com | Phone: +91 9123728993</p>
+                 <p class="mt-4 text-gray-400 text-sm">Email: hello@resingarts.com | Phone: +91 98765 43210</p>
              </div>
         </section>
     </main>
@@ -356,10 +286,9 @@
     <footer class="bg-neon-midnight border-t border-neon-deep">
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-base">&copy; 2025 Resing Art'S by Labonno. All Rights Reserved.</p>
+                <p class="text-gray-400 text-base">&copy; 2025 Resing Art'S. All Rights Reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="https://www.instagram.com/p_u_p_u_paul" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-instagram fa-lg"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-youtube fa-lg"></i></a>
+                    <a href="https://www.instagram.com/resing_artsz/" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-instagram fa-lg"></i></a>
                     <a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-facebook fa-lg"></i></a>
                 </div>
             </div>
@@ -424,203 +353,4 @@
          
           function smoothStep(a, b, t) {
             t = Math.max(0, Math.min(1, (t - a) / (b - a)));
-            return t * t * (3 - 2 * t);
-          }
-
-          function length(x, y) {
-            return Math.sqrt(x * x + y * y);
-          }
-
-          function roundedRectSDF(x, y, width, height, radius) {
-            const qx = Math.abs(x) - width + radius;
-            const qy = Math.abs(y) - height + radius;
-            return Math.min(Math.max(qx, qy), 0) + length(Math.max(qx, 0), Math.max(qy, 0)) - radius;
-          }
-
-          function texture(x, y) {
-            return { type: 't', x, y };
-          }
-
-          function generateId() {
-            return 'liquid-glass-' + Math.random().toString(36).substr(2, 9);
-          }
-
-          class Shader {
-            constructor(options = {}) {
-              this.targetElement = options.targetElement || document.body;
-             
-              this.width = this.targetElement.offsetWidth;
-              this.height = this.targetElement.offsetHeight;
-             
-              this.fragment = options.fragment || ((uv) => texture(uv.x, uv.y));
-              this.canvasDPI = 1;
-              this.id = generateId();
-             
-              this.mouse = { x: 0, y: 0 };
-              this.mouseUsed = false;
-             
-              this.initElement();
-              this.setupObservers();
-              this.updateShader();
-            }
-
-            initElement() {
-              this.targetElement.style.backdropFilter = `url(#fisheye-lens-filter) url(#${this.id}_filter) blur(0px) brightness(1.1)`;
-              this.targetElement.style.webkitBackdropFilter = `url(#fisheye-lens-filter) url(#${this.id}_filter) blur(0px) brightness(1.1)`;
-
-              this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-              this.svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-              this.svg.style.cssText = 'position: absolute; width: 0; height: 0; pointer-events: none;';
-
-              const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-              const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
-              filter.setAttribute('id', `${this.id}_filter`);
-              filter.setAttribute('filterUnits', 'userSpaceOnUse');
-              filter.setAttribute('colorInterpolationFilters', 'sRGB');
-              filter.setAttribute('x', '0');
-              filter.setAttribute('y', '0');
-              filter.setAttribute('width', '100%');
-              filter.setAttribute('height', '100%');
-
-              this.feImage = document.createElementNS('http://www.w3.org/2000/svg', 'feImage');
-              this.feImage.setAttribute('id', `${this.id}_map`);
-              this.feImage.setAttribute('width', '100%');
-              this.feImage.setAttribute('height', '100%');
-              this.feImage.setAttribute('preserveAspectRatio', 'none');
-
-              this.feDisplacementMap = document.createElementNS('http://www.w3.org/2000/svg', 'feDisplacementMap');
-              this.feDisplacementMap.setAttribute('in', 'SourceGraphic');
-              this.feDisplacementMap.setAttribute('in2', `${this.id}_map`);
-              this.feDisplacementMap.setAttribute('scale', '30');
-              this.feDisplacementMap.setAttribute('xChannelSelector', 'R');
-              this.feDisplacementMap.setAttribute('yChannelSelector', 'G');
-
-              filter.appendChild(this.feImage);
-              filter.appendChild(this.feDisplacementMap);
-              defs.appendChild(filter);
-              this.svg.appendChild(defs);
-
-              this.canvas = document.createElement('canvas');
-              this.canvas.width = this.width;
-              this.canvas.height = this.height;
-             
-              this.context = this.canvas.getContext('2d');
-             
-              document.body.appendChild(this.svg);
-            }
-
-            setupObservers() {
-               this.resizeObserver = new ResizeObserver(entries => {
-                   for (let entry of entries) {
-                       const { width, height } = entry.contentRect;
-                       this.width = width;
-                       this.height = height;
-                       this.canvas.width = width;
-                       this.canvas.height = height;
-                       this.updateShader();
-                   }
-               });
-               this.resizeObserver.observe(this.targetElement);
-
-              document.addEventListener('mousemove', (e) => {
-                const rect = this.targetElement.getBoundingClientRect();
-                this.mouse.x = (e.clientX - rect.left) / rect.width;
-                this.mouse.y = (e.clientY - rect.top) / rect.height;
-                if (this.mouseUsed && e.clientY < rect.bottom + 100) {
-                  this.updateShader();
-                }
-              });
-            }
-
-            updateShader() {
-              const w = this.width;
-              const h = this.height;
-              if (w === 0 || h === 0) return;
-
-              const data = new Uint8ClampedArray(w * h * 4);
-              let maxScale = 0;
-              const rawValues = [];
-              const aspect = w / h;
-
-              for (let i = 0; i < data.length; i += 4) {
-                const idx = i / 4;
-                const x = idx % w;
-                const y = Math.floor(idx / w);
-               
-                const uvX = x / w;
-                const uvY = y / h;
-
-                const pos = this.fragment(
-                  { x: uvX, y: uvY },
-                  this.mouse,
-                  aspect
-                );
-
-                const dx = pos.x * w - x;
-                const dy = pos.y * h - y;
-                maxScale = Math.max(maxScale, Math.abs(dx), Math.abs(dy));
-                rawValues.push(dx, dy);
-              }
-
-              maxScale = Math.max(maxScale, 0.1) * 0.5;
-
-              let index = 0;
-              for (let i = 0; i < data.length; i += 4) {
-                const r = rawValues[index++] / maxScale + 0.5;
-                const g = rawValues[index++] / maxScale + 0.5;
-                data[i] = Math.min(255, Math.max(0, r * 255));
-                data[i + 1] = Math.min(255, Math.max(0, g * 255));
-                data[i + 2] = 0;
-                data[i + 3] = 255;
-              }
-
-              this.context.putImageData(new ImageData(data, w, h), 0, 0);
-              this.feImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', this.canvas.toDataURL());
-            }
-
-            destroy() {
-              if(this.resizeObserver) this.resizeObserver.disconnect();
-              this.svg.remove();
-              this.targetElement.style.backdropFilter = '';
-              this.targetElement.style.webkitBackdropFilter = '';
-            }
-          }
-
-          function createLiquidGlass() {
-            const headerElement = document.getElementById('header');
-            if(!headerElement) return;
-
-            const shader = new Shader({
-              targetElement: headerElement,
-              fragment: (uv, mouse, aspect) => {
-                const ix = uv.x - 0.5;
-                const iy = uv.y - 0.5;
-               
-                const distanceToEdge = roundedRectSDF(
-                  ix,
-                  iy,
-                  0.48,
-                  0.45,
-                  0.1  
-                );
-               
-                const displacement = smoothStep(0.2, 0, distanceToEdge);
-                const scaled = smoothStep(0, 1, displacement);
-               
-                return texture(ix * scaled + 0.5, iy * scaled + 0.5);
-              }
-            });
-
-            window.liquidGlass = shader;
-          }
-
-          if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', createLiquidGlass);
-          } else {
-            createLiquidGlass();
-          }
-        })();
-    </script>
-
-</body>
-</html>
+            return t * t
