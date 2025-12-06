@@ -1,356 +1,406 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resing Art'S - Premium Handcrafted Art</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        neon: {
-                            pink: '#FF1CC0',
-                            purple: '#B131FA',
-                            deep: '#4A0074',
-                            blue: '#1C3AFF',
-                            midnight: '#090014', // Very dark base for body
-                            dark: '#18002b',     // Secondary dark for sections
-                            card: '#240040'      // Tertiary dark for cards
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['SF Pro Display', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 400; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Regular.ttf"); }
-        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 600; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-SemiBold.ttf"); }
-        @font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 700; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Bold.ttf"); }
-
-        body {
-            font-family: 'SF Pro Display', sans-serif;
-            background-color: #090014; /* neon-midnight */
-        }
-        .hero-bg {
-            background-color: #090014;
-            background-image:
-                radial-gradient(circle at 50% 20%, rgba(74, 0, 116, 0.4) 0%, transparent 60%),
-                radial-gradient(circle at 50% 50%, #120024 0%, #090014 100%);
-        }
-        .glow-button:hover {
-            box-shadow: 0 0 20px 5px rgba(255, 28, 192, 0.5); /* Neon Pink Glow */
-        }
-        .glow-element:hover {
-             box-shadow: 0 0 20px 8px rgba(28, 58, 255, 0.4); /* Neon Blue Glow */
-             border-color: #B131FA;
-        }
-        .glassy-menu-button {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(9px) saturate(180%);
-            -webkit-backdrop-filter: blur(9px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 9999px;
-            padding: 0.75rem;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-        }
-       
-        /* === FINAL FISH-EYE LENS HEADER === */
-        .liquid-glass-header {
-            background: rgba(255, 255, 255, 0.10);
-            -webkit-backdrop-filter: blur(30px) saturate(145%) url(#fisheye-lens-filter);
-            backdrop-filter: blur(0px) saturate(145%) url(#fisheye-lens-filter);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: inset 0px 4px 30px rgba(0, 0, 0, 0.1), 
-                        0px 2px 30px rgba(0, 0, 0, 0.8);
-        }
-
-        /* === ANIMATED MENU DIVIDERS === */
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        .menu-divider {
-            height: 1px;
-            width: 100%;
-            background: linear-gradient(90deg, transparent, #B131FA, transparent);
-            background-size: 200% 100%;
-            animation: shimmer 3s infinite linear;
-            opacity: 1;
-        }
-       
-        /* Portfolio Overlay */
-        .portfolio-overlay {
-            background: linear-gradient(to top, rgba(9, 0, 20, 0.95), rgba(9, 0, 20, 0.6), transparent);
-        }
-    </style>
-</head>
-<body class="bg-neon-midnight text-gray-200 selection:bg-neon-pink selection:text-white overflow-x-hidden">
-
-    <!-- Passive Turbulence Filter -->
-    <svg style="position:absolute; width:0; height:0; pointer-events: none;">
-      <filter id="fisheye-lens-filter">
-        <feTurbulence id="turbulence" type="fractalNoise" baseFrequency="0.01 0.04" numOctaves="1" seed="2" result="noise"/>
-        <feImage xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0id2hpdGUiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJibGFjayIgLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0idXJsKCNnKSIgLz48L3N2Zz4=" x="0" y="0" width="100%" height="100%" result="radial-map"/>
-        <feBlend in="noise" in2="radial-map" mode="multiply" result="final-map"/>
-        <feDisplacementMap in="SourceGraphic" in2="final-map" scale="100" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
-    </svg>
-
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/90 backdrop-blur-md z-[60] hidden transition-opacity duration-300"></div>
-
-    <div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-24 max-w-lg mx-auto bg-neon-dark/95 backdrop-blur-xl rounded-[2rem] z-[70] border border-neon-deep overflow-hidden shadow-2xl shadow-neon-deep/50 transition-all duration-300">
-        <div class="flex justify-between items-center p-6 bg-white/5">
-            <span class="text-xl font-bold text-white tracking-wider ml-2">Menu</span>
-            <button id="mobile-menu-close-button" class="focus:outline-none glassy-menu-button w-10 h-10 hover:bg-red-500/20 hover:border-red-500/50">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="menu-divider"></div>
-        <div class="flex flex-col p-2">
-            <a href="#home" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Home</a>
-            <div class="menu-divider opacity-30"></div>
-            <a href="#about" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">About</a>
-            <div class="menu-divider opacity-30"></div>
-            <a href="#products" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Products</a>
-            <div class="menu-divider opacity-30"></div>
-            <a href="#contact" class="block text-center py-4 text-lg font-bold text-neon-pink hover:bg-neon-pink/10 transition rounded-xl mt-2 mb-2">Contact</a>
-        </div>
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr & Mrs Resin Art - Preserving Memories</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = {
+theme: {extend: {colors: {neon: {pink: '#FF1CC0',purple: '#B131FA',
+deep: '#4A0074',
+blue: '#1C3AFF',midnight: '#090014', // Very dark base for body
+dark: '#18002b', // Secondary dark for sections
+card: '#240040' // Tertiary dark for cards
+}},fontFamily: {sans: ['SF Pro Display', 'sans-serif'],
+}}}}</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>@font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 400; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Regular.ttf"); }
+@font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 600; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-SemiBold.ttf"); }
+@font-face { font-family: "SF Pro Display"; font-style: normal; font-weight: 700; src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Bold.ttf"); }
+body {font-family: 'SF Pro Display', sans-serif;
+background-color: #090014; /* neon-midnight */
+}.hero-bg {background-color: #090014;
+background-image:
+radial-gradient(circle at 50% 20%, rgba(74, 0, 116, 0.4) 0%, transparent 60%),
+radial-gradient(circle at 50% 50%, #120024 0%, #090014 100%);
+}.glow-button:hover {
+box-shadow: 0 0 20px 5px rgba(255, 28, 192, 0.5); /* Neon Pink Glow */
+}.glow-element:hover {
+box-shadow: 0 0 20px 8px rgba(28, 58, 255, 0.4); /* Neon Blue Glow */
+border-color: #B131FA;
+}.glassy-menu-button {
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(9px) saturate(180%);
+-webkit-backdrop-filter: blur(9px) saturate(180%);
+border: 1px solid rgba(255, 255, 255, 0.3);
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+border-radius: 9999px;
+padding: 0.75rem;
+width: 50px;height: 50px;display: flex;align-items: center;
+justify-content: center;
+color: white;cursor: pointer;}/* === FINAL FISH-EYE LENS HEADER === */
+/* This class defines the base 'turbulence' effect via CSS */
+.liquid-glass-header {
+/* 1. Base opacity for the glass layer */
+background: rgba(255, 255, 255, 0.10);
+/* 2. Gaussian blur for softening + the new fish-eye SVG filter */
+-webkit-backdrop-filter: blur(30px) saturate(145%) url(#fisheye-lens-filter);
+backdrop-filter: blur(0px) saturate(145%) url(#fisheye-lens-filter);
+/* 3. Crisp border for definition */
+border: 1px solid rgba(255, 255, 255, 0.25);
+/* 4. Shadows for the 3D floating effect */
+box-shadow: inset 0px 4px 30px rgba(0, 0, 0, 0.1), /* Subtle inner highlight */
+0px 2px 30px rgba(0, 0, 0, 0.8); /* Soft drop shadow */
+}/* === ANIMATED MENU DIVIDERS === */
+@keyframes shimmer {
+0% { background-position: -200% 0; }
+100% { background-position: 200% 0; }
+}.menu-divider {height: 1px;width: 100%;background: linear-gradient(90deg, transparent, #B131FA, transparent);
+background-size: 200% 100%;
+animation: shimmer 3s infinite linear;
+opacity: 1;}/* Portfolio Overlay */
+.portfolio-overlay {
+background: linear-gradient(to top, rgba(9, 0, 20, 0.95), rgba(9, 0, 20, 0.6), transparent);
+}</style></head><body class="bg-neon-midnight text-gray-200 selection:bg-neon-pink selection:text-white overflow-x-hidden">
+<!-- This is the Filter for the "Passive" Turbulence Effect -->
+<svg style="position:absolute; width:0; height:0; pointer-events: none;">
+<filter id="fisheye-lens-filter">
+<feTurbulence id="turbulence" type="fractalNoise" baseFrequency="0.01 0.04" numOctaves="1" seed="2" result="noise"/>
+<feImage xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0id2hpdGUiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSJibGFjayIgLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0idXJsKCNnKSIgLz48L3N2Zz4=" x="0" y="0" width="100%" height="100%" result="radial-map"/>
+<feBlend in="noise" in2="radial-map" mode="multiply" result="final-map"/>
+<feDisplacementMap in="SourceGraphic" in2="final-map" scale="100" xChannelSelector="R" yChannelSelector="G"/>
+</filter></svg><!-- MOBILE MENU OVERLAY & MENU -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/90 backdrop-blur-md z-[60] hidden transition-opacity duration-300"></div>
+<div id="mobile-menu" class="hidden md:hidden fixed inset-x-4 top-24 max-w-lg mx-auto bg-neon-dark/95 backdrop-blur-xl rounded-[2rem] z-[70] border border-neon-deep overflow-hidden shadow-2xl shadow-neon-deep/50 transition-all duration-300">
+<!-- Menu Header -->
+<div class="flex justify-between items-center p-6 bg-white/5">
+<span class="text-xl font-bold text-white tracking-wider ml-2">Menu</span>
+<button id="mobile-menu-close-button" class="focus:outline-none glassy-menu-button w-10 h-10 hover:bg-red-500/20 hover:border-red-500/50">
+<i class="fas fa-times"></i>
+</button></div><!-- Animated Top Divider -->
+<div class="menu-divider"></div>
+<!-- Menu Links with animated dividers -->
+<div class="flex flex-col p-2">
+<a href="#home" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Home</a>
+<div class="menu-divider opacity-30"></div>
+<a href="#about" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Artist</a>
+<div class="menu-divider opacity-30"></div>
+<a href="#services" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Services</a>
+<div class="menu-divider opacity-30"></div>
+<a href="#portfolio" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Gallery</a>
+<div class="menu-divider opacity-30"></div>
+<a href="#testimonials" class="block text-center py-4 text-lg font-medium hover:bg-neon-pink/10 hover:text-neon-pink transition rounded-xl">Reviews</a>
+<div class="menu-divider opacity-30"></div>
+<a href="#contact" class="block text-center py-4 text-lg font-bold text-neon-pink hover:bg-neon-pink/10 transition rounded-xl mt-2 mb-2">Contact Us</a>
+</div></div><!-- HEADER SECTION -->
+<div class="sticky top-0 z-50 p-2 md:p-4">
+<header id="header" class="container mx-auto relative rounded-full liquid-glass-header">
+<div class="relative z-10 w-full flex justify-between items-center px-6 py-3 md:px-10 md:py-4">
+<a href="#home" class="flex items-center text-xl md:text-2xl font-bold text-white tracking-wider group">
+<svg class="h-8 w-8 md:h-9 md:w-9 text-neon-pink mr-3 group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+</svg>Mr & Mrs Resin Art</a><nav class="hidden md:flex space-x-10">
+<a href="#home" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Home</a>
+<a href="#about" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">The Artist</a>
+<a href="#services" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Services</a>
+<a href="#portfolio" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Gallery</a>
+<a href="#testimonials" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Reviews</a>
+<a href="#contact" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Contact</a>
+</nav><button id="mobile-menu-button" class="md:hidden focus:outline-none z-50 glassy-menu-button hover:text-neon-pink transition-colors">
+<i id="menu-open-icon" class="fas fa-bars fa-lg"></i>
+</button></div></header></div><main><!-- HERO SECTION -->
+<section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+<img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1920&auto-format&fit=crop"
+alt="Resin Art Background"
+class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-screen">
+<div class="absolute inset-0 bg-gradient-to-b from-neon-deep/30 via-neon-midnight/80 to-neon-midnight"></div>
+<div class="container mx-auto px-6 text-center relative z-10 pt-20">
+<h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">Preserving Memories in <span class="text-neon-pink">Eternal</span> Beauty</h1>
+<p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">Specializing in Varmala preservation, custom resin art masterpieces, and high-quality art supplies. Where your memories become timeless art.</p>
+<a href="#contact" class="bg-neon-pink text-white font-semibold px-8 py-3 rounded-full hover:bg-fuchsia-500 transition duration-300 text-lg glow-button inline-block">Order Custom Art</a>
+</div></section><!-- ABOUT SECTION -->
+<section id="about" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
+<div class="container mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-white">About The Artist</h2>
+<div class="w-24 h-1 bg-neon-blue mx-auto mt-4 rounded box-shadow-[0_0_10px_#1C3AFF]"></div>
+</div><div class="flex flex-col md:flex-row items-center gap-12">
+<div class="md:w-1/2 relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-neon-pink to-neon-blue rounded-[3rem] blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+<img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1920&auto-format&fit=crop" alt="Artist Studio" class="relative rounded-[3rem] shadow-2xl w-full border border-gray-800">
+</div><div class="md:w-1/2 text-center md:text-left">
+<h3 class="text-2xl font-semibold text-white mb-4">Gaurang Pithiya</h3>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed mb-4">Established in May 2022, Mr & Mrs Resin Art began as a passionate work-from-home endeavor and has grown into a premier destination for floral preservation and resin craft in Ahmedabad.</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">We specialize in turning wedding Varmalas into everlasting keepsakes like clocks, frames, and blocks. Beyond creating art, we support the community as a trusted dealer of raw materials including epoxy resin, hardeners, and pigments.</p>
+</div></div></div></section><!-- SERVICES SECTION -->
+<section id="services" class="py-20 bg-neon-midnight relative overflow-hidden">
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-neon-deep opacity-20 blur-3xl rounded-full pointer-events-none"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-white">Our Services</h2>
+<div class="w-24 h-1 bg-neon-pink mx-auto mt-4 rounded"></div>
+</div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+<div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-leaf fa-3x"></i></div>
+<h3 class="text-xl font-bold text-white mb-2">Flower Preservation</h3>
+<p class="text-gray-400 text-base md:text-lg">We encapsulate wedding Varmalas and special bouquets in crystal clear resin to last forever.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+<div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-fill-drip fa-3x"></i></div>
+<h3 class="text-xl font-bold text-white mb-2">Raw Materials</h3>
+<p class="text-gray-400 text-base md:text-lg">Authorized dealer for high-quality epoxy resin, hardeners, pigments, and molds for artists.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+<div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-clock fa-3x"></i></div>
+<h3 class="text-xl font-bold text-white mb-2">Custom Clocks</h3>
+<p class="text-gray-400 text-base md:text-lg">Unique, handcrafted resin wall clocks designed to match your home's aesthetic.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+<div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-palette fa-3x"></i></div>
+<h3 class="text-xl font-bold text-white mb-2">Art Gallery</h3>
+<p class="text-gray-400 text-base md:text-lg">Visit our studio to view and purchase exclusive resin art pieces and home decor items.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+<div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-gift fa-3x"></i></div>
+<h3 class="text-xl font-bold text-white mb-2">Custom Gifts</h3>
+<p class="text-gray-400 text-base md:text-lg">Personalized frames, keychains, and blocks perfect for weddings and anniversaries.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-neon-card border border-neon-deep/50 p-8 rounded-[3rem] text-center shadow-lg transform hover:-translate-y-2 transition-all duration-300 glow-element group">
+<div class="text-neon-blue mb-4 group-hover:text-neon-pink transition-colors duration-300"><i class="fas fa-chalkboard-teacher fa-3x"></i></div>
+<h3 class="text-xl font-bold text-white mb-2">Workshops</h3>
+<p class="text-gray-400 text-base md:text-lg">Learn the art of resin. We offer guidance and materials for aspiring artists.</p>
+</div></div></div></section><!-- PORTFOLIO SECTION -->
+<section id="portfolio" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
+<div class="container mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-white">Gallery</h2>
+<div class="w-24 h-1 bg-neon-blue mx-auto mt-4 rounded box-shadow-[0_0_10px_#1C3AFF]"></div>
+</div><div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project 1 --><div class="group relative h-80 rounded-[2.5rem] overflow-hidden cursor-pointer border border-neon-deep/30">
+<img src="https://images.unsplash.com/photo-1587588354456-ae376af71a25?q=80&w=1920&auto-format&fit=crop" loading="lazy" alt="Project 1" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+<div class="absolute inset-0 portfolio-overlay opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<span class="text-neon-pink font-bold uppercase text-xs tracking-wider">Keepsakes</span>
+<h3 class="text-2xl font-bold text-white mt-1">Varmala Preservation</h3>
+</div></div><!-- Project 2 --><div class="group relative h-80 rounded-[2.5rem] overflow-hidden cursor-pointer border border-neon-deep/30">
+<img src="https://images.unsplash.com/photo-1615114814213-a245ffc79e9a?q=80&w=1920&auto-format&fit=crop" loading="lazy" alt="Project 2" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+<div class="absolute inset-0 portfolio-overlay opacity-80 group-hover:opacity-90 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<span class="text-neon-blue font-bold uppercase text-xs tracking-wider">Decor</span>
+<h3 class="text-2xl font-bold text-white mt-1">Ocean Resin Clock</h3>
+</div></div></div></div></section><!-- TESTIMONIALS SECTION -->
+<section id="testimonials" class="py-20 bg-neon-midnight relative border-t border-neon-deep/30">
+<div class="container mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-white">Client Love</h2>
+<div class="w-24 h-1 bg-neon-pink mx-auto mt-4 rounded"></div>
+</div><div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 rounded-[2rem] bg-neon-card border border-neon-deep/50 relative">
+<p class="text-gray-300 italic mb-6">"Preserved my wedding garland beautifully. The resin clarity is amazing, it looks like liquid glass!"</p>
+<h4 class="font-bold text-white">Priya Patel</h4>
+<p class="text-sm text-neon-blue">Ahmedabad</p>
+</div><div class="p-8 rounded-[2rem] bg-neon-card border border-neon-deep/50 relative">
+<p class="text-gray-300 italic mb-6">"Best place to buy resin supplies in Ahmedabad. Gaurang Bhai guides you on how to use them too."</p>
+<h4 class="font-bold text-white">Rahul Shah</h4>
+<p class="text-sm text-neon-pink">Hobby Artist</p>
+</div><div class="p-8 rounded-[2rem] bg-neon-card border border-neon-deep/50 relative">
+<p class="text-gray-300 italic mb-6">"The custom wall clock matches my living room perfectly. Excellent craftsmanship."</p>
+<h4 class="font-bold text-white">Anjali Mehta</h4>
+<p class="text-sm text-neon-purple">Interior Designer</p>
+</div></div></div></section><!-- CONTACT SECTION -->
+<section id="contact" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
+<div class="container mx-auto px-6 text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Visit Our Studio</h2>
+<p class="text-gray-300 mb-8 max-w-2xl mx-auto">We are open 24 Hours for orders. Please call before visiting.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8 text-left">
+    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+        <h4 class="text-neon-pink font-bold mb-2">New Location (Studio)</h4>
+        <p class="text-gray-300">Opposite Club 07,<br>Shela / Bopal Area,<br>Ahmedabad, Gujarat.</p>
     </div>
-
-    <!-- HEADER SECTION -->
-    <div class="sticky top-0 z-50 p-2 md:p-4">
-        <header id="header" class="container mx-auto relative rounded-full liquid-glass-header">
-            <div class="relative z-10 w-full flex justify-between items-center px-6 py-3 md:px-10 md:py-4">
-                <a href="#home" class="flex items-center text-2xl md:text-3xl font-bold text-white tracking-wider group">
-                    <span class="text-neon-pink mr-2"><i class="fas fa-paint-brush"></i></span>
-                    Resing Art'S
-                </a>
-                <nav class="hidden md:flex space-x-10">
-                    <a href="#home" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Home</a>
-                    <a href="#about" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">About</a>
-                    <a href="#products" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Products</a>
-                    <a href="#contact" class="text-lg font-medium text-gray-300 hover:text-neon-pink transition duration-300">Contact</a>
-                </nav>
-                <button id="mobile-menu-button" class="md:hidden focus:outline-none z-50 glassy-menu-button hover:text-neon-pink transition-colors">
-                    <i id="menu-open-icon" class="fas fa-bars fa-lg"></i>
-                </button>
-            </div>
-        </header>
+    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+        <h4 class="text-neon-blue font-bold mb-2">Registered Address</h4>
+        <p class="text-gray-300">Shyam 140, Radhika Industrial Estate,<br>Near Aayush Residency, Singarwa Road,<br>Kathwada, Ahmedabad - 382430.</p>
     </div>
-
-    <main>
-        <!-- HERO SECTION -->
-        <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
-            <!-- Ocean themed background for Resin art vibe -->
-            <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=1920&auto-format&fit=crop"
-                 alt="Resin Art Background"
-                 class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-color-dodge">
-           
-            <div class="absolute inset-0 bg-gradient-to-b from-neon-deep/30 via-neon-midnight/80 to-neon-midnight"></div>
-
-            <div class="container mx-auto px-6 text-center relative z-10 pt-20">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">Welcome to <span class="text-neon-pink">Resing Art'S</span></h1>
-                <p class="text-xl md:text-2xl text-neon-blue font-semibold mb-6 tracking-wide italic">"Very low price and best quality"</p>
-                <p class="text-lg text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                    Resing art's All Products available. Experience the beauty of handcrafted resin.
-                </p>
-                <a href="#products" class="bg-neon-pink text-white font-semibold px-8 py-3 rounded-full hover:bg-fuchsia-500 transition duration-300 text-lg glow-button inline-block">Explore Collection</a>
-            </div>
-        </section>
-
-        <!-- ABOUT SECTION -->
-        <section id="about" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Who We Are</h2>
-                    <div class="w-24 h-1 bg-neon-blue mx-auto mt-4 rounded box-shadow-[0_0_10px_#1C3AFF]"></div>
-                </div>
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2 relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-neon-pink to-neon-blue rounded-[3rem] blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                        <!-- Profile Pic Recreation: Resin Art Piece -->
-                        <img src="https://images.unsplash.com/photo-1577083288073-40811c800886?q=80&w=1920&auto-format&fit=crop" alt="Resing Art'S Profile" class="relative rounded-[3rem] shadow-2xl w-full border border-gray-800 object-cover h-96">
-                    </div>
-                    <div class="md:w-1/2 text-center md:text-left">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Resing Art'S</h3>
-                        <p class="text-neon-pink font-bold mb-4">The Artist</p>
-                        
-                        <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
-                            Welcome to my profile ☺️. We are passionate about creating unique, high-quality resin art pieces that add elegance to your life.
-                        </p>
-                        <p class="text-gray-300 text-base md:text-lg leading-relaxed">
-                            Our promise is simple: <strong>Very low price and best quality</strong>. From decor to accessories, everything is handcrafted with love.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PRODUCTS SECTION -->
-        <section id="products" class="py-20 bg-neon-midnight relative overflow-hidden">
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-neon-deep opacity-20 blur-3xl rounded-full pointer-events-none"></div>
-
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">All Products Available</h2>
-                    <div class="w-24 h-1 bg-neon-pink mx-auto mt-4 rounded"></div>
-                    <p class="text-gray-400 mt-4">Handcrafted excellence.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Product 1: Flower Candles -->
-                    <div class="bg-neon-card rounded-[2.5rem] overflow-hidden border border-neon-deep/30 flex flex-col group">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1602523961358-f9f03dd557db?q=80&w=1920&auto-format&fit=crop" alt="Flower Candles" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-2">Flower Candles</h3>
-                            <p class="text-gray-400 text-sm mb-4">Intricate flower shaped candles. Available in multiple colors.</p>
-                            <div class="mt-auto pt-4 border-t border-neon-deep/50">
-                                <a href="https://wa.me/919876543210?text=Hi%20Resing%20Art'S,%20I%20am%20interested%20in%20your%20Flower%20Candles." target="_blank" class="flex items-center justify-center w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
-                                    <i class="fab fa-whatsapp fa-lg mr-2"></i> Buy Now
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 2: Earrings -->
-                    <div class="bg-neon-card rounded-[2.5rem] overflow-hidden border border-neon-deep/30 flex flex-col group">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1920&auto-format&fit=crop" alt="Resin Earrings" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-2">Designer Earrings</h3>
-                            <p class="text-gray-400 text-sm mb-4">Handmade resin earrings. Stylish, lightweight, and unique.</p>
-                            <div class="mt-auto pt-4 border-t border-neon-deep/50">
-                                <a href="https://wa.me/919876543210?text=Hi%20Resing%20Art'S,%20I%20am%20interested%20in%20your%20Earrings." target="_blank" class="flex items-center justify-center w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
-                                    <i class="fab fa-whatsapp fa-lg mr-2"></i> Buy Now
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                   
-                    <!-- Product 3: Keychains -->
-                    <div class="bg-neon-card rounded-[2.5rem] overflow-hidden border border-neon-deep/30 flex flex-col group">
-                        <div class="relative h-64 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1596541223844-3c137d53d267?q=80&w=1920&auto-format&fit=crop" alt="Resin Keychains" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 portfolio-overlay opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-2">Custom Keychains</h3>
-                            <p class="text-gray-400 text-sm mb-4">Personalized resin keychains. A perfect gift for yourself or loved ones.</p>
-                            <div class="mt-auto pt-4 border-t border-neon-deep/50">
-                                <a href="https://wa.me/919876543210?text=Hi%20Resing%20Art'S,%20I%20am%20interested%20in%20your%20Keychains." target="_blank" class="flex items-center justify-center w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl transition duration-300">
-                                    <i class="fab fa-whatsapp fa-lg mr-2"></i> Buy Now
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT SECTION -->
-        <section id="contact" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
-             <div class="container mx-auto px-6 text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Contact Us</h2>
-                 <p class="text-gray-300 mb-8 max-w-2xl mx-auto">Get in touch for orders and custom requests.</p>
-                 <div class="flex flex-col md:flex-row justify-center gap-4">
-                     <a href="mailto:hello@resingarts.com" class="bg-neon-blue text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-600 transition duration-300 text-lg glow-button">
-                        <i class="fas fa-envelope mr-2"></i> Email Us
-                     </a>
-                     <a href="https://wa.me/919876543210" target="_blank" class="bg-green-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-green-500 transition duration-300 text-lg glow-button">
-                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
-                     </a>
-                 </div>
-                 <p class="mt-4 text-gray-400 text-sm">Email: hello@resingarts.com | Phone: +91 98765 43210</p>
-             </div>
-        </section>
-    </main>
-
-    <footer class="bg-neon-midnight border-t border-neon-deep">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-base">&copy; 2025 Resing Art'S. All Rights Reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="https://www.instagram.com/resing_artsz/" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-instagram fa-lg"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-facebook fa-lg"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-   
-    <script>
-        // --- Mobile menu toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-
-        const toggleMenu = () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                mobileMenuOverlay.classList.remove('hidden');
-            } else {
-                mobileMenu.classList.add('hidden');
-                mobileMenuOverlay.classList.add('hidden');
-            }
-        };
-
-        if(mobileMenuButton) mobileMenuButton.addEventListener('click', toggleMenu);
-        if(mobileMenuCloseButton) mobileMenuCloseButton.addEventListener('click', toggleMenu);
-       
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (!mobileMenu.classList.contains('hidden')) {
-                    toggleMenu();
-                }
-            });
-        });
-
-        if(mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', toggleMenu);
-
-        // --- CODE PART 1: LIVE LIQUID ANIMATION (Passive Turbulence) ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const turbulence = document.getElementById('turbulence');
-            if (turbulence) {
-                let time = 0;
-                const animateTurbulence = () => {
-                    const bfX = 0.01 + Math.sin(time) * 0.002;
-                    const bfY = 0.03 + Math.cos(time * 0.5) * 0.002;
-                    turbulence.setAttribute('baseFrequency', `${bfX} ${bfY}`);
-                    time += 0.005;
-                    requestAnimationFrame(animateTurbulence);
-                };
-                animateTurbulence();
-            }
-        });
-
-        // --- CODE PART 2: INTERACTIVE LIQUID GLASS (Mouse Movement) ---
-        (function() {
-          'use strict';
-         
-          if (window.liquidGlass) {
-            window.liquidGlass.destroy();
-          }
-         
-          function smoothStep(a, b, t) {
-            t = Math.max(0, Math.min(1, (t - a) / (b - a)));
-            return t * t
+</div>
+<div class="flex flex-col md:flex-row justify-center gap-4">
+    <a href="tel:7942110204" class="bg-neon-blue text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-600 transition duration-300 text-lg glow-button inline-block">
+        <i class="fas fa-phone-alt mr-2"></i> Call 7942110204
+    </a>
+    <a href="mailto:hello@resinart.com" class="border border-neon-pink text-white font-semibold px-8 py-3 rounded-full hover:bg-neon-pink/20 transition duration-300 text-lg inline-block">
+        <i class="fas fa-envelope mr-2"></i> Email Us
+    </a>
+</div>
+</div></section></main><footer class="bg-neon-midnight border-t border-neon-deep">
+<div class="container mx-auto px-6 py-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-base">&copy; 2025 Mr & Mrs Resin Art. All Rights Reserved.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-instagram fa-lg"></i></a>
+<a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-facebook fa-lg"></i></a>
+<a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-whatsapp fa-lg"></i></a>
+</div></div></div></footer><script>// --- Mobile menu toggle ---
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+const toggleMenu = () => {
+const isHidden = mobileMenu.classList.contains('hidden');
+if (isHidden) {mobileMenu.classList.remove('hidden');
+mobileMenuOverlay.classList.remove('hidden');
+} else {mobileMenu.classList.add('hidden');
+mobileMenuOverlay.classList.add('hidden');
+}};if(mobileMenuButton) mobileMenuButton.addEventListener('click', toggleMenu);
+if(mobileMenuCloseButton) mobileMenuCloseButton.addEventListener('click', toggleMenu);
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', () => {
+if (!mobileMenu.classList.contains('hidden')) {
+toggleMenu();}});});if(mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', toggleMenu);
+// --- CODE PART 1: LIVE LIQUID ANIMATION (Passive Turbulence) ---
+// This is from your second code block. It animates the filter defined in CSS/HTML
+document.addEventListener('DOMContentLoaded', () => {
+const turbulence = document.getElementById('turbulence');
+if (turbulence) {let time = 0;const animateTurbulence = () => {
+const bfX = 0.01 + Math.sin(time) * 0.002;
+const bfY = 0.03 + Math.cos(time * 0.5) * 0.002;
+turbulence.setAttribute('baseFrequency', `${bfX} ${bfY}`);
+time += 0.005;requestAnimationFrame(animateTurbulence);
+};animateTurbulence();
+}});// --- CODE PART 2: INTERACTIVE LIQUID GLASS (Mouse Movement) ---
+// This is from your first code block.
+(function() {use strict';if (window.liquidGlass) {
+window.liquidGlass.destroy();
+}function smoothStep(a, b, t) {
+t = Math.max(0, Math.min(1, (t - a) / (b - a)));
+return t * t * (3 - 2 * t);
+}function length(x, y) {
+return Math.sqrt(x * x + y * y);
+}function roundedRectSDF(x, y, width, height, radius) {
+const qx = Math.abs(x) - width + radius;
+const qy = Math.abs(y) - height + radius;
+return Math.min(Math.max(qx, qy), 0) + length(Math.max(qx, 0), Math.max(qy, 0)) - radius;
+}function texture(x, y) {
+return { type: 't', x, y };
+}function generateId() {
+return 'liquid-glass-' + Math.random().toString(36).substr(2, 9);
+}class Shader {constructor(options = {}) {
+this.targetElement = options.targetElement || document.body;
+this.width = this.targetElement.offsetWidth;
+this.height = this.targetElement.offsetHeight;
+this.fragment = options.fragment || ((uv) => texture(uv.x, uv.y));
+this.canvasDPI = 1;
+this.id = generateId();
+this.mouse = { x: 0, y: 0 };
+this.mouseUsed = false;
+this.initElement();
+this.setupObservers();
+this.updateShader();
+}initElement() {// === THE MERGE HAPPENS HERE ===
+// Originally, this line only applied the new interactive filter:
+// this.targetElement.style.backdropFilter = `url(#${this.id}_filter) blur(0px) brightness(1.1)`;
+//// We changed it to include BOTH:
+// 1. url(#fisheye-lens-filter) -> The passive turbulence from Code 2
+// 2. url(#${this.id}_filter) -> The interactive mouse effect from Code 1
+this.targetElement.style.backdropFilter = `url(#fisheye-lens-filter) url(#${this.id}_filter) blur(0px) brightness(1.1)`;
+this.targetElement.style.webkitBackdropFilter = `url(#fisheye-lens-filter) url(#${this.id}_filter) blur(0px) brightness(1.1)`;
+this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+this.svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+this.svg.style.cssText = 'position: absolute; width: 0; height: 0; pointer-events: none;';
+const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+filter.setAttribute('id', `${this.id}_filter`);
+filter.setAttribute('filterUnits', 'userSpaceOnUse');
+filter.setAttribute('colorInterpolationFilters', 'sRGB');
+filter.setAttribute('x', '0');
+filter.setAttribute('y', '0');
+filter.setAttribute('width', '100%');
+filter.setAttribute('height', '100%');
+this.feImage = document.createElementNS('http://www.w3.org/2000/svg', 'feImage');
+this.feImage.setAttribute('id', `${this.id}_map`);
+this.feImage.setAttribute('width', '100%');
+this.feImage.setAttribute('height', '100%');
+this.feImage.setAttribute('preserveAspectRatio', 'none');
+this.feDisplacementMap = document.createElementNS('http://www.w3.org/2000/svg', 'feDisplacementMap');
+this.feDisplacementMap.setAttribute('in', 'SourceGraphic');
+this.feDisplacementMap.setAttribute('in2', `${this.id}_map`);
+this.feDisplacementMap.setAttribute('scale', '30');
+this.feDisplacementMap.setAttribute('xChannelSelector', 'R');
+this.feDisplacementMap.setAttribute('yChannelSelector', 'G');
+filter.appendChild(this.feImage);
+filter.appendChild(this.feDisplacementMap);
+defs.appendChild(filter);
+this.svg.appendChild(defs);
+this.canvas = document.createElement('canvas');
+this.canvas.width = this.width;
+this.canvas.height = this.height;
+this.context = this.canvas.getContext('2d');
+document.body.appendChild(this.svg);
+}setupObservers() {
+this.resizeObserver = new ResizeObserver(entries => {
+for (let entry of entries) {
+const { width, height } = entry.contentRect;
+this.width = width;
+this.height = height;
+this.canvas.width = width;
+this.canvas.height = height;
+this.updateShader();
+}});this.resizeObserver.observe(this.targetElement);
+document.addEventListener('mousemove', (e) => {
+const rect = this.targetElement.getBoundingClientRect();
+this.mouse.x = (e.clientX - rect.left) / rect.width;
+this.mouse.y = (e.clientY - rect.top) / rect.height;
+if (this.mouseUsed && e.clientY < rect.bottom + 100) {
+this.updateShader();
+}});}updateShader() {
+const w = this.width;
+const h = this.height;
+if (w === 0 || h === 0) return;
+const data = new Uint8ClampedArray(w * h * 4);
+let maxScale = 0;
+const rawValues = [];
+const aspect = w / h;
+for (let i = 0; i < data.length; i += 4) {
+const idx = i / 4;const x = idx % w;
+const y = Math.floor(idx / w);
+const uvX = x / w;
+const uvY = y / h;
+const pos = this.fragment(
+{ x: uvX, y: uvY },
+this.mouse,aspect);const dx = pos.x * w - x;
+const dy = pos.y * h - y;
+maxScale = Math.max(maxScale, Math.abs(dx), Math.abs(dy));
+rawValues.push(dx, dy);
+}maxScale = Math.max(maxScale, 0.1) * 0.5;
+let index = 0;for (let i = 0; i < data.length; i += 4) {
+const r = rawValues[index++] / maxScale + 0.5;
+const g = rawValues[index++] / maxScale + 0.5;
+data[i] = Math.min(255, Math.max(0, r * 255));
+data[i + 1] = Math.min(255, Math.max(0, g * 255));
+data[i + 2] = 0;data[i + 3] = 255;
+}this.context.putImageData(new ImageData(data, w, h), 0, 0);
+this.feImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', this.canvas.toDataURL());
+}destroy() {if(this.resizeObserver) this.resizeObserver.disconnect();
+this.svg.remove();
+this.targetElement.style.backdropFilter = '';
+this.targetElement.style.webkitBackdropFilter = '';
+}}function createLiquidGlass() {
+const headerElement = document.getElementById('header');
+if(!headerElement) return;
+const shader = new Shader({
+targetElement: headerElement,
+fragment: (uv, mouse, aspect) => {
+const ix = uv.x - 0.5;
+const iy = uv.y - 0.5;
+const distanceToEdge = roundedRectSDF(
+ix,iy,0.48,0.45,0.1);const displacement = smoothStep(0.2, 0, distanceToEdge);
+const scaled = smoothStep(0, 1, displacement);
+return texture(ix * scaled + 0.5, iy * scaled + 0.5);
+}});window.liquidGlass = shader;
+}if (document.readyState === 'loading') {
+document.addEventListener('DOMContentLoaded', createLiquidGlass);
+} else {createLiquidGlass();
+}})();</script></body></html>
