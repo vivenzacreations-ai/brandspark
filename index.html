@@ -289,4 +289,302 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="p-8 rounded-[2rem] bg-neon-card border border-neon-deep/50 relative">
                     <p class="text-gray-300 italic mb-6">"Finally, workwear that fits my personality. The tailored blazer I bought is an absolute showstopper."</p>
-                   
+                    <h4 class="font-bold text-white">Priya S.</h4>
+                    <p class="text-sm text-neon-blue">Marketing Director</p>
+                </div>
+                <div class="p-8 rounded-[2rem] bg-neon-card border border-neon-deep/50 relative">
+                    <p class="text-gray-300 italic mb-6">"The transition pieces are genius. I went straight from a client meeting to dinner and felt perfectly dressed."</p>
+                    <h4 class="font-bold text-white">Michael R.</h4>
+                    <p class="text-sm text-neon-pink">Consultant</p>
+                </div>
+                <div class="p-8 rounded-[2rem] bg-neon-card border border-neon-deep/50 relative">
+                    <p class="text-gray-300 italic mb-6">"Quality fabrics and edgy cuts. Office After Dark is now my go-to for upgrading my wardrobe."</p>
+                    <h4 class="font-bold text-white">Amit V.</h4>
+                    <p class="text-sm text-neon-purple">Entrepreneur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-neon-dark relative border-t border-neon-deep/30">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Get In Touch</h2>
+            <p class="text-gray-300 mb-4 max-w-2xl mx-auto">Have questions about sizing or custom orders? Reach out to us.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-8 mt-6">
+                <a href="#" class="text-white hover:text-neon-pink transition flex items-center gap-2">
+                    <i class="fas fa-phone-alt text-neon-blue"></i> +91 98765 43210
+                </a>
+                <a href="https://www.instagram.com/officeafterdark?igsh=Y2Fhd3kycWV4Ymk0" target="_blank" class="text-white hover:text-neon-pink transition flex items-center gap-2">
+                    <i class="fab fa-instagram text-neon-blue"></i> DM on Instagram
+                </a>
+            </div>
+
+            <div class="mb-8">
+                <p class="text-gray-300"><i class="fas fa-map-marker-alt text-neon-pink mr-2"></i>Shipping Worldwide | Based in India</p>
+            </div>
+
+            <a href="mailto:hello@officeafterdark.com" class="bg-neon-blue text-white font-semibold px-8 py-3 rounded-full hover:bg-blue-600 transition duration-300 text-lg glow-button inline-block">
+                <i class="fas fa-envelope mr-2"></i> Email Us
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-neon-midnight border-t border-neon-deep">
+    <div class="container mx-auto px-6 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-base">&copy; 2025 Office After Dark. All Rights Reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="https://www.instagram.com/officeafterdark?igsh=Y2Fhd3kycWV4Ymk0" target="_blank" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" class="text-gray-400 hover:text-neon-pink transition"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="mailto:hello@officeafterdark.com" class="text-gray-400 hover:text-neon-pink transition"><i class="fas fa-envelope fa-lg"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // --- Mobile menu toggle ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+    const toggleMenu = () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenuOverlay.classList.remove('hidden');
+        } else {
+            mobileMenu.classList.add('hidden');
+            mobileMenuOverlay.classList.add('hidden');
+        }
+    };
+
+    if(mobileMenuButton) mobileMenuButton.addEventListener('click', toggleMenu);
+    if(mobileMenuCloseButton) mobileMenuCloseButton.addEventListener('click', toggleMenu);
+    
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (!mobileMenu.classList.contains('hidden')) {
+                toggleMenu();
+            }
+        });
+    });
+
+    if(mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', toggleMenu);
+
+    // --- CODE PART 1: LIVE LIQUID ANIMATION (Passive Turbulence) ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const turbulence = document.getElementById('turbulence');
+        if (turbulence) {
+            let time = 0;
+            const animateTurbulence = () => {
+                const bfX = 0.01 + Math.sin(time) * 0.002;
+                const bfY = 0.03 + Math.cos(time * 0.5) * 0.002;
+                turbulence.setAttribute('baseFrequency', `${bfX} ${bfY}`);
+                time += 0.005;
+                requestAnimationFrame(animateTurbulence);
+            };
+            animateTurbulence();
+        }
+    });
+
+    // --- CODE PART 2: INTERACTIVE LIQUID GLASS (Mouse Movement) ---
+    (function() {
+        'use strict';
+        if (window.liquidGlass) {
+            window.liquidGlass.destroy();
+        }
+        function smoothStep(a, b, t) {
+            t = Math.max(0, Math.min(1, (t - a) / (b - a)));
+            return t * t * (3 - 2 * t);
+        }
+        function length(x, y) {
+            return Math.sqrt(x * x + y * y);
+        }
+        function roundedRectSDF(x, y, width, height, radius) {
+            const qx = Math.abs(x) - width + radius;
+            const qy = Math.abs(y) - height + radius;
+            return Math.min(Math.max(qx, qy), 0) + length(Math.max(qx, 0), Math.max(qy, 0)) - radius;
+        }
+        function texture(x, y) {
+            return { type: 't', x, y };
+        }
+        function generateId() {
+            return 'liquid-glass-' + Math.random().toString(36).substr(2, 9);
+        }
+
+        class Shader {
+            constructor(options = {}) {
+                this.targetElement = options.targetElement || document.body;
+                this.width = this.targetElement.offsetWidth;
+                this.height = this.targetElement.offsetHeight;
+                this.fragment = options.fragment || ((uv) => texture(uv.x, uv.y));
+                this.canvasDPI = 1;
+                this.id = generateId();
+                this.mouse = { x: 0, y: 0 };
+                this.mouseUsed = false;
+
+                this.initElement();
+                this.setupObservers();
+                this.updateShader();
+            }
+
+            initElement() {
+                this.targetElement.style.backdropFilter = `url(#fisheye-lens-filter) url(#${this.id}_filter) blur(0px) brightness(1.1)`;
+                this.targetElement.style.webkitBackdropFilter = `url(#fisheye-lens-filter) url(#${this.id}_filter) blur(0px) brightness(1.1)`;
+
+                this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                this.svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+                this.svg.style.cssText = 'position: absolute; width: 0; height: 0; pointer-events: none;';
+
+                const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+                const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+                filter.setAttribute('id', `${this.id}_filter`);
+                filter.setAttribute('filterUnits', 'userSpaceOnUse');
+                filter.setAttribute('colorInterpolationFilters', 'sRGB');
+                filter.setAttribute('x', '0');
+                filter.setAttribute('y', '0');
+                filter.setAttribute('width', '100%');
+                filter.setAttribute('height', '100%');
+
+                this.feImage = document.createElementNS('http://www.w3.org/2000/svg', 'feImage');
+                this.feImage.setAttribute('id', `${this.id}_map`);
+                this.feImage.setAttribute('width', '100%');
+                this.feImage.setAttribute('height', '100%');
+                this.feImage.setAttribute('preserveAspectRatio', 'none');
+
+                this.feDisplacementMap = document.createElementNS('http://www.w3.org/2000/svg', 'feDisplacementMap');
+                this.feDisplacementMap.setAttribute('in', 'SourceGraphic');
+                this.feDisplacementMap.setAttribute('in2', `${this.id}_map`);
+                this.feDisplacementMap.setAttribute('scale', '30');
+                this.feDisplacementMap.setAttribute('xChannelSelector', 'R');
+                this.feDisplacementMap.setAttribute('yChannelSelector', 'G');
+
+                filter.appendChild(this.feImage);
+                filter.appendChild(this.feDisplacementMap);
+                defs.appendChild(filter);
+                this.svg.appendChild(defs);
+
+                this.canvas = document.createElement('canvas');
+                this.canvas.width = this.width;
+                this.canvas.height = this.height;
+                this.context = this.canvas.getContext('2d');
+                document.body.appendChild(this.svg);
+            }
+
+            setupObservers() {
+                this.resizeObserver = new ResizeObserver(entries => {
+                    for (let entry of entries) {
+                        const { width, height } = entry.contentRect;
+                        this.width = width;
+                        this.height = height;
+                        this.canvas.width = width;
+                        this.canvas.height = height;
+                        this.updateShader();
+                    }
+                });
+                this.resizeObserver.observe(this.targetElement);
+
+                document.addEventListener('mousemove', (e) => {
+                    const rect = this.targetElement.getBoundingClientRect();
+                    this.mouse.x = (e.clientX - rect.left) / rect.width;
+                    this.mouse.y = (e.clientY - rect.top) / rect.height;
+                    
+                    if (this.mouseUsed && e.clientY < rect.bottom + 100) {
+                        this.updateShader();
+                    }
+                });
+            }
+
+            updateShader() {
+                const w = this.width;
+                const h = this.height;
+                if (w === 0 || h === 0) return;
+
+                const data = new Uint8ClampedArray(w * h * 4);
+                let maxScale = 0;
+                const rawValues = [];
+                const aspect = w / h;
+
+                for (let i = 0; i < data.length; i += 4) {
+                    const idx = i / 4;
+                    const x = idx % w;
+                    const y = Math.floor(idx / w);
+                    const uvX = x / w;
+                    const uvY = y / h;
+
+                    const pos = this.fragment(
+                        { x: uvX, y: uvY },
+                        this.mouse,
+                        aspect
+                    );
+
+                    const dx = pos.x * w - x;
+                    const dy = pos.y * h - y;
+                    maxScale = Math.max(maxScale, Math.abs(dx), Math.abs(dy));
+                    rawValues.push(dx, dy);
+                }
+
+                maxScale = Math.max(maxScale, 0.1) * 0.5;
+                let index = 0;
+
+                for (let i = 0; i < data.length; i += 4) {
+                    const r = rawValues[index++] / maxScale + 0.5;
+                    const g = rawValues[index++] / maxScale + 0.5;
+
+                    data[i] = Math.min(255, Math.max(0, r * 255));
+                    data[i + 1] = Math.min(255, Math.max(0, g * 255));
+                    data[i + 2] = 0;
+                    data[i + 3] = 255;
+                }
+
+                this.context.putImageData(new ImageData(data, w, h), 0, 0);
+                this.feImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', this.canvas.toDataURL());
+            }
+
+            destroy() {
+                if(this.resizeObserver) this.resizeObserver.disconnect();
+                this.svg.remove();
+                this.targetElement.style.backdropFilter = '';
+                this.targetElement.style.webkitBackdropFilter = '';
+            }
+        }
+
+        function createLiquidGlass() {
+            const headerElement = document.getElementById('header');
+            if(!headerElement) return;
+
+            const shader = new Shader({
+                targetElement: headerElement,
+                fragment: (uv, mouse, aspect) => {
+                    const ix = uv.x - 0.5;
+                    const iy = uv.y - 0.5;
+                    const distanceToEdge = roundedRectSDF(
+                        ix,
+                        iy,
+                        0.48,
+                        0.45,
+                        0.1
+                    );
+                    const displacement = smoothStep(0.2, 0, distanceToEdge);
+                    const scaled = smoothStep(0, 1, displacement);
+                    return texture(ix * scaled + 0.5, iy * scaled + 0.5);
+                }
+            });
+            window.liquidGlass = shader;
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', createLiquidGlass);
+        } else {
+            createLiquidGlass();
+        }
+    })();
+</script>
+</body>
+    </html>
