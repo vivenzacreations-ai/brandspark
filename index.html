@@ -3,38 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HM Tour and Travels Pvt Ltd | Fly High, Pay Low</title>
+    <title>Al-Abraq Interior | Premium Design Studio Srinagar</title>
+    <meta name="description" content="Transform your space with Al-Abraq Interior. Specializing in PVC ceilings, wall panels, UV marble sheets, and wooden flooring in Rathpora Eidgah, Srinagar.">
     
-    <!-- Fonts -->
+    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Theme Configuration -->
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
-                        display: ['Sora', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        brand: {
-                            dark: '#000000',
-                            blue: '#0008e6',
-                            lightBlue: '#3b82f6',
-                            purple: '#c500f3',
-                            lightPurple: '#d8b4fe',
+                        primary: {
+                            DEFAULT: '#1F3D2B', // Dark Green
+                            light: '#2A5239',
+                            dark: '#14291C'
+                        },
+                        accent: {
+                            light: '#E6DCC8',
+                            DEFAULT: '#D6C5A3', // Muted Gold/Beige
+                            dark: '#B8A47E'
+                        },
+                        base: {
+                            bg: '#EBF5EC', // Light greenish-white
+                            surface: '#FFFFFF',
+                        },
+                        text: {
+                            main: '#1A1A1A',
+                            muted: '#4A4A4A',
+                            light: '#EBF5EC'
+                        }
+                    },
+                    animation: {
+                        'pulse-soft': 'pulseSoft 3s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseSoft: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                            '50%': { transform: 'scale(1.02)', opacity: '0.95' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
                         }
                     }
                 }
@@ -43,404 +66,497 @@
     </script>
 
     <style>
-        /* Base Dark Theme Setup */
         body {
-            background-color: #000000;
-            color: #f8fafc;
+            background-color: #EBF5EC;
+            color: #1A1A1A;
             overflow-x: hidden;
         }
 
-        /* Luxury Glassmorphism Utilities */
-        .glass-nav {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-
-        .glass-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.15); /* Thin crisp outline */
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease, border-color 0.5s ease;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -10px rgba(197, 0, 243, 0.25);
-            border-color: rgba(197, 0, 243, 0.5);
-        }
-
-        .glass-input {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .glass-input:focus {
-            outline: none;
-            border-color: #c500f3;
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 15px rgba(197, 0, 243, 0.2);
-        }
-
-        /* Glowing Custom Buttons */
-        .btn-gradient {
-            background: linear-gradient(135deg, #0008e6, #c500f3);
-            color: white;
-            box-shadow: 0 8px 25px -5px rgba(197, 0, 243, 0.5);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-gradient:hover {
-            background: linear-gradient(135deg, #3b82f6, #c500f3);
-            box-shadow: 0 12px 35px -5px rgba(197, 0, 243, 0.8);
-            transform: translateY(-2px) scale(1.02);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            transition: all 0.4s ease;
-        }
-        .btn-outline:hover {
-            background: rgba(197, 0, 243, 0.1);
-            border-color: #c500f3;
-            box-shadow: 0 0 20px rgba(197, 0, 243, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* Animations */
-        @keyframes pulse-purple {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(197, 0, 243, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(197, 0, 243, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(197, 0, 243, 0); }
-        }
-        .animate-pulse-purple {
-            animation: pulse-purple 2s infinite;
-        }
-
-        /* Floating WhatsApp Button */
-        .floating-wa {
+        /* --- PRELOADER --- */
+        #premium-preloader {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, #0008e6, #c500f3);
-            color: white;
-            border-radius: 50px;
-            padding: 14px 28px;
+            inset: 0;
+            z-index: 9999;
+            background-color: #EBF5EC;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            box-shadow: 0 10px 30px rgba(197, 0, 243, 0.5);
-            z-index: 99;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            justify-content: center;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
-        .floating-wa:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 8, 230, 0.6);
+
+        .loader-ring {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(31, 61, 43, 0.1);
+            border-top-color: #1F3D2B;
+            border-radius: 50%;
+            animation: spinFast 0.8s cubic-bezier(0.6, 0.2, 0.4, 0.8) infinite;
+        }
+
+        @keyframes spinFast {
+            to { transform: rotate(360deg); }
+        }
+
+        /* --- LIGHT GLASSMORPHISM (Tailored for #EBF5EC) --- */
+        .brand-bar {
+            background: #1F3D2B;
+            color: #D6C5A3;
+        }
+
+        .liquid-glass-header {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .glassy-menu-button {
+            background: rgba(31, 61, 43, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(31, 61, 43, 0.1);
+            border-radius: 9999px;
+            padding: 0.75rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1F3D2B;
+            transition: 0.3s ease;
+        }
+
+        .glassy-menu-button:hover {
+            background: rgba(31, 61, 43, 0.1);
+            color: #1A1A1A;
+        }
+
+        /* --- FLOATING BUTTONS --- */
+        .floating-glass-btn {
+            background: rgba(31, 61, 43, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(214, 197, 163, 0.3);
+            box-shadow: 0 8px 25px rgba(31, 61, 43, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .floating-glass-btn:hover {
+            background: #1F3D2B;
+            border-color: #D6C5A3;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(31, 61, 43, 0.3);
+        }
+
+        /* --- TEXT EFFECTS --- */
+        .text-accent-gradient {
+            background: linear-gradient(135deg, #1F3D2B, #2A5239);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #000000; }
-        ::-webkit-scrollbar-thumb { background: #c500f3; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #0008e6; }
-
-        /* FAQ details element styling */
-        details > summary {
-            list-style: none;
+        .text-gold-gradient {
+            background: linear-gradient(to right, #D6C5A3, #E6DCC8, #D6C5A3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
         }
-        details > summary::-webkit-details-marker {
-            display: none;
+
+        @keyframes shine { to { background-position: 200% center; } }
+
+        /* --- CARDS & PANELS --- */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 32px rgba(31, 61, 43, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .glass-pill {
+            background: rgba(31, 61, 43, 0.05);
+            border: 1px solid rgba(31, 61, 43, 0.1);
+            backdrop-filter: blur(8px);
+            color: #1F3D2B;
+        }
+
+        /* Faster Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        .hero-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+        }
+        .hero-content.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #EBF5EC; }
+        ::-webkit-scrollbar-thumb { background: #D6C5A3; border-radius: 10px; }
+        
+        .img-zoom-container { overflow: hidden; border-radius: 1rem; }
+        .img-zoom { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .img-zoom-container:hover .img-zoom { transform: scale(1.05); }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-purple selection:text-white">
+<body class="antialiased selection:bg-accent selection:text-primary-dark">
 
-    <!-- Floating Luxury Navbar -->
-    <div class="fixed top-6 left-0 w-full z-50 flex justify-center px-4 transition-all duration-500" id="navbar-container">
-        <nav class="w-full max-w-7xl glass-nav rounded-full border border-white/20 px-4 sm:px-6 lg:px-8 transition-all duration-300" id="navbar">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-4 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-blue to-brand-purple flex items-center justify-center shadow-lg shadow-brand-purple/40">
-                        <i class="fa-solid fa-plane-departure text-white text-xl"></i>
-                    </div>
-                    <div>
-                        <h1 class="font-display font-bold text-xl tracking-wide text-white leading-tight">HM TRAVELS</h1>
-                    </div>
-                </div>
+    <!-- PRELOADER -->
+    <div id="premium-preloader">
+        <div class="loader-ring"></div>
+    </div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#deals" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors relative group">
-                        Flash Deals
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-purple transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#services" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors relative group">
-                        Services
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-purple transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#testimonials" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors relative group">
-                        Reviews
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-purple transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#about" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors relative group">
-                        About
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-purple transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    
-                    <!-- Direct Call Button -->
-                    <a href="tel:+919596256544" class="btn-gradient px-7 py-3 rounded-full flex items-center gap-2 text-sm font-bold text-white">
-                        <i class="fa-solid fa-phone"></i>
-                        +91 9596256544
-                    </a>
-                </div>
+    <!-- HEADER -->
+    <div class="fixed top-0 z-40 flex flex-col items-center w-full" id="main-header">
+        <!-- Brand Tag Line -->
+        <div class="w-full brand-bar text-center text-xs md:text-sm font-medium py-2 tracking-widest uppercase">
+            Al-Abraq Interior • Rathpora Eidgah, Srinagar
+        </div>
 
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-white focus:outline-none p-2 hover:text-brand-purple transition-colors">
-                        <i class="fa-solid fa-bars text-2xl"></i>
+        <!-- Main Nav -->
+        <div class="w-full p-3 md:p-5">
+            <header class="container max-w-7xl mx-auto rounded-2xl md:rounded-full liquid-glass-header transition-all duration-300">
+                <div class="flex justify-between items-center px-4 md:px-8 py-3 md:py-4">
+                    <!-- Logo -->
+                    <a href="#" class="text-xl md:text-2xl font-bold font-serif text-primary flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-accent">
+                            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex flex-col leading-none">
+                            <span class="tracking-wide">Al-Abraq</span>
+                            <span class="text-[0.65rem] tracking-[0.2em] text-muted font-sans font-medium uppercase mt-1">Interior Studio</span>
+                        </div>
+                    </a>
+
+                    <!-- Desktop Menu -->
+                    <nav class="hidden lg:flex space-x-10 text-text-main font-semibold text-sm tracking-wide">
+                        <a href="#portfolio" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Portfolio</a>
+                        <a href="#services" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Services</a>
+                        <a href="#materials" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Materials</a>
+                        <a href="#contact" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Contact</a>
+                    </nav>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="lg:hidden glassy-menu-button">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
                     </button>
                 </div>
-            </div>
-        </nav>
+            </header>
+        </div>
     </div>
 
-    <!-- Mobile Sidebar & Overlay -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-md z-[60] hidden transition-opacity opacity-0 duration-300"></div>
-    
-    <div id="mobile-sidebar" class="fixed top-0 right-0 h-full w-80 bg-black/90 backdrop-blur-3xl border-l border-white/10 z-[70] transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col">
-        <div class="flex justify-between items-center p-6 border-b border-white/10">
-            <h2 class="text-xl font-display font-bold text-white">Menu</h2>
-            <button id="close-sidebar" class="text-gray-400 hover:text-white focus:outline-none w-10 h-10 rounded-full bg-white/5 flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-xmark text-xl"></i>
+    <!-- Mobile Slide-in Menu -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-primary-dark/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="mobile-menu" class="fixed top-0 right-0 w-[85%] max-w-sm h-full bg-base-surface z-[70] transform translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex flex-col p-8 border-l border-primary/10 shadow-2xl rounded-l-3xl">
+        <div class="flex justify-end mb-10">
+            <button id="close-menu-btn" class="text-muted hover:text-primary transition-colors bg-base-bg p-2 rounded-full">
+                <i data-lucide="x" class="w-6 h-6"></i>
             </button>
         </div>
-        <div class="flex flex-col p-6 space-y-4 overflow-y-auto">
-            <a href="#deals" class="nav-link block px-4 py-4 rounded-2xl text-lg font-medium text-gray-300 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10 transition-all">Flash Deals</a>
-            <a href="#services" class="nav-link block px-4 py-4 rounded-2xl text-lg font-medium text-gray-300 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10 transition-all">Services</a>
-            <a href="#testimonials" class="nav-link block px-4 py-4 rounded-2xl text-lg font-medium text-gray-300 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10 transition-all">Reviews</a>
-            <a href="#about" class="nav-link block px-4 py-4 rounded-2xl text-lg font-medium text-gray-300 hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10 transition-all">About Us</a>
-            <div class="mt-8">
-                <a href="tel:+919596256544" class="block w-full text-center py-4 rounded-full btn-gradient text-white font-bold text-lg shadow-lg">
-                    <i class="fa-solid fa-phone mr-2"></i> Call Us Now
-                </a>
-            </div>
+        <div class="flex flex-col gap-6 flex-1">
+            <a href="#portfolio" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Portfolio</a>
+            <a href="#services" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Services</a>
+            <a href="#materials" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Materials</a>
+            <a href="#contact" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Contact</a>
+        </div>
+        <div class="mt-auto bg-base-bg p-6 rounded-2xl">
+            <p class="text-xs text-muted uppercase tracking-widest mb-3 font-semibold">Direct Contact</p>
+            <a href="tel:+919906574299" class="flex items-center gap-3 text-primary mb-4 font-medium hover:text-primary-dark transition-colors">
+                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                </div>
+                +91 99065 74299
+            </a>
+            <a href="https://wa.me/919906574299" target="_blank" class="w-full bg-[#25D366] text-white py-3.5 rounded-xl flex justify-center items-center gap-2 font-medium hover:bg-[#1DA851] transition-colors shadow-md">
+                <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp Us
+            </a>
         </div>
     </div>
 
-    <!-- Luxury Dark Hero Section (Single Static Image) -->
-    <div class="relative w-full min-h-screen bg-black overflow-hidden flex items-center pt-20" id="hero">
-        <!-- Dark Image Background -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-50" alt="Luxury Dark Travel">
-            <!-- Gradient Overlay to blend into black -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black"></div>
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <!-- Modern Interior Image -->
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80" alt="Luxury Interior" class="absolute inset-0 w-full h-full object-cover scale-105 animate-pulse-soft">
+            <!-- Elegant Overlays -->
+            <div class="absolute inset-0 bg-primary/40 z-10 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent z-10"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <!-- Text Content -->
-                <div class="w-full lg:w-1/2" data-aos="fade-up">
-                    <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-card mb-8 border border-white/20">
-                        <span class="w-2.5 h-2.5 rounded-full bg-brand-lightBlue animate-pulse"></span>
-                        <span class="text-xs font-bold tracking-widest text-brand-lightPurple uppercase">Srinagar's Premium Partner</span>
-                    </div>
-                    <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-white leading-[1.1]">
-                        Fly High.<br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-lightBlue to-brand-purple">Pay Low.</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-xl font-light leading-relaxed">
-                        Discover the world at unbeatable prices. Experience luxury booking with our fully digitized, seamless support system.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-5">
-                        <a href="#deals" class="btn-gradient px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-3">
-                            View Flash Deals <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                        <a href="#services" class="btn-outline px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-3">
-                            Explore Services
-                        </a>
-                    </div>
-                </div>
+        <div class="relative z-20 text-center px-4 max-w-5xl mx-auto hero-content w-full flex flex-col items-center justify-center" id="hero-content">
+            <span class="text-accent tracking-[0.3em] text-xs md:text-sm uppercase mb-4 block font-semibold drop-shadow-md">Elevate Your Living Space</span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight text-white drop-shadow-2xl">
+                Masterpieces in <br>
+                <span class="text-gold-gradient italic font-light">Interior Design</span>
+            </h1>
+            <p class="text-base md:text-lg text-gray-200 font-light mb-10 max-w-2xl mx-auto drop-shadow-md">
+                Specializing in modern PVC ceilings, intricate wall panels, UV marble sheets, and luxury wooden flooring. Bringing your vision to life in Srinagar.
+            </p>
 
-                <!-- Floating Search Widget next to text -->
-                <div class="w-full lg:w-1/2 mt-12 lg:mt-0" data-aos="fade-left" data-aos-delay="200">
-                    <div class="glass-card p-8 md:p-10 rounded-[2.5rem] relative overflow-hidden bg-black/60 border border-white/20 shadow-2xl">
-                        <!-- Blur Blobs for depth inside widget -->
-                        <div class="absolute -top-32 -right-32 w-80 h-80 bg-brand-purple rounded-full mix-blend-screen filter blur-[100px] opacity-40 pointer-events-none"></div>
-                        <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-brand-blue rounded-full mix-blend-screen filter blur-[100px] opacity-40 pointer-events-none"></div>
-                        
-                        <h3 class="text-2xl font-display font-bold mb-8 flex items-center gap-4 text-white">
-                            <div class="w-12 h-12 rounded-full bg-brand-purple/20 flex items-center justify-center border border-brand-purple/50">
-                                <i class="fa-solid fa-plane-up text-brand-lightPurple"></i>
-                            </div>
-                            Quick Flight Request
-                        </h3>
-                        
-                        <form onsubmit="handleSearchRequest(event)" class="relative z-10 flex flex-col gap-5">
-                            <div class="relative">
-                                <label class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-2 block ml-4">Departure</label>
-                                <i class="fa-solid fa-location-dot absolute left-6 top-[2.4rem] text-brand-lightBlue"></i>
-                                <input type="text" id="searchFrom" value="Srinagar (SXR)" class="w-full glass-input rounded-full py-4 pl-14 pr-6 text-sm font-medium focus:ring-2 focus:ring-brand-purple transition-all" required>
-                            </div>
-                            <div class="relative">
-                                <label class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-2 block ml-4">Destination</label>
-                                <i class="fa-solid fa-location-dot absolute left-6 top-[2.4rem] text-brand-lightBlue"></i>
-                                <input type="text" id="searchTo" placeholder="E.g. Delhi (DEL)" class="w-full glass-input rounded-full py-4 pl-14 pr-6 text-sm font-medium focus:ring-2 focus:ring-brand-purple transition-all" required>
-                            </div>
-                            <div class="relative mb-2">
-                                <label class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-2 block ml-4">Travel Date</label>
-                                <i class="fa-regular fa-calendar absolute left-6 top-[2.4rem] text-brand-lightBlue"></i>
-                                <input type="date" id="searchDate" class="w-full glass-input rounded-full py-4 pl-14 pr-6 text-sm font-medium focus:ring-2 focus:ring-brand-purple transition-all" required>
-                            </div>
-                            <button type="submit" class="btn-gradient py-4 rounded-full font-bold text-base flex items-center justify-center gap-3 w-full shadow-lg">
-                                Check via WhatsApp <i class="fa-brands fa-whatsapp text-xl"></i>
-                            </button>
-                        </form>
-                    </div>
+            <!-- Estimate Generator Bar -->
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-2 md:p-3 rounded-2xl flex flex-col md:flex-row items-center gap-2 w-full max-w-4xl mx-auto shadow-2xl">
+                <div class="flex-1 w-full flex items-center bg-white/90 rounded-xl px-4 py-3.5 border border-transparent transition-colors duration-300 group">
+                    <i data-lucide="layers" class="text-primary w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
+                    <select id="service-select" class="bg-transparent border-none outline-none text-text-main w-full appearance-none cursor-pointer font-medium">
+                        <option value="" disabled selected>Select Service</option>
+                        <option value="PVC Ceiling">Modern PVC Ceiling</option>
+                        <option value="Wall Paneling">Wall Paneling & Louvers</option>
+                        <option value="UV Marble">UV Marble Sheets</option>
+                        <option value="Flooring">Wooden Flooring</option>
+                    </select>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Flash Deals Section -->
-    <section id="deals" class="py-24 relative bg-black">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8" data-aos="fade-up">
-                <div>
-                    <div class="inline-flex items-center gap-3 mb-4 bg-brand-purple/10 border border-brand-purple/30 px-4 py-2 rounded-full">
-                        <div class="w-3 h-3 rounded-full bg-brand-purple animate-pulse-purple"></div>
-                        <span class="text-brand-lightPurple font-bold tracking-widest uppercase text-xs">Last-Minute Alerts</span>
-                    </div>
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white tracking-tight">Unbeatable Fares.</h2>
-                    <p class="text-gray-400 mt-4 text-lg">Tap to instantly book via our priority digital line.</p>
+                <div class="flex-1 w-full flex items-center bg-white/90 rounded-xl px-4 py-3.5 border border-transparent transition-colors duration-300 group">
+                    <i data-lucide="home" class="text-primary w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
+                    <select id="space-select" class="bg-transparent border-none outline-none text-text-main w-full appearance-none cursor-pointer font-medium">
+                        <option value="" disabled selected>Space Type</option>
+                        <option value="Living Room">Living Room</option>
+                        <option value="Bedroom">Bedroom</option>
+                        <option value="Commercial">Commercial/Office</option>
+                        <option value="Full House">Full House</option>
+                    </select>
                 </div>
-                <div class="mt-8 md:mt-0 text-right hidden sm:block">
-                    <p class="text-sm text-gray-400 mb-1">Prices subject to availability</p>
-                    <p class="text-xs text-brand-lightBlue font-bold uppercase tracking-widest bg-brand-blue/10 px-3 py-1 rounded-full border border-brand-blue/30 inline-block mt-2">Updated Today</p>
-                </div>
-            </div>
-
-            <!-- Deals Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="deals-container">
-                <!-- Deals injected by JS (with AOS attributes) -->
-            </div>
-            
-            <div class="mt-20 text-center" data-aos="zoom-in" data-aos-offset="100">
-                <p class="text-gray-400 mb-6 text-lg font-medium">Don't see your destination?</p>
-                <button onclick="openGeneralWhatsApp()" class="glass-card px-10 py-5 rounded-full text-white font-bold transition-all hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(197,0,243,0.3)] inline-flex items-center gap-3">
-                    Request Custom Route <i class="fa-solid fa-paper-plane text-brand-lightBlue"></i>
+                <button id="get-quote-btn" class="w-full md:w-auto bg-primary text-accent px-8 py-3.5 rounded-xl font-bold tracking-wide flex items-center justify-center gap-2 border border-primary hover:bg-primary-light hover:text-white transition-all duration-300 shadow-lg shrink-0">
+                    Get Free Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-24 bg-black border-y border-white/10 relative overflow-hidden">
-        <!-- Decorative abstract blobs -->
-        <div class="absolute top-0 left-0 w-[30rem] h-[30rem] bg-brand-blue rounded-full mix-blend-screen filter blur-[150px] opacity-20 pointer-events-none"></div>
-        <div class="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-brand-purple rounded-full mix-blend-screen filter blur-[150px] opacity-20 pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-white tracking-tight">Complete Travel Solutions</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Beyond flight tickets, we handle every aspect of your journey ensuring a seamless, premium experience.</p>
+    <!-- WHY CHOOSE US -->
+    <section id="why-us" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">The Al-Abraq Standard</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-text-main">Craftsmanship Meets Quality</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <!-- Service 1 -->
-                <div class="glass-card p-10 rounded-[2.5rem] text-center group relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-blue to-transparent"></div>
-                    <div class="relative w-24 h-24 mx-auto bg-black border border-white/10 rounded-[2rem] flex items-center justify-center mb-8 transform group-hover:-translate-y-3 transition-transform duration-500 shadow-[0_0_30px_rgba(59,130,246,0.15)] group-hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] group-hover:border-brand-blue/50">
-                        <i class="fa-solid fa-passport text-4xl text-brand-lightBlue transition-colors group-hover:scale-110 duration-300"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
+                        <i data-lucide="check-circle" class="text-primary group-hover:text-accent w-7 h-7"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Visa Assistance</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Expert guidance for tourist, business, and transit visas across the globe. We handle the paperwork, you pack your bags.</p>
-                    <button onclick="openWhatsAppSpecific('I need help with Visa Assistance.')" class="btn-outline py-3 px-6 rounded-full text-brand-lightBlue font-bold text-sm hover:text-white transition-colors uppercase tracking-widest flex items-center justify-center gap-2 w-full">Enquire Now <i class="fa-solid fa-arrow-right"></i></button>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Premium Materials</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Imported UV marble sheets, highly durable WPC louvers, and A-grade PVC panels.</p>
                 </div>
-
-                <!-- Service 2 -->
-                <div class="glass-card p-10 rounded-[2.5rem] text-center group relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-purple to-transparent"></div>
-                    <div class="relative w-24 h-24 mx-auto bg-black border border-white/10 rounded-[2rem] flex items-center justify-center mb-8 transform group-hover:-translate-y-3 transition-transform duration-500 shadow-[0_0_30px_rgba(197,0,243,0.15)] group-hover:shadow-[0_0_40px_rgba(197,0,243,0.3)] group-hover:border-brand-purple/50">
-                        <i class="fa-solid fa-kaaba text-4xl text-brand-lightPurple transition-colors group-hover:scale-110 duration-300"></i>
+                <!-- Feature 2 -->
+                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-1 text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
+                        <i data-lucide="pen-tool" class="text-primary group-hover:text-accent w-7 h-7"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Hajj & Umrah</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Spiritual journeys crafted with the utmost care, respect, and comfort. Complete packages covering flights, stays, and guidance.</p>
-                    <button onclick="openWhatsAppSpecific('I want to enquire about Hajj/Umrah packages.')" class="btn-outline py-3 px-6 rounded-full text-brand-lightPurple font-bold text-sm hover:text-white transition-colors uppercase tracking-widest flex items-center justify-center gap-2 w-full border-brand-lightPurple/50 hover:border-brand-purple">View Packages <i class="fa-solid fa-arrow-right"></i></button>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Custom Designs</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">From intricate back-lit ceiling cutouts to seamless fluted wall patterns tailored to you.</p>
                 </div>
-
-                <!-- Service 3 -->
-                <div class="glass-card p-10 rounded-[2.5rem] text-center group relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-white to-transparent"></div>
-                    <div class="relative w-24 h-24 mx-auto bg-black border border-white/10 rounded-[2rem] flex items-center justify-center mb-8 transform group-hover:-translate-y-3 transition-transform duration-500 shadow-[0_0_30px_rgba(255,255,255,0.05)] group-hover:shadow-[0_0_40px_rgba(255,255,255,0.15)] group-hover:border-white/50">
-                        <i class="fa-solid fa-hotel text-4xl text-white transition-colors group-hover:scale-110 duration-300"></i>
+                <!-- Feature 3 -->
+                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-2 text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
+                        <i data-lucide="hammer" class="text-primary group-hover:text-accent w-7 h-7"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white">Hotel Combos</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Curated holiday packages tailored to your budget. Get exclusive rates on premium properties worldwide with full support.</p>
-                    <button onclick="openWhatsAppSpecific('I am looking for Hotel and Holiday packages.')" class="btn-outline py-3 px-6 rounded-full text-white border-white/50 hover:border-white font-bold text-sm hover:bg-white/10 transition-colors uppercase tracking-widest flex items-center justify-center gap-2 w-full">Plan a Trip <i class="fa-solid fa-arrow-right"></i></button>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Expert Installation</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Flawless execution by our skilled artisans ensuring longevity and a perfect finish.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-3 text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
+                        <i data-lucide="map-pin" class="text-primary group-hover:text-accent w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-serif mb-3 text-primary">Local Excellence</h3>
+                    <p class="text-text-muted text-sm leading-relaxed">Based in Rathpora Eidgah, we bring top-tier interior solutions directly to Srinagar homes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-24 bg-black relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <p class="text-brand-lightPurple font-bold tracking-widest uppercase text-xs mb-3">Client Reviews</p>
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-white tracking-tight">What Travelers Say.</h2>
+    <!-- PORTFOLIO / FEATURED PRODUCTS -->
+    <section id="portfolio" class="py-24 bg-white relative border-t border-primary/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal gap-6">
+                <div>
+                    <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Our Masterpieces</span>
+                    <h2 class="text-4xl md:text-5xl font-serif text-text-main">Featured Work</h2>
+                </div>
+                <button onclick="window.open('https://wa.me/919906574299?text=Hi,%20I%20would%20like%20to%20see%20your%20full%20catalog.', '_blank')" class="text-primary font-semibold hover:text-accent-dark transition-colors flex items-center gap-2 pb-2">
+                    View Full Catalog <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
             </div>
-            
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 (Large) -->
+                <div class="lg:col-span-2 relative h-[500px] rounded-3xl img-zoom-container reveal group shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="Modern False Ceiling" class="w-full h-full object-cover img-zoom">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <span class="bg-accent text-primary-dark text-xs px-4 py-1.5 rounded-full mb-4 inline-block font-bold tracking-wide">Signature Ceilings</span>
+                                <h3 class="text-3xl font-serif mb-2 text-white">Illuminated PVC Ceilings</h3>
+                                <p class="text-gray-200 max-w-md text-sm leading-relaxed mb-6">Custom-crafted false ceilings featuring intricate backlit patterns, modern geometry, and premium wood-finish PVC panels.</p>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <button onclick="openProductWA('PVC False Ceilings')" class="bg-white/20 backdrop-blur-md border border-white/40 px-6 py-2.5 rounded-full text-sm font-medium text-white hover:bg-white hover:text-primary transition-all duration-300 flex items-center gap-2 w-fit">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i> Inquire Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="relative h-[500px] rounded-3xl img-zoom-container reveal reveal-delay-1 group shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Wall Paneling" class="w-full h-full object-cover img-zoom">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <span class="bg-accent text-primary-dark text-xs px-4 py-1.5 rounded-full mb-4 w-fit font-bold tracking-wide">Wall Aesthetics</span>
+                        <h3 class="text-2xl font-serif mb-2 text-white">UV Marble & Louvers</h3>
+                        <p class="text-gray-200 text-sm mb-6">Transform plain walls with high-gloss UV marble sheets and textured WPC fluted panels.</p>
+                        <button onclick="openProductWA('Wall Paneling & UV Marble')" class="bg-white/20 backdrop-blur-md border border-white/40 px-6 py-2.5 rounded-full text-sm font-medium text-white hover:bg-white hover:text-primary transition-all duration-300 flex items-center gap-2 w-fit">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Inquire Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="relative h-[400px] rounded-3xl img-zoom-container reveal group shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Wooden Flooring" class="w-full h-full object-cover img-zoom">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <span class="bg-accent text-primary-dark text-xs px-4 py-1.5 rounded-full mb-4 w-fit font-bold tracking-wide">Premium Floors</span>
+                        <h3 class="text-2xl font-serif mb-2 text-white">Wooden Flooring</h3>
+                        <button onclick="openProductWA('Wooden Flooring')" class="mt-4 bg-white/20 backdrop-blur-md border border-white/40 px-6 py-2.5 rounded-full text-sm font-medium text-white hover:bg-white hover:text-primary transition-all duration-300 flex items-center gap-2 w-fit">
+                            Inquire Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4 (Large) -->
+                <div class="lg:col-span-2 relative h-[400px] rounded-3xl img-zoom-container reveal reveal-delay-1 group shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="Full Interior" class="w-full h-full object-cover img-zoom">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <span class="bg-accent text-primary-dark text-xs px-4 py-1.5 rounded-full mb-4 w-fit font-bold tracking-wide">Complete Solutions</span>
+                        <h3 class="text-3xl font-serif mb-2 text-white">Turnkey Interiors</h3>
+                        <p class="text-gray-200 max-w-md text-sm leading-relaxed mb-6">From wallpapers and carpets to full room transformations, we handle every detail of your interior space.</p>
+                        <button onclick="openProductWA('Complete Room Interior')" class="bg-white/20 backdrop-blur-md border border-white/40 px-6 py-2.5 rounded-full text-sm font-medium text-white hover:bg-white hover:text-primary transition-all duration-300 flex items-center gap-2 w-fit">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Inquire Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">What We Do</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-text-main">Our Expertise</h2>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Review 1 -->
-                <div class="glass-card p-8 rounded-3xl relative" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex text-brand-lightBlue mb-6 text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <!-- Service 1 -->
+                <div class="glass-panel p-3 rounded-3xl hover:-translate-y-2 transition-transform duration-300 reveal group">
+                    <div class="img-zoom-container rounded-2xl h-64 mb-6">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Residential" class="w-full h-full object-cover img-zoom">
                     </div>
-                    <p class="text-gray-300 italic mb-8 font-light">"Got a last minute flight to Delhi for my business trip. The price was ₹2000 cheaper than major portals. The WhatsApp booking process was surprisingly fast and premium."</p>
-                    <div class="flex items-center gap-4 mt-auto">
-                        <div class="w-12 h-12 rounded-full bg-brand-blue/20 flex items-center justify-center font-bold text-brand-lightBlue border border-brand-blue/30">A</div>
-                        <div>
-                            <h4 class="text-white font-bold">Aadil Bhat</h4>
-                            <p class="text-xs text-gray-500">Srinagar</p>
+                    <div class="px-4 pb-6 text-center">
+                        <h3 class="text-xl font-serif mb-3 text-primary">Residential Interiors</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Elevate your living room, bedrooms, and hallways with custom ceilings and elegant wall treatments designed for comfort.</p>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="glass-panel p-3 rounded-3xl hover:-translate-y-2 transition-transform duration-300 reveal reveal-delay-1 group">
+                    <div class="img-zoom-container rounded-2xl h-64 mb-6">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Commercial" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="px-4 pb-6 text-center">
+                        <h3 class="text-xl font-serif mb-3 text-primary">Commercial Spaces</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Impress clients with sophisticated office environments, retail showrooms, and hospitality spaces built to inspire.</p>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="glass-panel p-3 rounded-3xl hover:-translate-y-2 transition-transform duration-300 reveal reveal-delay-2 group">
+                    <div class="img-zoom-container rounded-2xl h-64 mb-6">
+                        <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Consultation" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="px-4 pb-6 text-center">
+                        <h3 class="text-xl font-serif mb-3 text-primary">Design Consultation</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Not sure where to start? We help you choose the right materials, colors, and layouts to match your aesthetic and budget.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-24 bg-white relative border-t border-primary/5">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Information</span>
+                <h2 class="text-4xl font-serif text-text-main">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4 reveal">
+                <!-- FAQ Item 1 -->
+                <div class="glass-panel rounded-2xl overflow-hidden bg-base-bg/50">
+                    <button class="faq-toggle w-full px-8 py-6 flex justify-between items-center text-left focus:outline-none hover:bg-base-bg transition-colors duration-200">
+                        <span class="font-semibold text-lg text-primary">What materials do you use for ceilings and walls?</span>
+                        <div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center shrink-0 bg-white">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-primary transform transition-transform duration-300 faq-icon"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-8 pb-6 text-text-muted text-sm leading-relaxed border-t border-primary/10 pt-4 bg-white/50">
+                            We use a variety of high-quality materials including premium PVC for false ceilings, UV Marble sheets for luxurious wall finishes, WPC (Wood Plastic Composite) louvers and fluted panels, as well as imported wallpapers and wooden flooring.
                         </div>
                     </div>
                 </div>
 
-                <!-- Review 2 -->
-                <div class="glass-card p-8 rounded-3xl relative" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex text-brand-purple mb-6 text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-300 italic mb-8 font-light">"Booked our family Umrah package through HM Tours. Their guidance, hotel quality, and constant support made the spiritual journey completely stress-free."</p>
-                    <div class="flex items-center gap-4 mt-auto">
-                        <div class="w-12 h-12 rounded-full bg-brand-purple/20 flex items-center justify-center font-bold text-brand-lightPurple border border-brand-purple/30">M</div>
-                        <div>
-                            <h4 class="text-white font-bold">Mehraj Din</h4>
-                            <p class="text-xs text-gray-500">Anantnag</p>
+                <!-- FAQ Item 2 -->
+                <div class="glass-panel rounded-2xl overflow-hidden bg-base-bg/50">
+                    <button class="faq-toggle w-full px-8 py-6 flex justify-between items-center text-left focus:outline-none hover:bg-base-bg transition-colors duration-200">
+                        <span class="font-semibold text-lg text-primary">How long does an installation typically take?</span>
+                        <div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center shrink-0 bg-white">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-primary transform transition-transform duration-300 faq-icon"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-8 pb-6 text-text-muted text-sm leading-relaxed border-t border-primary/10 pt-4 bg-white/50">
+                            Timelines vary based on the scope of the project. A single room ceiling or wall paneling might take 2-4 days, while a complete residential interior can take a few weeks. We provide a clear timeline during our initial consultation.
                         </div>
                     </div>
                 </div>
 
-                <!-- Review 3 -->
-                <div class="glass-card p-8 rounded-3xl relative" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex text-brand-lightBlue mb-6 text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <p class="text-gray-300 italic mb-8 font-light">"The flash deals are legit. I secured a ticket to Mumbai at an incredible rate just by messaging them on WhatsApp. Highly professional team."</p>
-                    <div class="flex items-center gap-4 mt-auto">
-                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center font-bold text-white border border-white/20">S</div>
-                        <div>
-                            <h4 class="text-white font-bold">Saima R.</h4>
-                            <p class="text-xs text-gray-500">Baramulla</p>
+                <!-- FAQ Item 3 -->
+                <div class="glass-panel rounded-2xl overflow-hidden bg-base-bg/50">
+                    <button class="faq-toggle w-full px-8 py-6 flex justify-between items-center text-left focus:outline-none hover:bg-base-bg transition-colors duration-200">
+                        <span class="font-semibold text-lg text-primary">Do you provide services outside of Srinagar?</span>
+                        <div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center shrink-0 bg-white">
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-primary transform transition-transform duration-300 faq-icon"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-8 pb-6 text-text-muted text-sm leading-relaxed border-t border-primary/10 pt-4 bg-white/50">
+                            Our primary showroom and operations are based in Rathpora Eidgah, Srinagar. However, we do take up major projects across surrounding areas in Jammu & Kashmir. Please contact us to discuss your specific location.
                         </div>
                     </div>
                 </div>
@@ -448,367 +564,220 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-24 bg-black border-t border-white/5 relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <i class="fa-regular fa-circle-question text-4xl text-brand-purple mb-6"></i>
-                <h2 class="text-3xl md:text-4xl font-display font-bold text-white tracking-tight">Frequently Asked Questions</h2>
-            </div>
-
-            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
-                <!-- FAQ 1 -->
-                <details class="glass-card rounded-2xl group overflow-hidden" name="faq">
-                    <summary class="cursor-pointer p-6 font-bold text-white flex justify-between items-center outline-none">
-                        How does the WhatsApp booking process work?
-                        <i class="fa-solid fa-chevron-down text-brand-lightBlue transition-transform group-open:rotate-180"></i>
-                    </summary>
-                    <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed border-t border-white/5 mt-2">
-                        Simply tap the "Book via WhatsApp" button on any deal or custom request. It opens a pre-filled message. Our agents will instantly reply with availability, payment links (UPI/Bank Transfer), and issue your e-ticket directly to your phone.
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-primary-dark pt-20 pb-10 px-6 md:px-12 relative overflow-hidden text-white">
+        <!-- Abstract BG Element -->
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-primary rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative z-10 mb-16">
+            <!-- Brand -->
+            <div>
+                <a href="#" class="flex items-center gap-3 mb-8">
+                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-primary-dark">
+                        <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
                     </div>
-                </details>
-
-                <!-- FAQ 2 -->
-                <details class="glass-card rounded-2xl group overflow-hidden" name="faq">
-                    <summary class="cursor-pointer p-6 font-bold text-white flex justify-between items-center outline-none">
-                        Are the flash deal prices guaranteed?
-                        <i class="fa-solid fa-chevron-down text-brand-lightBlue transition-transform group-open:rotate-180"></i>
-                    </summary>
-                    <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed border-t border-white/5 mt-2">
-                        Airfares fluctuate constantly. The prices shown on our flash deal board are highly accurate as of the daily update. However, to secure the exact price, immediate booking via WhatsApp is required before the airline modifies the inventory.
+                    <div class="flex flex-col leading-none">
+                        <span class="font-serif text-2xl tracking-wide text-white">Al-Abraq</span>
+                        <span class="text-[0.7rem] tracking-[0.2em] text-accent font-sans uppercase mt-1">Interior Studio</span>
                     </div>
-                </details>
-
-                <!-- FAQ 3 -->
-                <details class="glass-card rounded-2xl group overflow-hidden" name="faq">
-                    <summary class="cursor-pointer p-6 font-bold text-white flex justify-between items-center outline-none">
-                        Do you provide corporate or group booking discounts?
-                        <i class="fa-solid fa-chevron-down text-brand-lightBlue transition-transform group-open:rotate-180"></i>
-                    </summary>
-                    <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed border-t border-white/5 mt-2">
-                        Yes, as a Private Limited company, we specialize in corporate travel management and bulk group bookings (including Hajj/Umrah groups). Please reach out via WhatsApp or email for dedicated B2B rates.
-                    </div>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- About & Trust Section -->
-    <section id="about" class="py-24 relative bg-black border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-card rounded-[3rem] p-10 lg:p-16 border-l-4 border-l-brand-purple relative overflow-hidden" data-aos="fade-in">
-                <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-brand-purple/5 to-transparent pointer-events-none"></div>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-                    <div data-aos="fade-right">
-                        <h2 class="text-4xl font-display font-bold mb-8 text-white">About The Company</h2>
-                        <p class="text-gray-300 mb-6 leading-relaxed text-lg">
-                            Incorporated on February 6, 2024, <strong class="text-brand-lightBlue">HM Tour and Travels Private Limited</strong> represents the new standard of travel management in Jammu & Kashmir. 
-                        </p>
-                        <p class="text-gray-400 mb-10 leading-relaxed">
-                            We bridge the gap between premium service and unbeatable affordability. Whether you are flying domestically or planning an international getaway, our dedicated team ensures your reservation process is seamless, transparent, and instantly supported via our digital channels.
-                        </p>
-                        
-                        <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-8">
-                            <div>
-                                <p class="text-xs text-gray-500 uppercase tracking-widest mb-2 font-bold">Corporate ID (CIN)</p>
-                                <p class="font-mono text-sm text-brand-lightPurple bg-brand-purple/10 inline-block px-3 py-1 rounded-lg border border-brand-purple/20">U79120JK2024PTC015576</p>
-                            </div>
-                            <div>
-                                <p class="text-xs text-gray-500 uppercase tracking-widest mb-2 font-bold">Status</p>
-                                <p class="text-sm font-bold text-brand-lightBlue flex items-center gap-2 bg-brand-blue/10 inline-block px-3 py-1 rounded-lg border border-brand-blue/20">
-                                    <i class="fa-solid fa-circle-check"></i> Active & Verified
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-black/60 rounded-[2.5rem] p-8 lg:p-10 border border-brand-purple/20 backdrop-blur-xl" data-aos="fade-left">
-                        <h3 class="text-2xl font-bold mb-8 flex items-center gap-4 text-white">
-                            <div class="w-10 h-10 rounded-full bg-brand-blue/20 flex items-center justify-center border border-brand-blue/40">
-                                <i class="fa-solid fa-users-viewfinder text-brand-lightBlue"></i>
-                            </div>
-                            Leadership Team
-                        </h3>
-                        <div class="space-y-5">
-                            <div class="flex items-center gap-5 glass-card p-4 rounded-2xl border border-white/10 hover:border-brand-purple/50 transition-colors">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-blue to-brand-purple flex items-center justify-center text-white font-bold text-lg shadow-inner">M</div>
-                                <div>
-                                    <p class="font-bold text-white text-base">Mohmad Shaban</p>
-                                    <p class="text-xs text-brand-lightPurple uppercase tracking-widest mt-1">Director</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-5 glass-card p-4 rounded-2xl border border-white/10 hover:border-brand-purple/50 transition-colors">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-blue to-brand-purple flex items-center justify-center text-white font-bold text-lg shadow-inner">H</div>
-                                <div>
-                                    <p class="font-bold text-white text-base">Haleema</p>
-                                    <p class="text-xs text-brand-lightPurple uppercase tracking-widest mt-1">Director</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-5 glass-card p-4 rounded-2xl border border-white/10 hover:border-brand-purple/50 transition-colors">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-blue to-brand-purple flex items-center justify-center text-white font-bold text-lg shadow-inner">E</div>
-                                <div>
-                                    <p class="font-bold text-white text-base">Eideen Wani</p>
-                                    <p class="text-xs text-brand-lightPurple uppercase tracking-widest mt-1">Director</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm">Crafting luxurious, modern, and enduring interiors for homes and businesses across Srinagar.</p>
+                <div class="flex gap-4">
+                    <a href="https://youtube.com/channel/UCT9..." target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="facebook" class="w-4 h-4"></i></a>
                 </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="lg:ml-auto">
+                <h4 class="font-serif text-xl mb-6 text-accent">Our Products</h4>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> PVC Ceilings</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> UV Marble Sheets</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> WPC Louvers & Fluted Panels</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> Wooden Flooring & Carpets</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> Imported Wallpaper</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="lg:ml-auto">
+                <h4 class="font-serif text-xl mb-6 text-accent">Visit Studio</h4>
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-accent"></i>
+                        </div>
+                        <span class="text-gray-400 text-sm leading-relaxed pt-1.5">Rathpora Eidgah<br>Srinagar, Jammu & Kashmir<br>Google Maps: Al-Abraq Interior</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
+                            <i data-lucide="phone" class="w-4 h-4 text-accent"></i>
+                        </div>
+                        <div class="flex flex-col gap-1.5 pt-1.5">
+                            <a href="tel:+919906574299" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">+91 99065 74299</a>
+                            <span class="text-gray-500 text-xs">Sunday Closed</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-black border-t border-brand-purple/20 pt-20 pb-10 relative overflow-hidden">
-        <div class="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-brand-blue/5 to-transparent pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-16">
-                
-                <!-- Brand Col -->
-                <div class="lg:col-span-1" data-aos="fade-up" data-aos-delay="0">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-blue to-brand-purple flex items-center justify-center shadow-lg shadow-brand-purple/30">
-                            <i class="fa-solid fa-plane text-white text-sm"></i>
-                        </div>
-                        <h2 class="font-display font-bold text-xl tracking-wide text-white">HM TRAVELS</h2>
-                    </div>
-                    <p class="text-sm text-gray-400 mb-8 leading-relaxed">
-                        Discover the World at Unbeatable Prices. Book your flights with us for a budget-friendly, premium travel experience.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://instagram.com/HMTOURANDTRAVELSPVTLTD" target="_blank" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-white hover:text-brand-lightPurple hover:border-brand-purple transition-all">
-                            <i class="fa-brands fa-instagram text-xl"></i>
-                        </a>
-                        <a href="javascript:void(0)" onclick="openGeneralWhatsApp()" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-white hover:text-brand-lightBlue hover:border-brand-blue transition-all">
-                            <i class="fa-brands fa-whatsapp text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Links Col -->
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">Quick Links</h3>
-                    <ul class="space-y-4">
-                        <li><a href="#deals" class="text-gray-400 hover:text-brand-lightPurple text-sm transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-brand-purple"></i> Flash Deals</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-brand-lightPurple text-sm transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-brand-purple"></i> Our Services</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-brand-lightPurple text-sm transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-brand-purple"></i> Reviews</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-brand-lightPurple text-sm transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-brand-purple"></i> FAQs</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-brand-lightPurple text-sm transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs text-brand-purple"></i> Company Profile</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Col -->
-                <div class="lg:col-span-2" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-white font-bold mb-8 uppercase tracking-widest text-sm">Reach Us</h3>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-5 glass-card p-5 rounded-2xl border border-white/10">
-                            <div class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-location-dot text-brand-lightPurple"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-white font-bold mb-1">Registered Head Office</p>
-                                <p class="text-sm text-gray-400 leading-relaxed">
-                                    First Floor, Shop No-2, Aqsa Mall (Aksa Mall),<br>
-                                    Hari Singh High Street, I.G. Road,<br>
-                                    Badyar Balla, Srinagar, J&K - 190001
-                                </p>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="flex items-center gap-4 glass-card p-4 rounded-2xl border border-white/10">
-                                <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0">
-                                    <i class="fa-solid fa-phone text-brand-lightBlue"></i>
-                                </div>
-                                <div class="flex flex-col">
-                                    <a href="tel:+919596256544" class="text-sm text-gray-300 hover:text-brand-lightBlue font-medium transition-colors">+91-9596256544</a>
-                                    <a href="tel:+919419093191" class="text-sm text-gray-300 hover:text-brand-lightBlue font-medium transition-colors">+91-9419093191</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4 glass-card p-4 rounded-2xl border border-white/10">
-                                <div class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center shrink-0">
-                                    <i class="fa-solid fa-envelope text-brand-lightPurple"></i>
-                                </div>
-                                <a href="mailto:tickets@hmtourandtravels.com" class="text-xs text-gray-300 hover:text-brand-lightPurple font-medium transition-colors break-all">tickets@hmtourandtravels<br>.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom Footer -->
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-sm text-gray-500 font-medium">
-                    &copy; 2024 HM Tour and Travels Pvt Ltd. All rights reserved.
-                </p>
-                <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:border-brand-purple/30 transition-colors">
-                    <i class="fa-solid fa-bell-slash text-brand-purple text-sm"></i>
-                    <a href="javascript:void(0)" onclick="openWhatsAppSpecific('STOP')" class="text-xs text-gray-400 hover:text-white transition-colors">
-                        Opt-Out of SMS/Alerts (Reply 'STOP')
-                    </a>
-                </div>
-            </div>
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+            <p class="text-gray-500 text-xs">© 2026 Al-Abraq Interior. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Floating Sticky WhatsApp Button -->
-    <a href="javascript:void(0)" onclick="openGeneralWhatsApp()" class="floating-wa group">
-        <div class="absolute -inset-2 bg-brand-purple rounded-full opacity-30 group-hover:opacity-50 animate-ping"></div>
-        <i class="fa-brands fa-whatsapp text-2xl relative z-10"></i>
-        <span class="hidden sm:inline relative z-10 tracking-wide">Chat with us</span>
-    </a>
+    <!-- FLOATING CONTACT BUTTONS -->
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-row items-center justify-center gap-4 w-max max-w-[95vw]">
+        
+        <!-- Call Button -->
+        <a href="tel:+919906574299" class="floating-glass-btn rounded-full px-6 md:px-8 h-[56px] flex items-center justify-center gap-3 text-white group whitespace-nowrap">
+            <div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform">
+                <i data-lucide="phone-call" class="w-4 h-4 text-primary-dark"></i>
+            </div>
+            <span class="font-medium tracking-wide text-[15px] pr-1 hidden sm:block">Call Studio</span>
+        </a>
+        
+        <!-- WhatsApp Icon -->
+        <a href="https://wa.me/919906574299" target="_blank" class="w-[56px] h-[56px] rounded-full floating-glass-btn flex items-center justify-center text-[#25D366] hover:text-[#25D366] shrink-0 bg-white shadow-[0_4px_20px_rgba(37,211,102,0.3)] border-none">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.441-1.273.607-1.446c.127-.133.358-.2.579-.2.072 0 .141 0 .204.005.152.011.334-.055.518.39.213.518.687 1.679.749 1.802.062.124.104.269.021.436-.083.167-.124.271-.249.42-.125.148-.266.331-.379.438-.125.118-.255.247-.114.492.141.244.625.996 1.341 1.625.924.814 1.666 1.071 1.914 1.19.248.118.393.102.539-.06.146-.162.628-.731.794-.983.166-.252.332-.211.554-.128.221.083 1.411.667 1.652.787.241.121.402.182.46.282.059.099.059.576-.085.981z"></path>
+                <path d="M12.031 2C6.48 2 2 6.48 2 12.031c0 1.96.539 3.844 1.553 5.467L2 22l4.639-1.523A9.974 9.974 0 0 0 12.031 22c5.551 0 10.031-4.48 10.031-10.031C22.062 6.48 17.582 2 12.031 2zm0 18.25c-1.637 0-3.238-.423-4.636-1.222l-.333-.191-3.085 1.013 1.026-3.003-.209-.333A8.252 8.252 0 0 1 3.75 12.031c0-4.566 3.715-8.281 8.281-8.281 4.566 0 8.281 3.715 8.281 8.281 0 4.566-3.715 8.281-8.281 8.281z"></path>
+            </svg>
+        </a>
+    </div>
 
-    <!-- AOS Animation Script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- Main JavaScript -->
+    <!-- JavaScript Interactions -->
     <script>
-        // Initialize Animations
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 50
+        // 1. Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 2. Fast Minimal Preloader Logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('premium-preloader');
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                document.getElementById('hero-content').classList.add('active');
+                setTimeout(() => { preloader.remove(); }, 400);
+            }, 300); 
         });
 
-        // --- Sidebar Logic ---
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const closeSidebarBtn = document.getElementById('close-sidebar');
-        const sidebar = document.getElementById('mobile-sidebar');
-        const overlay = document.getElementById('sidebar-overlay');
-        const navLinks = document.querySelectorAll('.nav-link');
+        // 3. "Get Free Quote" Dynamic WhatsApp Generator
+        document.getElementById('get-quote-btn').addEventListener('click', () => {
+            const serviceSelect = document.getElementById('service-select');
+            const spaceSelect = document.getElementById('space-select');
+            
+            const serviceValue = serviceSelect.value;
+            const spaceValue = spaceSelect.value;
+            
+            let message = "Hi Al-Abraq Interior, I am looking for interior design services and would like to get a quote/consultation.";
+            
+            if (serviceValue && spaceValue) {
+                message = `Hi Al-Abraq Interior, I am interested in ${serviceValue} for my ${spaceValue}. Could you please share more details and an estimate?`;
+            } else if (serviceValue) {
+                message = `Hi Al-Abraq Interior, I am interested in ${serviceValue}. Could you please share your catalog and details?`;
+            } else if (spaceValue) {
+                message = `Hi Al-Abraq Interior, I want to renovate my ${spaceValue}. Could you suggest some designs and estimates?`;
+            }
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/919906574299?text=${encodedMessage}`, '_blank');
+        });
 
-        function toggleSidebar() {
-            const isClosed = sidebar.classList.contains('translate-x-full');
-            if (isClosed) {
-                // Open
-                sidebar.classList.remove('translate-x-full');
-                overlay.classList.remove('hidden');
-                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        // 4. Individual Product WA Generator
+        function openProductWA(productName) {
+            const message = `Hi Al-Abraq Interior, I want to know more about your ${productName} services. Please share designs and pricing.`;
+            window.open(`https://wa.me/919906574299?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // 5. Mobile Animated Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = !mobileMenu.classList.contains('translate-x-full');
+            
+            if (isOpen) {
+                mobileMenu.classList.add('translate-x-full');
+                mobileOverlay.classList.remove('opacity-100');
+                mobileOverlay.classList.add('opacity-0', 'pointer-events-none');
+                
+                mobileLinks.forEach(link => {
+                    link.classList.remove('opacity-100', 'translate-x-0');
+                    link.classList.add('opacity-0', 'translate-x-4');
+                });
             } else {
-                // Close
-                sidebar.classList.add('translate-x-full');
-                overlay.classList.add('opacity-0');
-                setTimeout(() => overlay.classList.add('hidden'), 300);
-                document.body.style.overflow = '';
+                mobileMenu.classList.remove('translate-x-full');
+                mobileOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                mobileOverlay.classList.add('opacity-100');
+                
+                mobileLinks.forEach((link, index) => {
+                    setTimeout(() => {
+                        link.classList.remove('opacity-0', 'translate-x-4');
+                        link.classList.add('opacity-100', 'translate-x-0');
+                    }, 100 + (index * 70));
+                });
             }
         }
 
-        mobileMenuBtn.addEventListener('click', toggleSidebar);
-        closeSidebarBtn.addEventListener('click', toggleSidebar);
-        overlay.addEventListener('click', toggleSidebar);
+        mobileBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
         
-        // Close sidebar when a link is clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (!sidebar.classList.contains('translate-x-full')) {
-                    toggleSidebar();
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // 6. Scroll Reveal Animation
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            observer.observe(element);
+        });
+
+        // 7. Strict FAQ Accordion
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('.faq-icon');
+                const isOpen = content.style.maxHeight;
+
+                document.querySelectorAll('.faq-content').forEach(otherContent => {
+                    otherContent.style.maxHeight = null;
+                    otherContent.previousElementSibling.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                });
+
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.style.transform = 'rotate(180deg)';
                 }
             });
         });
 
-        // --- Flash Deals Data ---
-        const flashDeals = [
-            { id: 1, route: 'SRINAGAR ➔ DELHI', price: 3700, date: '9 MAR', details: 'AIRINDIA EXPRESS, 10:20AM/2:45PM', tag: 'Fast Selling' },
-            { id: 2, route: 'SRINAGAR ➔ DELHI', price: 4000, date: '10 MAR', details: 'AIRINDIA, 09:10AM', tag: 'Free Meals' },
-            { id: 3, route: 'DELHI ➔ SRINAGAR', price: 4000, date: '9-10 MAR', details: 'AIRINDIA EXPRESS, 12:30PM', tag: '' },
-            { id: 4, route: 'DELHI ➔ SRINAGAR', price: 3600, date: '10 MAR', details: 'AIRINDIA, 07:05AM', tag: 'Free Meals' },
-            { id: 5, route: 'SRINAGAR ➔ HYDERABAD', price: 6500, date: '9/11 MAR', details: 'INDIGO, 16:55', tag: '' },
-            { id: 6, route: 'BANGALORE ➔ SRINAGAR', price: 6000, date: '14 MAR', details: 'INDIGO, 07:10AM', tag: '' },
-            { id: 7, route: 'MUMBAI ➔ SRINAGAR', price: 6500, date: '12 MAR', details: 'INDIGO, 01:25PM', tag: 'Hot Deal' },
-            { id: 8, route: 'CHANDIGARH ➔ SRINAGAR', price: 3600, date: '9 MAR', details: 'INDIGO, 2:10PM', tag: '' },
-            { id: 9, route: 'JAMMU ➔ DELHI', price: 4200, date: '09 MAR', details: 'SPICEJET, 07:35PM', tag: '' }
-        ];
-
-        const WA_NUMBER = "919596256544";
-        const dealsContainer = document.getElementById('deals-container');
-        
-        flashDeals.forEach((deal, index) => {
-            let tagHTML = '';
-            if (deal.tag) {
-                const tagColor = deal.tag === 'Free Meals' 
-                    ? 'bg-brand-blue/20 text-brand-lightBlue border-brand-blue/30' 
-                    : 'bg-brand-purple/20 text-brand-lightPurple border-brand-purple/30';
-                tagHTML = `<span class="absolute top-5 right-5 text-xs font-bold px-4 py-1.5 rounded-full ${tagColor} border backdrop-blur-md">${deal.tag}</span>`;
-            }
-
-            const waMessage = `Hi HM Travels, I am looking at your website. I want to book the *${deal.route}* flight for *₹${deal.price}* (${deal.date}, ${deal.details.split(',')[0]}). Is it available?`;
-            const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waMessage)}`;
-            const delay = (index % 3) * 100; // Staggered animation delay
-
-            const card = `
-                <div class="glass-card rounded-[2rem] p-8 relative flex flex-col h-full border border-white/15 hover:border-brand-purple/50" data-aos="fade-up" data-aos-delay="${delay}">
-                    ${tagHTML}
-                    
-                    <div class="text-brand-lightBlue text-xs font-bold mb-4 flex items-center gap-2 bg-brand-blue/10 inline-flex px-3 py-1.5 rounded-full border border-brand-blue/20">
-                        <i class="fa-regular fa-calendar"></i> ${deal.date}
-                    </div>
-                    
-                    <h3 class="text-xl font-display font-bold text-white mb-2 leading-snug">${deal.route.replace('➔', '<i class="fa-solid fa-plane text-brand-purple mx-2 text-sm"></i>')}</h3>
-                    <p class="text-sm text-gray-400 mb-8 font-medium">${deal.details}</p>
-                    
-                    <div class="mt-auto pt-6 border-t border-white/10 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-1 font-bold">Price</p>
-                            <p class="text-3xl font-bold text-brand-lightPurple">₹${deal.price}</p>
-                        </div>
-                        <a href="${waUrl}" target="_blank" class="btn-gradient w-14 h-14 rounded-full hover:text-white flex items-center justify-center group shadow-lg" aria-label="Book via WhatsApp">
-                            <i class="fa-brands fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i>
-                        </a>
-                    </div>
-                </div>
-            `;
-            dealsContainer.innerHTML += card;
-        });
-
-        // Search Form Logic
-        function handleSearchRequest(e) {
-            e.preventDefault();
-            const from = document.getElementById('searchFrom').value;
-            const to = document.getElementById('searchTo').value;
-            const date = document.getElementById('searchDate').value;
-            
-            let dateStr = "an upcoming date";
-            if(date) {
-                const d = new Date(date);
-                dateStr = d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
-            }
-
-            const message = `Hi HM Travels, I need a flight from *${from}* to *${to}* on *${dateStr}*. Please share the best available options and prices.`;
-            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
-        }
-
-        // Generic WhatsApp Functions
-        function openGeneralWhatsApp() {
-            const msg = "Hi HM Tour and Travels! I visited your website and need some assistance planning my trip.";
-            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-
-        function openWhatsAppSpecific(message) {
-            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const today = new Date().toISOString().split('T')[0];
-            const dateInput = document.getElementById('searchDate');
-            if(dateInput) dateInput.min = today;
-        });
-
-        // Navbar interaction on scroll
+        // 8. Header background on scroll
         window.addEventListener('scroll', () => {
-            const navContainer = document.getElementById('navbar-container');
-            const nav = document.getElementById('navbar');
+            const header = document.querySelector('header');
             if (window.scrollY > 50) {
-                navContainer.classList.add('top-2');
-                navContainer.classList.remove('top-6');
-                nav.classList.add('bg-black/70');
-                nav.classList.remove('bg-black/40');
+                header.classList.add('shadow-md');
+                header.style.background = 'rgba(255, 255, 255, 0.9)';
             } else {
-                navContainer.classList.add('top-6');
-                navContainer.classList.remove('top-2');
-                nav.classList.add('bg-black/40');
-                nav.classList.remove('bg-black/70');
+                header.classList.remove('shadow-md');
+                header.style.background = 'rgba(255, 255, 255, 0.6)';
             }
         });
     </script>
