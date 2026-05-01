@@ -1,785 +1,645 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Abraq Interior | Premium Design Studio Srinagar</title>
-    <meta name="description" content="Transform your space with Al-Abraq Interior. Specializing in PVC ceilings, wall panels, UV marble sheets, and wooden flooring in Rathpora Eidgah, Srinagar.">
-    
-    <!-- Premium Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <title>Crafty Cure Studio | Aesthetic Resin Art & Gifts</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Tailwind Configuration -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    colors: {
-                        primary: {
-                            DEFAULT: '#1F3D2B', // Dark Green
-                            light: '#2A5239',
-                            dark: '#14291C'
-                        },
-                        accent: {
-                            light: '#E6DCC8',
-                            DEFAULT: '#D6C5A3', // Muted Gold/Beige
-                            dark: '#B8A47E'
-                        },
-                        base: {
-                            bg: '#EBF5EC', // Light greenish-white
-                            surface: '#FFFFFF',
-                        },
-                        text: {
-                            main: '#1A1A1A',
-                            muted: '#4A4A4A',
-                            light: '#EBF5EC'
-                        }
-                    },
-                    animation: {
-                        'pulse-soft': 'pulseSoft 3s infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        pulseSoft: {
-                            '0%, 100%': { transform: 'scale(1)', opacity: '1' },
-                            '50%': { transform: 'scale(1.02)', opacity: '0.95' }
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
         body {
-            background-color: #EBF5EC;
-            color: #1A1A1A;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background-color: #fffdfc;
+            margin: 0;
+            padding: 0;
             overflow-x: hidden;
         }
-
-        /* --- PRELOADER --- */
-        #premium-preloader {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background-color: #EBF5EC;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.4s ease, visibility 0.4s ease;
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
         }
-
-        .loader-ring {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(31, 61, 43, 0.1);
-            border-top-color: #1F3D2B;
-            border-radius: 50%;
-            animation: spinFast 0.8s cubic-bezier(0.6, 0.2, 0.4, 0.8) infinite;
-        }
-
-        @keyframes spinFast {
-            to { transform: rotate(360deg); }
-        }
-
-        /* --- LIGHT GLASSMORPHISM (Tailored for #EBF5EC) --- */
-        .brand-bar {
-            background: #1F3D2B;
-            color: #D6C5A3;
-        }
-
-        .liquid-glass-header {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
-        }
-
-        .glassy-menu-button {
-            background: rgba(31, 61, 43, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(31, 61, 43, 0.1);
-            border-radius: 9999px;
-            padding: 0.75rem;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1F3D2B;
-            transition: 0.3s ease;
-        }
-
-        .glassy-menu-button:hover {
-            background: rgba(31, 61, 43, 0.1);
-            color: #1A1A1A;
-        }
-
-        /* --- FLOATING BUTTONS --- */
-        .floating-glass-btn {
-            background: rgba(31, 61, 43, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(214, 197, 163, 0.3);
-            box-shadow: 0 8px 25px rgba(31, 61, 43, 0.25);
-            transition: all 0.3s ease;
-        }
-
-        .floating-glass-btn:hover {
-            background: #1F3D2B;
-            border-color: #D6C5A3;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(31, 61, 43, 0.3);
-        }
-
-        /* --- TEXT EFFECTS --- */
-        .text-accent-gradient {
-            background: linear-gradient(135deg, #1F3D2B, #2A5239);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .gradient-text { 
+            background: linear-gradient(135deg, #f43f5e 0%, #f97316 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
         }
         
-        .text-gold-gradient {
-            background: linear-gradient(to right, #D6C5A3, #E6DCC8, #D6C5A3);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            background-size: 200% auto;
-            animation: shine 5s linear infinite;
+        /* Floating animations for hero images */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
-
-        @keyframes shine { to { background-position: 200% center; } }
-
-        /* --- CARDS & PANELS --- */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 8px 32px rgba(31, 61, 43, 0.05);
-            backdrop-filter: blur(10px);
-        }
-
-        .glass-pill {
-            background: rgba(31, 61, 43, 0.05);
-            border: 1px solid rgba(31, 61, 43, 0.1);
-            backdrop-filter: blur(8px);
-            color: #1F3D2B;
-        }
-
-        /* Faster Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-
-        .hero-content {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
-        }
-        .hero-content.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #EBF5EC; }
-        ::-webkit-scrollbar-thumb { background: #D6C5A3; border-radius: 10px; }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-float-delayed { animation: float 6s ease-in-out 3s infinite; }
         
-        .img-zoom-container { overflow: hidden; border-radius: 1rem; }
-        .img-zoom { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .img-zoom-container:hover .img-zoom { transform: scale(1.05); }
-
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
+        /* Marquee animations */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
         }
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+        }
+
+        /* Fade in animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+        
+        .page-view { display: none; }
+        .page-view.active { display: block; animation: fadeInUp 0.5s ease-out forwards; }
     </style>
 </head>
-<body class="antialiased selection:bg-accent selection:text-primary-dark">
+<body class="flex flex-col min-h-screen pt-[110px]">
 
-    <!-- PRELOADER -->
-    <div id="premium-preloader">
-        <div class="loader-ring"></div>
-    </div>
+    <!-- HEADER WRAPPER -->
+    <div class="fixed top-0 left-0 w-full z-50">
+        <!-- Flat Header -->
+        <nav class="w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 px-4 sm:px-8 py-4 flex justify-between items-center transition-all shadow-sm">
+            <button onclick="toggleMobileMenu()" class="md:hidden text-rose-900 p-1" id="mobile-menu-btn">
+                <!-- Menu Icon -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
 
-    <!-- HEADER -->
-    <div class="fixed top-0 z-40 flex flex-col items-center w-full" id="main-header">
-        <!-- Brand Tag Line -->
-        <div class="w-full brand-bar text-center text-xs md:text-sm font-medium py-2 tracking-widest uppercase">
-            Al-Abraq Interior • Rathpora Eidgah, Srinagar
+            <div class="hidden md:flex items-center space-x-8 w-1/3">
+                <button onclick="navigate('home')" class="nav-link text-sm font-semibold tracking-wide transition text-rose-500 hover:text-rose-500" data-target="home">HOME</button>
+                <button onclick="navigate('shop')" class="nav-link text-sm font-semibold tracking-wide transition text-gray-600 hover:text-rose-500" data-target="shop">SHOP</button>
+                <button onclick="navigate('reviews')" class="nav-link text-sm font-semibold tracking-wide transition text-gray-600 hover:text-rose-500" data-target="reviews">REVIEWS</button>
+            </div>
+
+            <div class="flex-shrink-0 flex items-center justify-center w-1/3 cursor-pointer" onclick="navigate('home')">
+                <h1 class="font-serif text-xl sm:text-3xl font-bold tracking-tight text-rose-900 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    Crafty Cure
+                </h1>
+            </div>
+
+            <div class="flex items-center justify-end space-x-6 w-1/3">
+                <button onclick="navigate('about')" class="nav-link hidden md:block text-sm font-semibold tracking-wide transition text-gray-600 hover:text-rose-500" data-target="about">STORY</button>
+                <button onclick="navigate('cart')" class="relative flex items-center justify-center w-10 h-10 bg-rose-50 rounded-full text-rose-600 hover:bg-rose-100 transition shadow-inner">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span id="cart-badge" class="hidden absolute -top-1 -right-1 w-5 h-5 bg-rose-500 text-white text-[11px] font-bold flex items-center justify-center rounded-full shadow-md border-2 border-white">0</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Moving Marquee Below Header -->
+        <div class="w-full bg-rose-500 text-white py-2 overflow-hidden flex whitespace-nowrap shadow-md">
+            <div class="animate-marquee font-mono text-[10px] sm:text-xs uppercase tracking-widest font-semibold flex items-center">
+                <span class="mx-6">✨ 100% CUSTOMISED ART</span>
+                <span class="mx-6">• 🚚 PAN INDIA SECURE SHIPPING</span>
+                <span class="mx-6">• 🚫 NO CANCELLATIONS AFTER CONFIRMATION</span>
+                <span class="mx-6">• ✨ HANDCRAFTED IN BHUJ, KUTCH</span>
+                <span class="mx-6">• 💖 PRESERVING MEMORIES</span>
+                
+                <span class="mx-6">✨ 100% CUSTOMISED ART</span>
+                <span class="mx-6">• 🚚 PAN INDIA SECURE SHIPPING</span>
+                <span class="mx-6">• 🚫 NO CANCELLATIONS AFTER CONFIRMATION</span>
+                <span class="mx-6">• ✨ HANDCRAFTED IN BHUJ, KUTCH</span>
+                <span class="mx-6">• 💖 PRESERVING MEMORIES</span>
+            </div>
         </div>
 
-        <!-- Main Nav -->
-        <div class="w-full p-3 md:p-5">
-            <header class="container max-w-7xl mx-auto rounded-2xl md:rounded-full liquid-glass-header transition-all duration-300">
-                <div class="flex justify-between items-center px-4 md:px-8 py-3 md:py-4">
-                    <!-- Logo -->
-                    <a href="#" class="text-xl md:text-2xl font-bold font-serif text-primary flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-accent">
-                            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
-                        </div>
-                        <div class="flex flex-col leading-none">
-                            <span class="tracking-wide">Al-Abraq</span>
-                            <span class="text-[0.65rem] tracking-[0.2em] text-muted font-sans font-medium uppercase mt-1">Interior Studio</span>
-                        </div>
-                    </a>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl shadow-2xl border-b border-rose-100 p-6 flex flex-col space-y-2 md:hidden">
+            <button onclick="navigate('home')" class="text-xl font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">Home</button>
+            <button onclick="navigate('shop')" class="text-xl font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">Shop Collection</button>
+            <button onclick="navigate('reviews')" class="text-xl font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">Client Reviews</button>
+            <button onclick="navigate('about')" class="text-xl font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">Our Story & FAQ</button>
+        </div>
+    </div>
 
-                    <!-- Desktop Menu -->
-                    <nav class="hidden lg:flex space-x-10 text-text-main font-semibold text-sm tracking-wide">
-                        <a href="#portfolio" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Portfolio</a>
-                        <a href="#services" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Services</a>
-                        <a href="#materials" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Materials</a>
-                        <a href="#contact" class="hover:text-primary hover:underline underline-offset-8 decoration-accent decoration-2 transition-all">Contact</a>
-                    </nav>
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow">
+        
+        <!-- HOME VIEW -->
+        <div id="view-home" class="page-view active">
+            <div class="relative pt-16 pb-20 lg:pt-32 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center">
+                <div class="absolute top-0 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-rose-200/50 rounded-full mix-blend-multiply filter blur-[80px] -z-10 translate-x-1/3 -translate-y-1/4"></div>
+                <div class="absolute bottom-0 left-0 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-orange-200/40 rounded-full mix-blend-multiply filter blur-[80px] -z-10 -translate-x-1/4 translate-y-1/4"></div>
 
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" class="lg:hidden glassy-menu-button">
-                        <i data-lucide="menu" class="w-5 h-5"></i>
+                <div class="lg:w-1/2 text-center lg:text-left z-10 pt-8 lg:pt-0">
+                    <div class="inline-flex items-center space-x-2 bg-rose-50 border border-rose-100 text-rose-600 px-4 py-2 rounded-full text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                        <span>Handcrafted in Kutch</span>
+                    </div>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-gray-900 leading-[1.1] mb-6">
+                        Turn memories into <br/> <span class="gradient-text">Timeless Art</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                        Beautifully crafted resin preservation, custom varmalas, and aesthetic decor. Made with love, just for you.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button onclick="navigate('shop')" class="w-full sm:w-auto bg-rose-500 text-white px-8 py-4 rounded-full font-bold shadow-[0_8px_20px_rgb(244,63,94,0.3)] hover:bg-rose-600 hover:-translate-y-1 transition-all flex items-center justify-center">
+                            Shop Collection <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 relative mt-16 lg:mt-0 h-[350px] sm:h-[500px] w-full">
+                    <div class="absolute right-0 sm:right-10 top-0 w-3/4 sm:w-2/3 h-4/5 rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl animate-float border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Varmala" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x600/ffe4e6/be123c?text=Varmala';"/>
+                    </div>
+                    <div class="absolute left-0 sm:left-10 bottom-0 w-3/5 sm:w-1/2 h-2/3 rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl animate-float-delayed border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Candles" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x600/ffe4e6/be123c?text=Candles';"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Features -->
+            <div class="bg-white border-y border-rose-50 py-12">
+                <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center divide-y sm:divide-y-0 sm:divide-x divide-rose-50">
+                    <div class="p-4 flex flex-col items-center">
+                        <div class="w-12 h-12 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">100% Custom Made</h4>
+                        <p class="text-gray-500 text-sm">Every piece is uniquely tailored to your specific vision and memories.</p>
+                    </div>
+                    <div class="p-4 flex flex-col items-center">
+                        <div class="w-12 h-12 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">Secure Packaging</h4>
+                        <p class="text-gray-500 text-sm">Rigorous packaging ensuring your delicate art arrives safely anywhere.</p>
+                    </div>
+                    <div class="p-4 flex flex-col items-center">
+                        <div class="w-12 h-12 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">Certified Artist</h4>
+                        <p class="text-gray-500 text-sm">Professional grade materials and expert techniques for lasting quality.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-4">Trending Masterpieces</h2>
+                    <p class="text-gray-500">Hand-picked aesthetic pieces to elevate your space.</p>
+                </div>
+                <!-- Dynamic Content Container -->
+                <div id="home-trending-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"></div>
+                <div class="mt-12 text-center">
+                    <button onclick="navigate('shop')" class="inline-flex items-center justify-center bg-rose-50 text-rose-600 font-bold px-8 py-4 rounded-full hover:bg-rose-100 transition shadow-sm">
+                        View Full Gallery
                     </button>
                 </div>
-            </header>
-        </div>
-    </div>
-
-    <!-- Mobile Slide-in Menu -->
-    <div id="mobile-overlay" class="fixed inset-0 bg-primary-dark/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300"></div>
-    <div id="mobile-menu" class="fixed top-0 right-0 w-[85%] max-w-sm h-full bg-base-surface z-[70] transform translate-x-full transition-transform duration-400 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex flex-col p-8 border-l border-primary/10 shadow-2xl rounded-l-3xl">
-        <div class="flex justify-end mb-10">
-            <button id="close-menu-btn" class="text-muted hover:text-primary transition-colors bg-base-bg p-2 rounded-full">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-        </div>
-        <div class="flex flex-col gap-6 flex-1">
-            <a href="#portfolio" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Portfolio</a>
-            <a href="#services" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Services</a>
-            <a href="#materials" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Materials</a>
-            <a href="#contact" class="mobile-link text-2xl font-serif text-primary hover:text-accent-dark transition-all duration-300 opacity-0 translate-x-4 border-b border-base-bg pb-4">Contact</a>
-        </div>
-        <div class="mt-auto bg-base-bg p-6 rounded-2xl">
-            <p class="text-xs text-muted uppercase tracking-widest mb-3 font-semibold">Direct Contact</p>
-            <a href="tel:+919906574299" class="flex items-center gap-3 text-primary mb-4 font-medium hover:text-primary-dark transition-colors">
-                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
-                    <i data-lucide="phone" class="w-4 h-4"></i>
-                </div>
-                +91 99065 74299
-            </a>
-            <a href="https://wa.me/919906574299" target="_blank" class="w-full bg-[#25D366] text-white py-3.5 rounded-xl flex justify-center items-center gap-2 font-medium hover:bg-[#1DA851] transition-colors shadow-md">
-                <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp Us
-            </a>
-        </div>
-    </div>
-
-    <!-- HERO SECTION -->
-    <section class="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden pt-20">
-        <!-- Background Image -->
-        <div class="absolute inset-0 w-full h-full z-0">
-            <!-- Modern Interior Image -->
-            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80" alt="Luxury Interior" class="absolute inset-0 w-full h-full object-cover scale-105 animate-pulse-soft">
-            <!-- Elegant Overlays -->
-            <div class="absolute inset-0 bg-primary/40 z-10 mix-blend-multiply"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent z-10"></div>
-        </div>
-
-        <div class="relative z-20 text-center px-4 max-w-5xl mx-auto hero-content w-full flex flex-col items-center justify-center" id="hero-content">
-            <span class="text-accent tracking-[0.3em] text-xs md:text-sm uppercase mb-4 block font-semibold drop-shadow-md">Elevate Your Living Space</span>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif mb-6 leading-tight text-white drop-shadow-2xl">
-                Masterpieces in <br>
-                <span class="text-gold-gradient italic font-light">Interior Design</span>
-            </h1>
-            <p class="text-base md:text-lg text-gray-200 font-light mb-10 max-w-2xl mx-auto drop-shadow-md">
-                Specializing in modern PVC ceilings, intricate wall panels, UV marble sheets, and luxury wooden flooring. Bringing your vision to life in Srinagar.
-            </p>
-
-            <!-- Estimate Generator Bar -->
-            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-2 md:p-3 rounded-2xl flex flex-col md:flex-row items-center gap-2 w-full max-w-4xl mx-auto shadow-2xl">
-                <div class="flex-1 w-full flex items-center bg-white/90 rounded-xl px-4 py-3.5 border border-transparent transition-colors duration-300 group">
-                    <i data-lucide="layers" class="text-primary w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
-                    <select id="service-select" class="bg-transparent border-none outline-none text-text-main w-full appearance-none cursor-pointer font-medium">
-                        <option value="" disabled selected>Select Service</option>
-                        <option value="PVC Ceiling">Modern PVC Ceiling</option>
-                        <option value="Wall Paneling">Wall Paneling & Louvers</option>
-                        <option value="UV Marble">UV Marble Sheets</option>
-                        <option value="Flooring">Wooden Flooring</option>
-                    </select>
-                </div>
-                <div class="flex-1 w-full flex items-center bg-white/90 rounded-xl px-4 py-3.5 border border-transparent transition-colors duration-300 group">
-                    <i data-lucide="home" class="text-primary w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i>
-                    <select id="space-select" class="bg-transparent border-none outline-none text-text-main w-full appearance-none cursor-pointer font-medium">
-                        <option value="" disabled selected>Space Type</option>
-                        <option value="Living Room">Living Room</option>
-                        <option value="Bedroom">Bedroom</option>
-                        <option value="Commercial">Commercial/Office</option>
-                        <option value="Full House">Full House</option>
-                    </select>
-                </div>
-                <button id="get-quote-btn" class="w-full md:w-auto bg-primary text-accent px-8 py-3.5 rounded-xl font-bold tracking-wide flex items-center justify-center gap-2 border border-primary hover:bg-primary-light hover:text-white transition-all duration-300 shadow-lg shrink-0">
-                    Get Free Quote <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </button>
             </div>
         </div>
-    </section>
 
-    <!-- WHY CHOOSE US -->
-    <section id="why-us" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="text-center mb-16 reveal">
-                <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">The Al-Abraq Standard</span>
-                <h2 class="text-4xl md:text-5xl font-serif text-text-main">Craftsmanship Meets Quality</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Feature 1 -->
-                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal text-center group">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
-                        <i data-lucide="check-circle" class="text-primary group-hover:text-accent w-7 h-7"></i>
+        <!-- SHOP VIEW -->
+        <div id="view-shop" class="page-view">
+            <div class="pt-16 pb-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="mb-10 text-center max-w-2xl mx-auto">
+                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">The Collection</h1>
+                        <p class="text-gray-500 text-lg">Every piece is uniquely crafted.</p>
                     </div>
-                    <h3 class="text-xl font-serif mb-3 text-primary">Premium Materials</h3>
-                    <p class="text-text-muted text-sm leading-relaxed">Imported UV marble sheets, highly durable WPC louvers, and A-grade PVC panels.</p>
-                </div>
-                <!-- Feature 2 -->
-                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-1 text-center group">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
-                        <i data-lucide="pen-tool" class="text-primary group-hover:text-accent w-7 h-7"></i>
-                    </div>
-                    <h3 class="text-xl font-serif mb-3 text-primary">Custom Designs</h3>
-                    <p class="text-text-muted text-sm leading-relaxed">From intricate back-lit ceiling cutouts to seamless fluted wall patterns tailored to you.</p>
-                </div>
-                <!-- Feature 3 -->
-                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-2 text-center group">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
-                        <i data-lucide="hammer" class="text-primary group-hover:text-accent w-7 h-7"></i>
-                    </div>
-                    <h3 class="text-xl font-serif mb-3 text-primary">Expert Installation</h3>
-                    <p class="text-text-muted text-sm leading-relaxed">Flawless execution by our skilled artisans ensuring longevity and a perfect finish.</p>
-                </div>
-                <!-- Feature 4 -->
-                <div class="p-8 glass-panel rounded-2xl hover:bg-white transition-colors duration-300 reveal reveal-delay-3 text-center group">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-base-bg flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
-                        <i data-lucide="map-pin" class="text-primary group-hover:text-accent w-7 h-7"></i>
-                    </div>
-                    <h3 class="text-xl font-serif mb-3 text-primary">Local Excellence</h3>
-                    <p class="text-text-muted text-sm leading-relaxed">Based in Rathpora Eidgah, we bring top-tier interior solutions directly to Srinagar homes.</p>
+                    
+                    <div id="shop-filters" class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12"></div>
+                    <div id="shop-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"></div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- PORTFOLIO / FEATURED PRODUCTS -->
-    <section id="portfolio" class="py-24 bg-white relative border-t border-primary/5">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal gap-6">
-                <div>
-                    <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Our Masterpieces</span>
-                    <h2 class="text-4xl md:text-5xl font-serif text-text-main">Featured Work</h2>
+        <!-- REVIEWS VIEW -->
+        <div id="view-reviews" class="page-view">
+            <div class="pt-16 pb-24 min-h-screen">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">Client Diaries</h1>
+                        <p class="text-gray-500 text-lg">Hear what our lovely customers have to say about their custom pieces.</p>
+                    </div>
+                    <div id="reviews-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
                 </div>
-                <button onclick="window.open('https://wa.me/919906574299?text=Hi,%20I%20would%20like%20to%20see%20your%20full%20catalog.', '_blank')" class="text-primary font-semibold hover:text-accent-dark transition-colors flex items-center gap-2 pb-2">
-                    View Full Catalog <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </button>
             </div>
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 (Large) -->
-                <div class="lg:col-span-2 relative h-[500px] rounded-3xl img-zoom-container reveal group shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="Modern False Ceiling" class="w-full h-full object-cover img-zoom">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
-                        <div class="flex justify-between items-end">
-                            <div>
-                                <span class="bg-accent text-primary-dark text-xs px-4 py-1.5 rounded-full mb-4 inline-block font-bold tracking-wide">Signature Ceilings</span>
-                                <h3 class="text-3xl font-serif mb-2 text-white">Illuminated PVC Ceilings</h3>
-                                <p class="text-gray-200 max-w-md text-sm leading-relaxed mb-6">Custom-crafted false ceilings featuring intricate backlit patterns, modern geometry, and premium wood-finish PVC panels.</p>
+        <!-- ABOUT VIEW -->
+        <div id="view-about" class="page-view">
+            <div class="pt-16 pb-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-white rounded-[2rem] sm:rounded-[3rem] shadow-xl border border-rose-50 overflow-hidden flex flex-col lg:flex-row mb-16">
+                        <div class="lg:w-1/2 relative h-[300px] sm:h-[400px] lg:h-auto">
+                            <img src="https://images.unsplash.com/photo-1544967082-b9d25d840d44?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Artist at work" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x800/ffe4e6/be123c?text=Artist';"/>
+                        </div>
+                        <div class="lg:w-1/2 p-6 sm:p-12 lg:p-16 flex flex-col justify-center">
+                            <h1 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-6 leading-tight">Crafting magic in <br/><span class="text-rose-500">Bhuj, Kutch.</span></h1>
+                            <div class="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
+                                <p>Hello! I am a certified resin artist dedicated to turning your fleeting moments into permanent masterpieces.</p>
+                                <p>Whether it's preserving your precious wedding Varmala or crafting custom aesthetic home decor, every single piece is poured, polished, and packaged with immense love and care.</p>
                             </div>
                         </div>
-                        <div class="mt-auto">
-                            <button onclick="openProductWA('PVC False Ceilings')" class="bg-white/20 backdrop-blur-md border border-white/40 px-6 py-2.5 rounded-full text-sm font-medium text-white hover:bg-white hover:text-primary transition-all duration-300 flex items-center gap-2 w-fit">
-                                <i data-lucide="message-circle" class="w-4 h-4"></i> Inquire Now
+                    </div>
+
+                    <div class="max-w-3xl mx-auto bg-white rounded-[2rem] p-8 sm:p-12 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-rose-50">
+                        <h2 class="text-2xl font-serif font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">How do I send my Varmala for preservation?</h4>
+                                <p class="text-sm text-gray-600">Once you place the order, we will share detailed instructions and our studio address. You need to courier the dried/fresh flowers to us in a well-ventilated cardboard box.</p>
+                            </div>
+                            <div class="h-px w-full bg-gray-100"></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">What is the processing time?</h4>
+                                <p class="text-sm text-gray-600">Resin art requires precision and multiple pouring layers to cure properly. Please allow 15-20 business days for custom varmala pieces and 7-10 days for standard decor.</p>
+                            </div>
+                            <div class="h-px w-full bg-gray-100"></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Do you accept returns or cancellations?</h4>
+                                <p class="text-sm text-gray-600">Because every piece is 100% custom-made and personalized, we strictly do not accept returns, refunds, or cancellations once the order is confirmed and production begins.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CART VIEW -->
+        <div id="view-cart" class="page-view">
+            <div class="pt-16 pb-24 min-h-screen">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h1 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-8">Your Cart</h1>
+                    <div id="cart-content"></div> <!-- Dynamically filled -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-rose-50 pt-12 pb-8 mt-auto relative z-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="font-serif text-2xl font-bold text-rose-900 mb-3 flex items-center justify-center gap-2 cursor-pointer" onclick="navigate('home')">
+                <svg class="w-5 h-5 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                Crafty Cure
+            </h3>
+            <p class="text-gray-500 text-sm mb-6">Handcrafted in Bhuj, Kutch.</p>
+            <p class="text-xs text-gray-400">&copy; <span id="year"></span> Crafty Cure Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-24 left-1/2 transform -translate-x-1/2 z-[100] transition-all duration-300 opacity-0 translate-y-10 pointer-events-none">
+        <div class="bg-gray-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center space-x-2 text-sm font-bold tracking-wide border border-gray-700">
+            <span id="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- FLOATING ACTIVITY NOTIFICATION -->
+    <div id="floating-activity" class="fixed bottom-6 left-4 sm:left-6 z-40 max-w-[280px] bg-white/95 backdrop-blur-md border border-rose-100 p-3 sm:p-4 rounded-[2rem] shadow-[0_10px_30px_rgb(244,63,94,0.15)] flex items-start gap-3 pointer-events-none transition-all duration-700 opacity-0 translate-y-10">
+        <div class="w-8 h-8 rounded-full bg-rose-100 text-rose-500 flex items-center justify-center shrink-0 mt-0.5 shadow-inner">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <p id="floating-message" class="text-xs sm:text-sm text-gray-700 font-medium leading-snug"></p>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- DATA ---
+        const PRODUCTS = [
+            { id: 1, name: "Engaged Ring Platter", category: "Resin Art", price: 1500, image: "https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Customised resin ring platter with real dried flowers.", tag: "Bestseller" },
+            { id: 2, name: "Varmala Frame", category: "Preservation", price: 3500, image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Immortalize your wedding garlands in crystal clear resin.", tag: "Popular" },
+            { id: 3, name: "Onyx Coasters", category: "Home Decor", price: 800, image: "https://images.unsplash.com/photo-1616628188506-4bf98fc91176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Set of 4 hand-poured resin coasters mimicking onyx marble." },
+            { id: 4, name: "Vanilla Bean Candle", category: "Candles", price: 450, image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Aesthetic bubble candles made from 100% soy wax." },
+            { id: 5, name: "Floral Initial", category: "Accessories", price: 200, image: "https://images.unsplash.com/photo-1590736969955-71cc94801759?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Personalised initial keychains with baby's breath flowers." },
+            { id: 6, name: "Lipan Mirror Art", category: "Wall Art", price: 1200, image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Authentic mud and mirror work handcrafted from Kutch." },
+            { id: 7, name: "Ocean Wave Tray", category: "Resin Art", price: 1800, image: "https://images.unsplash.com/photo-1584589167171-541ce45f1eea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Serving tray with realistic 3D ocean waves.", tag: "New" },
+            { id: 8, name: "Rose Quartz Candle", category: "Candles", price: 650, image: "https://images.unsplash.com/photo-1602874801007-bd458cb6b896?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Infused with real rose quartz crystals and a soft peony scent." }
+        ];
+
+        const REVIEWS = [
+            { id: 1, name: "Priya Sharma", rating: 5, date: "2 days ago", text: "The Varmala preservation brought me to tears. Absolutely stunning work, the flowers look exactly like they did on my wedding day!" },
+            { id: 2, name: "Ananya Desai", rating: 5, date: "1 week ago", text: "Ordered coasters for a bridal shower. Everyone loved the premium marble look. Packaging was 10/10." },
+            { id: 3, name: "Rohan Kapoor", rating: 5, date: "2 weeks ago", text: "Ring platter was exactly what we envisioned. Safe delivery to Mumbai without a single scratch." },
+            { id: 4, name: "Meera Patel", rating: 5, date: "1 month ago", text: "The Lipan art totally transformed my living room. You can feel the real Kutch craftsmanship." }
+        ];
+
+        const LIVE_NOTIFICATIONS = [
+            "✨ Neha from Mumbai just bought a Varmala Frame!",
+            "⭐ Priya left a 5-star review: 'Absolutely stunning work!'",
+            "✨ Rahul from Delhi just bought Onyx Coasters!",
+            "🔥 4 people are currently looking at the Ring Platter",
+            "⭐ Meera left a 5-star review: 'Transformed my living room.'",
+            "✨ Simran from Pune just bought a Vanilla Bean Candle!"
+        ];
+
+        // --- STATE ---
+        let cart = [];
+        let activeFilter = 'All';
+        let isCheckingOut = false;
+
+        // --- HELPERS ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('opacity-0', 'translate-y-10');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-10');
+            }, 3000);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            if(menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                btn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>`;
+            } else {
+                menu.classList.add('hidden');
+                btn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>`;
+            }
+        }
+
+        function navigate(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
+            // Show target
+            document.getElementById('view-' + pageId).classList.add('active');
+            
+            // Update nav active states
+            document.querySelectorAll('.nav-link').forEach(el => {
+                if(el.dataset.target === pageId) {
+                    el.classList.add('text-rose-500');
+                    el.classList.remove('text-gray-600');
+                } else {
+                    el.classList.remove('text-rose-500');
+                    el.classList.add('text-gray-600');
+                }
+            });
+
+            // Close mobile menu if open
+            const menu = document.getElementById('mobile-menu');
+            if(!menu.classList.contains('hidden')) toggleMobileMenu();
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if(pageId === 'cart') renderCart();
+        }
+
+        // --- RENDER FUNCTIONS ---
+        function getProductCardHTML(product) {
+            const tagHTML = product.tag ? `<div class="absolute top-0 right-4 -translate-y-1/2 z-10 bg-orange-400 text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">${product.tag}</div>` : '';
+            return `
+                <div class="bg-white rounded-[1.5rem] p-3 sm:p-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-rose-50 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full relative">
+                    ${tagHTML}
+                    <div class="relative aspect-square overflow-hidden rounded-[1rem] mb-4 bg-rose-50">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" onerror="this.onerror=null; this.src='https://placehold.co/600x600/ffe4e6/be123c?text=${encodeURIComponent(product.name)}';"/>
+                        <div class="absolute top-2 left-2 bg-white/90 backdrop-blur text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full text-rose-600 shadow-sm">${product.category}</div>
+                    </div>
+                    <div class="flex flex-col flex-grow justify-between px-1">
+                        <div>
+                            <h3 class="text-sm sm:text-base font-bold text-gray-900 leading-tight mb-1.5">${product.name}</h3>
+                            <p class="text-[11px] sm:text-xs text-gray-500 line-clamp-2 mb-3 leading-relaxed">${product.description}</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-50">
+                            <span class="text-base sm:text-lg font-bold text-gray-900">₹${product.price}</span>
+                            <button onclick="addToCart(${product.id})" class="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-rose-50 text-rose-600 rounded-full hover:bg-rose-500 hover:text-white transition-colors shadow-sm" title="Add to cart">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
                             </button>
                         </div>
                     </div>
                 </div>
+            `;
+        }
 
-                <!-- Project 2 -->
-                <div class="relative h-[500px] rounded-3xl img-zoom-container reveal reveal-delay-1 group shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Wall Paneling" class="w-full h-full object-cover img-zoom">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
-                        <span class="bg-accent text-primary-dark text-xs px-4 py-1.5 rounded-full mb-4 w-fit font-bold tracking-wide">Wall Aesthetics</span>
-                        <h3 class="text-2xl font-serif mb-2 text-white">UV Marble & Louvers</h3>
-                        <p class="text-gray-200 text-sm mb-6">Transform plain walls with high-gloss UV marble sheets and textured WPC fluted panels.</p>
-                        <button onclick="openProductWA('Wall Paneling & UV Marble')" class="bg-white/20 backdrop-blur-md border border-white/40 px-6 py-2.5 rounded-full text-sm font-medium text-white hover:bg-white hover:text-primary transition-all duration-300 flex items-center gap-2 w-fit">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i> Inquire Now
-                        </button>
-                    </div>
-                </div>
+        function renderProducts() {
+            // Home Trending
+            const homeGrid = document.getElementById('home-trending-grid');
+            homeGrid.innerHTML = PRODUCTS.slice(0,4).map(getProductCardHTML).join('');
 
-                <!-- Project 3 -->
-                <div class="relative h-[400px] rounded-3xl img-zoom-container reveal group shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Wooden Flooring" class="w-full h-full object-cover img-zoom">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
-                        <span class="bg-accent text-primary-dark text-xs px-4 py-1.5 rounded-full mb-4 w-fit font-bold tracking-wide">Premium Floors</span>
-                        <h3 class="text-2xl font-serif mb-2 text-white">Wooden Flooring</h3>
-                        <button onclick="openProductWA('Wooden Flooring')" class="mt-4 bg-white/20 backdrop-blur-md border border-white/40 px-6 py-2.5 rounded-full text-sm font-medium text-white hover:bg-white hover:text-primary transition-all duration-300 flex items-center gap-2 w-fit">
-                            Inquire Now
-                        </button>
-                    </div>
-                </div>
+            // Shop Filters
+            const categories = ['All', ...new Set(PRODUCTS.map(p => p.category))];
+            const filterContainer = document.getElementById('shop-filters');
+            filterContainer.innerHTML = categories.map(cat => `
+                <button onclick="setFilter('${cat}')" class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${activeFilter === cat ? 'bg-rose-500 text-white shadow-md' : 'bg-white border border-gray-200 text-gray-600 hover:border-rose-300 hover:text-rose-500'}">
+                    ${cat}
+                </button>
+            `).join('');
 
-                <!-- Project 4 (Large) -->
-                <div class="lg:col-span-2 relative h-[400px] rounded-3xl img-zoom-container reveal reveal-delay-1 group shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="Full Interior" class="w-full h-full object-cover img-zoom">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
-                        <span class="bg-accent text-primary-dark text-xs px-4 py-1.5 rounded-full mb-4 w-fit font-bold tracking-wide">Complete Solutions</span>
-                        <h3 class="text-3xl font-serif mb-2 text-white">Turnkey Interiors</h3>
-                        <p class="text-gray-200 max-w-md text-sm leading-relaxed mb-6">From wallpapers and carpets to full room transformations, we handle every detail of your interior space.</p>
-                        <button onclick="openProductWA('Complete Room Interior')" class="bg-white/20 backdrop-blur-md border border-white/40 px-6 py-2.5 rounded-full text-sm font-medium text-white hover:bg-white hover:text-primary transition-all duration-300 flex items-center gap-2 w-fit">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i> Inquire Now
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            // Shop Grid
+            const shopGrid = document.getElementById('shop-grid');
+            const filteredProducts = activeFilter === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.category === activeFilter);
+            shopGrid.innerHTML = filteredProducts.map(getProductCardHTML).join('');
+        }
 
-    <!-- SERVICES -->
-    <section id="services" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="text-center mb-16 reveal">
-                <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">What We Do</span>
-                <h2 class="text-4xl md:text-5xl font-serif text-text-main">Our Expertise</h2>
-            </div>
+        function setFilter(cat) {
+            activeFilter = cat;
+            renderProducts(); // Re-render with new filter
+        }
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="glass-panel p-3 rounded-3xl hover:-translate-y-2 transition-transform duration-300 reveal group">
-                    <div class="img-zoom-container rounded-2xl h-64 mb-6">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Residential" class="w-full h-full object-cover img-zoom">
+        function renderReviews() {
+            const grid = document.getElementById('reviews-grid');
+            const starSvg = `<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+            grid.innerHTML = REVIEWS.map(review => `
+                <div class="bg-white border border-rose-50 p-6 sm:p-8 rounded-[2rem] shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex text-orange-400">${starSvg.repeat(review.rating)}</div>
+                        <span class="text-xs text-gray-400">${review.date}</span>
                     </div>
-                    <div class="px-4 pb-6 text-center">
-                        <h3 class="text-xl font-serif mb-3 text-primary">Residential Interiors</h3>
-                        <p class="text-text-muted text-sm leading-relaxed">Elevate your living room, bedrooms, and hallways with custom ceilings and elegant wall treatments designed for comfort.</p>
-                    </div>
-                </div>
-                <!-- Service 2 -->
-                <div class="glass-panel p-3 rounded-3xl hover:-translate-y-2 transition-transform duration-300 reveal reveal-delay-1 group">
-                    <div class="img-zoom-container rounded-2xl h-64 mb-6">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Commercial" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="px-4 pb-6 text-center">
-                        <h3 class="text-xl font-serif mb-3 text-primary">Commercial Spaces</h3>
-                        <p class="text-text-muted text-sm leading-relaxed">Impress clients with sophisticated office environments, retail showrooms, and hospitality spaces built to inspire.</p>
-                    </div>
-                </div>
-                <!-- Service 3 -->
-                <div class="glass-panel p-3 rounded-3xl hover:-translate-y-2 transition-transform duration-300 reveal reveal-delay-2 group">
-                    <div class="img-zoom-container rounded-2xl h-64 mb-6">
-                        <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=800&q=80" loading="lazy" alt="Consultation" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="px-4 pb-6 text-center">
-                        <h3 class="text-xl font-serif mb-3 text-primary">Design Consultation</h3>
-                        <p class="text-text-muted text-sm leading-relaxed">Not sure where to start? We help you choose the right materials, colors, and layouts to match your aesthetic and budget.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section id="faq" class="py-24 bg-white relative border-t border-primary/5">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <span class="text-primary text-xs tracking-[0.2em] uppercase mb-4 block font-bold">Information</span>
-                <h2 class="text-4xl font-serif text-text-main">Frequently Asked Questions</h2>
-            </div>
-
-            <div class="space-y-4 reveal">
-                <!-- FAQ Item 1 -->
-                <div class="glass-panel rounded-2xl overflow-hidden bg-base-bg/50">
-                    <button class="faq-toggle w-full px-8 py-6 flex justify-between items-center text-left focus:outline-none hover:bg-base-bg transition-colors duration-200">
-                        <span class="font-semibold text-lg text-primary">What materials do you use for ceilings and walls?</span>
-                        <div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center shrink-0 bg-white">
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-primary transform transition-transform duration-300 faq-icon"></i>
-                        </div>
-                    </button>
-                    <div class="faq-content">
-                        <div class="px-8 pb-6 text-text-muted text-sm leading-relaxed border-t border-primary/10 pt-4 bg-white/50">
-                            We use a variety of high-quality materials including premium PVC for false ceilings, UV Marble sheets for luxurious wall finishes, WPC (Wood Plastic Composite) louvers and fluted panels, as well as imported wallpapers and wooden flooring.
+                    <p class="text-gray-600 italic flex-grow text-sm sm:text-base leading-relaxed mb-6">"${review.text}"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center font-bold text-rose-500 text-lg">${review.name.charAt(0)}</div>
+                        <div>
+                            <p class="font-bold text-gray-900 text-sm">${review.name}</p>
+                            <p class="text-xs text-gray-400 flex items-center">
+                                <svg class="w-3 h-3 mr-1 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                                Verified Buyer
+                            </p>
                         </div>
                     </div>
                 </div>
+            `).join('');
+        }
 
-                <!-- FAQ Item 2 -->
-                <div class="glass-panel rounded-2xl overflow-hidden bg-base-bg/50">
-                    <button class="faq-toggle w-full px-8 py-6 flex justify-between items-center text-left focus:outline-none hover:bg-base-bg transition-colors duration-200">
-                        <span class="font-semibold text-lg text-primary">How long does an installation typically take?</span>
-                        <div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center shrink-0 bg-white">
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-primary transform transition-transform duration-300 faq-icon"></i>
-                        </div>
-                    </button>
-                    <div class="faq-content">
-                        <div class="px-8 pb-6 text-text-muted text-sm leading-relaxed border-t border-primary/10 pt-4 bg-white/50">
-                            Timelines vary based on the scope of the project. A single room ceiling or wall paneling might take 2-4 days, while a complete residential interior can take a few weeks. We provide a clear timeline during our initial consultation.
-                        </div>
-                    </div>
-                </div>
+        // --- CART LOGIC ---
+        function updateCartBadge() {
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const badge = document.getElementById('cart-badge');
+            if (count > 0) {
+                badge.textContent = count;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
 
-                <!-- FAQ Item 3 -->
-                <div class="glass-panel rounded-2xl overflow-hidden bg-base-bg/50">
-                    <button class="faq-toggle w-full px-8 py-6 flex justify-between items-center text-left focus:outline-none hover:bg-base-bg transition-colors duration-200">
-                        <span class="font-semibold text-lg text-primary">Do you provide services outside of Srinagar?</span>
-                        <div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center shrink-0 bg-white">
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-primary transform transition-transform duration-300 faq-icon"></i>
-                        </div>
-                    </button>
-                    <div class="faq-content">
-                        <div class="px-8 pb-6 text-text-muted text-sm leading-relaxed border-t border-primary/10 pt-4 bg-white/50">
-                            Our primary showroom and operations are based in Rathpora Eidgah, Srinagar. However, we do take up major projects across surrounding areas in Jammu & Kashmir. Please contact us to discuss your specific location.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        function addToCart(id) {
+            const product = PRODUCTS.find(p => p.id === id);
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            updateCartBadge();
+            showToast(`✨ Added ${product.name} to cart!`);
+            if(document.getElementById('view-cart').classList.contains('active')) {
+                renderCart();
+            }
+        }
 
-    <!-- FOOTER -->
-    <footer id="contact" class="bg-primary-dark pt-20 pb-10 px-6 md:px-12 relative overflow-hidden text-white">
-        <!-- Abstract BG Element -->
-        <div class="absolute -top-40 -right-40 w-96 h-96 bg-primary rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-        
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative z-10 mb-16">
-            <!-- Brand -->
-            <div>
-                <a href="#" class="flex items-center gap-3 mb-8">
-                    <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-primary-dark">
-                        <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
-                    </div>
-                    <div class="flex flex-col leading-none">
-                        <span class="font-serif text-2xl tracking-wide text-white">Al-Abraq</span>
-                        <span class="text-[0.7rem] tracking-[0.2em] text-accent font-sans uppercase mt-1">Interior Studio</span>
-                    </div>
-                </a>
-                <p class="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm">Crafting luxurious, modern, and enduring interiors for homes and businesses across Srinagar.</p>
-                <div class="flex gap-4">
-                    <a href="https://youtube.com/channel/UCT9..." target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="youtube" class="w-4 h-4"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="instagram" class="w-4 h-4"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-gray-300 hover:bg-accent hover:border-accent hover:text-primary-dark transition-all duration-300"><i data-lucide="facebook" class="w-4 h-4"></i></a>
-                </div>
-            </div>
+        function updateQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if(item) {
+                item.quantity += delta;
+                if(item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+            }
+            updateCartBadge();
+            renderCart();
+        }
 
-            <!-- Quick Links -->
-            <div class="lg:ml-auto">
-                <h4 class="font-serif text-xl mb-6 text-accent">Our Products</h4>
-                <ul class="space-y-4">
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> PVC Ceilings</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> UV Marble Sheets</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> WPC Louvers & Fluted Panels</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> Wooden Flooring & Carpets</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-accent/50"></div> Imported Wallpaper</a></li>
-                </ul>
-            </div>
+        function removeItem(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartBadge();
+            renderCart();
+        }
 
-            <!-- Contact Info -->
-            <div class="lg:ml-auto">
-                <h4 class="font-serif text-xl mb-6 text-accent">Visit Studio</h4>
-                <ul class="space-y-6">
-                    <li class="flex items-start gap-4">
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-accent"></i>
-                        </div>
-                        <span class="text-gray-400 text-sm leading-relaxed pt-1.5">Rathpora Eidgah<br>Srinagar, Jammu & Kashmir<br>Google Maps: Al-Abraq Interior</span>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
-                            <i data-lucide="phone" class="w-4 h-4 text-accent"></i>
-                        </div>
-                        <div class="flex flex-col gap-1.5 pt-1.5">
-                            <a href="tel:+919906574299" class="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">+91 99065 74299</a>
-                            <span class="text-gray-500 text-xs">Sunday Closed</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
-            <p class="text-gray-500 text-xs">© 2026 Al-Abraq Interior. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- FLOATING CONTACT BUTTONS -->
-    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-row items-center justify-center gap-4 w-max max-w-[95vw]">
-        
-        <!-- Call Button -->
-        <a href="tel:+919906574299" class="floating-glass-btn rounded-full px-6 md:px-8 h-[56px] flex items-center justify-center gap-3 text-white group whitespace-nowrap">
-            <div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                <i data-lucide="phone-call" class="w-4 h-4 text-primary-dark"></i>
-            </div>
-            <span class="font-medium tracking-wide text-[15px] pr-1 hidden sm:block">Call Studio</span>
-        </a>
-        
-        <!-- WhatsApp Icon -->
-        <a href="https://wa.me/919906574299" target="_blank" class="w-[56px] h-[56px] rounded-full floating-glass-btn flex items-center justify-center text-[#25D366] hover:text-[#25D366] shrink-0 bg-white shadow-[0_4px_20px_rgba(37,211,102,0.3)] border-none">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.441-1.273.607-1.446c.127-.133.358-.2.579-.2.072 0 .141 0 .204.005.152.011.334-.055.518.39.213.518.687 1.679.749 1.802.062.124.104.269.021.436-.083.167-.124.271-.249.42-.125.148-.266.331-.379.438-.125.118-.255.247-.114.492.141.244.625.996 1.341 1.625.924.814 1.666 1.071 1.914 1.19.248.118.393.102.539-.06.146-.162.628-.731.794-.983.166-.252.332-.211.554-.128.221.083 1.411.667 1.652.787.241.121.402.182.46.282.059.099.059.576-.085.981z"></path>
-                <path d="M12.031 2C6.48 2 2 6.48 2 12.031c0 1.96.539 3.844 1.553 5.467L2 22l4.639-1.523A9.974 9.974 0 0 0 12.031 22c5.551 0 10.031-4.48 10.031-10.031C22.062 6.48 17.582 2 12.031 2zm0 18.25c-1.637 0-3.238-.423-4.636-1.222l-.333-.191-3.085 1.013 1.026-3.003-.209-.333A8.252 8.252 0 0 1 3.75 12.031c0-4.566 3.715-8.281 8.281-8.281 4.566 0 8.281 3.715 8.281 8.281 0 4.566-3.715 8.281-8.281 8.281z"></path>
-            </svg>
-        </a>
-    </div>
-
-    <!-- JavaScript Interactions -->
-    <script>
-        // 1. Initialize Lucide Icons
-        lucide.createIcons();
-
-        // 2. Fast Minimal Preloader Logic
-        window.addEventListener('load', () => {
+        function handleStandardCheckout() {
+            if(cart.length === 0 || isCheckingOut) return;
+            isCheckingOut = true;
+            renderCart(); // Re-render to show processing text
             setTimeout(() => {
-                const preloader = document.getElementById('premium-preloader');
-                preloader.style.opacity = '0';
-                preloader.style.visibility = 'hidden';
-                document.getElementById('hero-content').classList.add('active');
-                setTimeout(() => { preloader.remove(); }, 400);
-            }, 300); 
-        });
-
-        // 3. "Get Free Quote" Dynamic WhatsApp Generator
-        document.getElementById('get-quote-btn').addEventListener('click', () => {
-            const serviceSelect = document.getElementById('service-select');
-            const spaceSelect = document.getElementById('space-select');
-            
-            const serviceValue = serviceSelect.value;
-            const spaceValue = spaceSelect.value;
-            
-            let message = "Hi Al-Abraq Interior, I am looking for interior design services and would like to get a quote/consultation.";
-            
-            if (serviceValue && spaceValue) {
-                message = `Hi Al-Abraq Interior, I am interested in ${serviceValue} for my ${spaceValue}. Could you please share more details and an estimate?`;
-            } else if (serviceValue) {
-                message = `Hi Al-Abraq Interior, I am interested in ${serviceValue}. Could you please share your catalog and details?`;
-            } else if (spaceValue) {
-                message = `Hi Al-Abraq Interior, I want to renovate my ${spaceValue}. Could you suggest some designs and estimates?`;
-            }
-            
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/919906574299?text=${encodedMessage}`, '_blank');
-        });
-
-        // 4. Individual Product WA Generator
-        function openProductWA(productName) {
-            const message = `Hi Al-Abraq Interior, I want to know more about your ${productName} services. Please share designs and pricing.`;
-            window.open(`https://wa.me/919906574299?text=${encodeURIComponent(message)}`, '_blank');
+                cart = [];
+                isCheckingOut = false;
+                updateCartBadge();
+                showToast("💖 Securely processed! Thank you for your order.");
+                navigate('home');
+            }, 2000);
         }
 
-        // 5. Mobile Animated Menu Logic
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileOverlay = document.getElementById('mobile-overlay');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        function toggleMenu() {
-            const isOpen = !mobileMenu.classList.contains('translate-x-full');
-            
-            if (isOpen) {
-                mobileMenu.classList.add('translate-x-full');
-                mobileOverlay.classList.remove('opacity-100');
-                mobileOverlay.classList.add('opacity-0', 'pointer-events-none');
-                
-                mobileLinks.forEach(link => {
-                    link.classList.remove('opacity-100', 'translate-x-0');
-                    link.classList.add('opacity-0', 'translate-x-4');
-                });
-            } else {
-                mobileMenu.classList.remove('translate-x-full');
-                mobileOverlay.classList.remove('opacity-0', 'pointer-events-none');
-                mobileOverlay.classList.add('opacity-100');
-                
-                mobileLinks.forEach((link, index) => {
-                    setTimeout(() => {
-                        link.classList.remove('opacity-0', 'translate-x-4');
-                        link.classList.add('opacity-100', 'translate-x-0');
-                    }, 100 + (index * 70));
-                });
-            }
+        function handleWhatsAppCheckout() {
+            if(cart.length === 0) return;
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const phoneNumber = "917567586796"; 
+            let message = "Hello Crafty Cure Studio! 💖%0A%0AI would like to place an order:%0A%0A";
+            cart.forEach(item => { message += `▪ *${item.quantity}x* ${item.name} (₹${item.price})%0A`; });
+            message += `%0A*Total Estimate: ₹${total}*%0A%0A`;
+            message += `Please guide me with the payment and shipping details. Thank you! ✨`;
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
         }
 
-        mobileBtn.addEventListener('click', toggleMenu);
-        closeBtn.addEventListener('click', toggleMenu);
-        mobileOverlay.addEventListener('click', toggleMenu);
-        
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
-
-        // 6. Scroll Reveal Animation
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(element => {
-            observer.observe(element);
-        });
-
-        // 7. Strict FAQ Accordion
-        const faqToggles = document.querySelectorAll('.faq-toggle');
-        faqToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const content = toggle.nextElementSibling;
-                const icon = toggle.querySelector('.faq-icon');
-                const isOpen = content.style.maxHeight;
-
-                document.querySelectorAll('.faq-content').forEach(otherContent => {
-                    otherContent.style.maxHeight = null;
-                    otherContent.previousElementSibling.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
-                });
-
-                if (!isOpen) {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    icon.style.transform = 'rotate(180deg)';
-                }
-            });
-        });
-
-        // 8. Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('shadow-md');
-                header.style.background = 'rgba(255, 255, 255, 0.9)';
-            } else {
-                header.classList.remove('shadow-md');
-                header.style.background = 'rgba(255, 255, 255, 0.6)';
+        function renderCart() {
+            const container = document.getElementById('cart-content');
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white p-12 sm:p-20 text-center rounded-[2rem] border border-rose-50 shadow-sm">
+                        <div class="w-20 h-20 bg-rose-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-10 h-10 text-rose-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 mb-4">It's empty here!</h2>
+                        <button onclick="navigate('shop')" class="bg-rose-500 text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-rose-600 transition mt-4">
+                            Start Shopping
+                        </button>
+                    </div>
+                `;
+                return;
             }
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            const cartItemsHTML = cart.map(item => `
+                <li class="p-4 sm:p-6 flex items-center">
+                    <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-[1rem] bg-rose-50 shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/200x200/ffe4e6/be123c';"/>
+                    <div class="ml-4 flex-grow">
+                        <h3 class="text-sm font-bold text-gray-900 mb-1">${item.name}</h3>
+                        <p class="text-rose-500 font-bold text-sm mb-3">₹${item.price}</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center bg-rose-50 rounded-full p-1">
+                                <button onclick="updateQty(${item.id}, -1)" class="w-6 h-6 flex items-center justify-center text-rose-600 bg-white rounded-full shadow-sm"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4"/></svg></button>
+                                <span class="w-8 text-center font-bold text-xs">${item.quantity}</span>
+                                <button onclick="updateQty(${item.id}, 1)" class="w-6 h-6 flex items-center justify-center text-rose-600 bg-white rounded-full shadow-sm"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg></button>
+                            </div>
+                            <button onclick="removeItem(${item.id})" class="text-gray-400 hover:text-rose-500 p-2 bg-gray-50 rounded-full"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+                        </div>
+                    </div>
+                </li>
+            `).join('');
+
+            container.innerHTML = `
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="lg:w-2/3 bg-white rounded-[2rem] border border-rose-50 shadow-sm overflow-hidden h-fit">
+                        <ul class="divide-y divide-gray-100">${cartItemsHTML}</ul>
+                    </div>
+                    
+                    <div class="lg:w-1/3">
+                        <div class="bg-white rounded-[2rem] border border-rose-50 shadow-sm p-6 sticky top-36">
+                            <h3 class="text-lg font-bold text-gray-900 mb-6 pb-4 border-b border-gray-100">Order Summary</h3>
+                            <div class="flex justify-between items-center text-xl font-bold text-gray-900 mb-8">
+                                <span>Total</span>
+                                <span class="text-rose-600">₹${total}</span>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <button onclick="handleWhatsAppCheckout()" class="w-full bg-[#25D366] text-white py-4 rounded-full font-bold hover:bg-[#20bd5a] transition shadow-lg flex justify-center items-center gap-2 transform hover:-translate-y-1">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                                    Order via WhatsApp
+                                </button>
+
+                                <div class="relative flex py-2 items-center">
+                                    <div class="flex-grow border-t border-gray-200"></div>
+                                    <span class="flex-shrink-0 mx-4 text-gray-400 text-xs uppercase tracking-wider font-bold">Or</span>
+                                    <div class="flex-grow border-t border-gray-200"></div>
+                                </div>
+
+                                <button onclick="handleStandardCheckout()" ${isCheckingOut ? 'disabled' : ''} class="w-full bg-gray-900 text-white py-4 rounded-full font-bold hover:bg-gray-800 transition shadow-md flex justify-center items-center ${isCheckingOut ? 'opacity-70' : ''}">
+                                    ${isCheckingOut ? 'Processing...' : 'Proceed to Checkout'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- FLOATING NOTIFICATIONS ---
+        function initFloatingActivity() {
+            const popup = document.getElementById('floating-activity');
+            const msgEl = document.getElementById('floating-message');
+            
+            function cycleNotification() {
+                const randomMsg = LIVE_NOTIFICATIONS[Math.floor(Math.random() * LIVE_NOTIFICATIONS.length)];
+                msgEl.textContent = randomMsg;
+                popup.classList.remove('opacity-0', 'translate-y-10');
+                popup.classList.add('opacity-100', 'translate-y-0');
+                
+                setTimeout(() => {
+                    popup.classList.remove('opacity-100', 'translate-y-0');
+                    popup.classList.add('opacity-0', 'translate-y-10');
+                }, 4000); // Display for 4 seconds
+            }
+
+            setTimeout(cycleNotification, 3000);
+            setInterval(cycleNotification, 12000); // Trigger every 12 seconds
+        }
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            renderReviews();
+            initFloatingActivity();
         });
+
     </script>
 </body>
 </html>
