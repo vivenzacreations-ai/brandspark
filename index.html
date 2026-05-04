@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-88">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Crafty Cure Studio | Aesthetic Resin Art & Gifts</title>
+    <title>Aura Beauty | Unfiltered Skincare & Style</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,7 +40,6 @@
             100% { transform: translateY(0px); }
         }
         .animate-float { animation: float 6s ease-in-out infinite; }
-        .animate-float-delayed { animation: float 6s ease-in-out 3s infinite; }
         
         /* Marquee animations */
         @keyframes marquee {
@@ -62,6 +61,15 @@
         
         .page-view { display: none; }
         .page-view.active { display: block; animation: fadeInUp 0.4s ease-out forwards; }
+
+        /* Blog Content Styling */
+        .blog-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563; font-size: 1.05rem; }
+        .blog-content h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #111827; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .blog-content strong { color: #be123c; font-weight: 600; }
+        @media (max-width: 640px) {
+            .blog-content p { font-size: 1rem; }
+            .blog-content h3 { font-size: 1.25rem; }
+        }
     </style>
 </head>
 <body class="flex flex-col min-h-screen pt-[100px] sm:pt-[110px]">
@@ -81,24 +89,22 @@
             <!-- Desktop Links (Left) -->
             <div class="hidden md:flex flex-1 items-center space-x-8">
                 <button onclick="navigate('home')" class="nav-link text-sm font-semibold tracking-wide transition text-rose-500 hover:text-rose-500" data-target="home">HOME</button>
-                <button onclick="navigate('shop')" class="nav-link text-sm font-semibold tracking-wide transition text-gray-600 hover:text-rose-500" data-target="shop">SHOP</button>
-                <button onclick="navigate('reviews')" class="nav-link text-sm font-semibold tracking-wide transition text-gray-600 hover:text-rose-500" data-target="reviews">REVIEWS</button>
+                <button onclick="navigate('articles')" class="nav-link text-sm font-semibold tracking-wide transition text-gray-600 hover:text-rose-500" data-target="articles">ARTICLES</button>
+                <button onclick="navigate('about')" class="nav-link text-sm font-semibold tracking-wide transition text-gray-600 hover:text-rose-500" data-target="about">ABOUT</button>
             </div>
 
             <!-- Logo (Center) -->
             <div class="flex-shrink-0 flex items-center justify-center cursor-pointer" onclick="navigate('home')">
                 <h1 class="font-serif text-lg sm:text-2xl lg:text-3xl font-bold tracking-tight text-rose-900 flex items-center gap-1.5 sm:gap-2">
                     <svg class="w-5 h-5 sm:w-6 sm:h-6 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    Crafty Cure
+                    Aura Beauty
                 </h1>
             </div>
 
-            <!-- Cart / Desktop Links (Right) -->
+            <!-- Newsletter Button (Right) -->
             <div class="flex-1 flex items-center justify-end space-x-6">
-                <button onclick="navigate('about')" class="nav-link hidden md:block text-sm font-semibold tracking-wide transition text-gray-600 hover:text-rose-500" data-target="about">STORY</button>
-                <button onclick="navigate('cart')" class="relative flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-rose-50 rounded-full text-rose-600 hover:bg-rose-100 transition shadow-inner">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                    <span id="cart-badge" class="hidden absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-rose-500 text-white text-[10px] sm:text-[11px] font-bold flex items-center justify-center rounded-full shadow-md border-2 border-white">0</span>
+                <button onclick="navigate('newsletter')" class="bg-rose-50 text-rose-600 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-rose-500 hover:text-white transition shadow-sm">
+                    Join VIP
                 </button>
             </div>
         </nav>
@@ -106,26 +112,26 @@
         <!-- Moving Marquee Below Header -->
         <div class="w-full bg-rose-500 text-white py-1.5 sm:py-2 overflow-hidden flex whitespace-nowrap shadow-md">
             <div class="animate-marquee font-mono text-[9px] sm:text-xs uppercase tracking-widest font-semibold flex items-center">
-                <span class="mx-4 sm:mx-6">✨ 100% CUSTOMISED ART</span>
-                <span class="mx-4 sm:mx-6">• 🚚 PAN INDIA SECURE SHIPPING</span>
-                <span class="mx-4 sm:mx-6">• 🚫 NO CANCELLATIONS AFTER CONFIRMATION</span>
-                <span class="mx-4 sm:mx-6">• ✨ HANDCRAFTED IN BHUJ, KUTCH</span>
-                <span class="mx-4 sm:mx-6">• 💖 PRESERVING MEMORIES</span>
+                <span class="mx-4 sm:mx-6">✨ NEW POSTS EVERY TUESDAY</span>
+                <span class="mx-4 sm:mx-6">• 💄 HONEST MAKEUP REVIEWS</span>
+                <span class="mx-4 sm:mx-6">• 🌿 GLOW FROM WITHIN</span>
+                <span class="mx-4 sm:mx-6">• ✨ EXPERT SKINCARE SECRETS</span>
+                <span class="mx-4 sm:mx-6">• 💖 BEAUTY UNFILTERED</span>
                 
-                <span class="mx-4 sm:mx-6">✨ 100% CUSTOMISED ART</span>
-                <span class="mx-4 sm:mx-6">• 🚚 PAN INDIA SECURE SHIPPING</span>
-                <span class="mx-4 sm:mx-6">• 🚫 NO CANCELLATIONS AFTER CONFIRMATION</span>
-                <span class="mx-4 sm:mx-6">• ✨ HANDCRAFTED IN BHUJ, KUTCH</span>
-                <span class="mx-4 sm:mx-6">• 💖 PRESERVING MEMORIES</span>
+                <span class="mx-4 sm:mx-6">✨ NEW POSTS EVERY TUESDAY</span>
+                <span class="mx-4 sm:mx-6">• 💄 HONEST MAKEUP REVIEWS</span>
+                <span class="mx-4 sm:mx-6">• 🌿 GLOW FROM WITHIN</span>
+                <span class="mx-4 sm:mx-6">• ✨ EXPERT SKINCARE SECRETS</span>
+                <span class="mx-4 sm:mx-6">• 💖 BEAUTY UNFILTERED</span>
             </div>
         </div>
 
         <!-- Mobile Dropdown -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl shadow-2xl border-b border-rose-100 p-6 flex flex-col space-y-2 md:hidden">
             <button onclick="navigate('home')" class="text-lg font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">Home</button>
-            <button onclick="navigate('shop')" class="text-lg font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">Shop Collection</button>
-            <button onclick="navigate('reviews')" class="text-lg font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">Client Reviews</button>
-            <button onclick="navigate('about')" class="text-lg font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">Our Story & FAQ</button>
+            <button onclick="navigate('articles')" class="text-lg font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">Latest Articles</button>
+            <button onclick="navigate('about')" class="text-lg font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">About The Editor</button>
+            <button onclick="navigate('newsletter')" class="text-lg font-serif text-left text-rose-500 py-3 border-b border-rose-50 font-bold">Join VIP Newsletter</button>
         </div>
     </div>
 
@@ -135,204 +141,122 @@
         <!-- ================= HOME VIEW ================= -->
         <div id="view-home" class="page-view active w-full">
             
-            <!-- 1. Hero Section -->
-            <div class="relative pt-8 pb-12 sm:pt-16 sm:pb-20 lg:pt-32 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center w-full">
+            <!-- Featured Hero Article -->
+            <div class="relative pt-8 pb-12 sm:pt-16 sm:pb-20 lg:pt-24 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center w-full gap-10">
                 <!-- Background Blobs -->
                 <div class="absolute top-0 right-0 w-[80vw] sm:w-[500px] h-[80vw] sm:h-[500px] bg-rose-200/50 rounded-full mix-blend-multiply filter blur-[60px] sm:blur-[80px] -z-10 translate-x-1/4 -translate-y-1/4"></div>
                 <div class="absolute bottom-0 left-0 w-[60vw] sm:w-[400px] h-[60vw] sm:h-[400px] bg-orange-200/40 rounded-full mix-blend-multiply filter blur-[60px] sm:blur-[80px] -z-10 -translate-x-1/4 translate-y-1/4"></div>
 
-                <div class="lg:w-1/2 text-center lg:text-left z-10 pt-4 lg:pt-0 w-full">
-                    <div class="inline-flex items-center space-x-1.5 sm:space-x-2 bg-rose-50 border border-rose-100 text-rose-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-4 sm:mb-6 shadow-sm">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-                        <span>Handcrafted in Kutch</span>
+                <div class="lg:w-1/2 relative h-[300px] sm:h-[400px] lg:h-[500px] w-full order-2 lg:order-1 cursor-pointer" onclick="readArticle(1)">
+                    <div class="absolute inset-0 rounded-[1.5rem] sm:rounded-[3rem] overflow-hidden shadow-2xl border-[3px] sm:border-4 border-white animate-float">
+                        <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Skincare routine" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x800/ffe4e6/be123c?text=Beauty';"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white text-left">
+                            <span class="bg-rose-500 text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block shadow-md">Editor's Pick</span>
+                        </div>
                     </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-serif font-bold text-gray-900 leading-[1.1] mb-4 sm:mb-6">
-                        Turn memories into <br/> <span class="gradient-text">Timeless Art</span>
+                </div>
+
+                <div class="lg:w-1/2 text-center lg:text-left z-10 pt-4 lg:pt-0 w-full order-1 lg:order-2">
+                    <div class="inline-flex items-center space-x-1.5 sm:space-x-2 text-gray-500 px-3 sm:px-0 py-1.5 sm:py-2 text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-2">
+                        <span class="text-rose-600">Skincare</span> <span class="text-rose-300">•</span> <span>5 Min Read</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-gray-900 leading-[1.1] mb-4 sm:mb-6">
+                        5 Beauty Mistakes That <br/><span class="gradient-text">Ruin Your Looks</span>
                     </h1>
-                    <p class="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed px-2 sm:px-0">
-                        Beautifully crafted resin preservation, custom varmalas, and aesthetic decor. Made with love, just for you.
+                    <p class="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
+                        We all want to look our absolute best, but sometimes our daily habits are doing the exact opposite. Are you making these common routine errors?
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start">
-                        <button onclick="navigate('shop')" class="w-full sm:w-auto bg-rose-500 text-white px-8 py-3.5 sm:py-4 rounded-full font-bold shadow-[0_8px_20px_rgb(244,63,94,0.3)] hover:bg-rose-600 hover:-translate-y-1 transition-all flex items-center justify-center text-sm sm:text-base">
-                            Shop Collection <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        <button onclick="readArticle(1)" class="w-full sm:w-auto bg-gray-900 text-white px-8 py-3.5 sm:py-4 rounded-full font-bold shadow-lg hover:bg-rose-500 hover:-translate-y-1 transition-all flex items-center justify-center text-sm sm:text-base">
+                            Read Full Article <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </button>
                     </div>
-                </div>
-
-                <div class="lg:w-1/2 relative mt-10 lg:mt-0 h-[280px] sm:h-[400px] lg:h-[500px] w-full">
-                    <div class="absolute right-0 sm:right-10 top-0 w-[70%] sm:w-2/3 h-4/5 rounded-[1.5rem] sm:rounded-[3rem] overflow-hidden shadow-2xl animate-float border-[3px] sm:border-4 border-white">
-                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Varmala" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x600/ffe4e6/be123c?text=Varmala';"/>
-                    </div>
-                    <div class="absolute left-0 sm:left-10 bottom-0 w-[55%] sm:w-1/2 h-2/3 rounded-[1.5rem] sm:rounded-[3rem] overflow-hidden shadow-2xl animate-float-delayed border-[3px] sm:border-4 border-white">
-                        <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Candles" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x600/ffe4e6/be123c?text=Candles';"/>
+                    
+                    <div class="mt-8 flex items-center justify-center lg:justify-start gap-3">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=100&q=80" class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" alt="Author">
+                        <div class="text-left">
+                            <p class="text-xs font-bold text-gray-900">By Sarah Jenkins</p>
+                            <p class="text-[10px] text-gray-500">Beauty Editor • Published Today</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 2. Occasions Scroll (NEW) -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 overflow-hidden">
-                <p class="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest text-center mb-4 sm:mb-6">Perfect Gifts For</p>
-                <div class="flex space-x-3 sm:space-x-4 overflow-x-auto hide-scrollbar pb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
-                    <div onclick="navigate('shop')" class="shrink-0 px-5 sm:px-6 py-2 sm:py-3 bg-white border border-rose-100 text-gray-700 rounded-full text-xs sm:text-sm font-semibold cursor-pointer hover:bg-rose-50 hover:text-rose-600 transition shadow-sm">Weddings</div>
-                    <div onclick="navigate('shop')" class="shrink-0 px-5 sm:px-6 py-2 sm:py-3 bg-white border border-rose-100 text-gray-700 rounded-full text-xs sm:text-sm font-semibold cursor-pointer hover:bg-rose-50 hover:text-rose-600 transition shadow-sm">Anniversaries</div>
-                    <div onclick="navigate('shop')" class="shrink-0 px-5 sm:px-6 py-2 sm:py-3 bg-white border border-rose-100 text-gray-700 rounded-full text-xs sm:text-sm font-semibold cursor-pointer hover:bg-rose-50 hover:text-rose-600 transition shadow-sm">Housewarming</div>
-                    <div onclick="navigate('shop')" class="shrink-0 px-5 sm:px-6 py-2 sm:py-3 bg-white border border-rose-100 text-gray-700 rounded-full text-xs sm:text-sm font-semibold cursor-pointer hover:bg-rose-50 hover:text-rose-600 transition shadow-sm">Birthdays</div>
-                    <div onclick="navigate('shop')" class="shrink-0 px-5 sm:px-6 py-2 sm:py-3 bg-white border border-rose-100 text-gray-700 rounded-full text-xs sm:text-sm font-semibold cursor-pointer hover:bg-rose-50 hover:text-rose-600 transition shadow-sm">Corporate</div>
+            <!-- Categories Scroll -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 border-y border-rose-50">
+                <div class="flex space-x-3 sm:space-x-4 overflow-x-auto hide-scrollbar justify-start md:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
+                    <div onclick="navigate('articles')" class="shrink-0 px-5 sm:px-6 py-2 sm:py-2.5 bg-rose-50 border border-rose-100 text-rose-600 rounded-full text-xs sm:text-sm font-bold cursor-pointer hover:bg-rose-500 hover:text-white transition shadow-sm">All Topics</div>
+                    <div onclick="navigate('articles')" class="shrink-0 px-5 sm:px-6 py-2 sm:py-2.5 bg-white border border-gray-200 text-gray-600 rounded-full text-xs sm:text-sm font-semibold cursor-pointer hover:bg-rose-50 hover:text-rose-600 hover:border-rose-100 transition shadow-sm">Skincare</div>
+                    <div onclick="navigate('articles')" class="shrink-0 px-5 sm:px-6 py-2 sm:py-2.5 bg-white border border-gray-200 text-gray-600 rounded-full text-xs sm:text-sm font-semibold cursor-pointer hover:bg-rose-50 hover:text-rose-600 hover:border-rose-100 transition shadow-sm">Makeup</div>
+                    <div onclick="navigate('articles')" class="shrink-0 px-5 sm:px-6 py-2 sm:py-2.5 bg-white border border-gray-200 text-gray-600 rounded-full text-xs sm:text-sm font-semibold cursor-pointer hover:bg-rose-50 hover:text-rose-600 hover:border-rose-100 transition shadow-sm">Haircare</div>
+                    <div onclick="navigate('articles')" class="shrink-0 px-5 sm:px-6 py-2 sm:py-2.5 bg-white border border-gray-200 text-gray-600 rounded-full text-xs sm:text-sm font-semibold cursor-pointer hover:bg-rose-50 hover:text-rose-600 hover:border-rose-100 transition shadow-sm">Wellness</div>
                 </div>
             </div>
 
-            <!-- 3. Features -->
-            <div class="bg-white border-y border-rose-50 py-8 sm:py-12">
-                <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center divide-y sm:divide-y-0 sm:divide-x divide-rose-50">
-                    <div class="pt-4 sm:pt-0 sm:p-4 flex flex-col items-center">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                        </div>
-                        <h4 class="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">100% Custom Made</h4>
-                        <p class="text-gray-500 text-xs sm:text-sm px-4 sm:px-0">Every piece is uniquely tailored to your specific vision and memories.</p>
+            <!-- Latest Reads -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+                <div class="flex justify-between items-end mb-8 sm:mb-12">
+                    <div>
+                        <h2 class="text-2xl sm:text-4xl font-serif font-bold text-gray-900 mb-1 sm:mb-2">Latest Reads</h2>
+                        <p class="text-gray-500 text-sm sm:text-base">Fresh tips and honest reviews.</p>
                     </div>
-                    <div class="pt-6 sm:pt-0 sm:p-4 flex flex-col items-center">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        </div>
-                        <h4 class="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Secure Packaging</h4>
-                        <p class="text-gray-500 text-xs sm:text-sm px-4 sm:px-0">Rigorous packaging ensuring your delicate art arrives safely anywhere.</p>
-                    </div>
-                    <div class="pt-6 sm:pt-0 sm:p-4 flex flex-col items-center">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                        </div>
-                        <h4 class="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Certified Artist</h4>
-                        <p class="text-gray-500 text-xs sm:text-sm px-4 sm:px-0">Professional grade materials and expert techniques for lasting quality.</p>
-                    </div>
+                    <button onclick="navigate('articles')" class="text-rose-500 font-bold text-sm hover:underline hidden sm:block">View All</button>
                 </div>
-            </div>
-
-            <!-- 4. Trending Masterpieces -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-20">
-                <div class="text-center mb-8 sm:mb-12">
-                    <h2 class="text-2xl sm:text-4xl font-serif font-bold text-gray-900 mb-2 sm:mb-4">Trending Masterpieces</h2>
-                    <p class="text-gray-500 text-sm sm:text-base">Hand-picked aesthetic pieces to elevate your space.</p>
-                </div>
-                <!-- Dynamic Content Container -->
-                <div id="home-trending-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"></div>
-                <div class="mt-8 sm:mt-12 text-center">
-                    <button onclick="navigate('shop')" class="inline-flex items-center justify-center bg-rose-50 text-rose-600 text-sm sm:text-base font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-rose-100 transition shadow-sm">
-                        View Full Gallery
+                
+                <!-- Articles injected here -->
+                <div id="home-articles-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
+                
+                <div class="mt-8 text-center sm:hidden">
+                    <button onclick="navigate('articles')" class="w-full bg-rose-50 text-rose-600 text-sm font-bold px-6 py-3 rounded-full hover:bg-rose-100 transition shadow-sm">
+                        View All Articles
                     </button>
                 </div>
             </div>
 
-            <!-- 5. Impact Promo Banner (NEW) -->
-            <div class="px-4 sm:px-8 py-8 sm:py-16">
-                <div class="max-w-7xl mx-auto bg-rose-600 rounded-[1.5rem] sm:rounded-[3rem] overflow-hidden relative shadow-2xl">
+            <!-- Newsletter Promo Banner -->
+            <div class="px-4 sm:px-8 py-8 sm:py-12 mb-10">
+                <div class="max-w-7xl mx-auto bg-rose-500 rounded-[1.5rem] sm:rounded-[3rem] overflow-hidden relative shadow-2xl">
                     <div class="absolute inset-0 opacity-20">
-                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Resin Background" class="w-full h-full object-cover mix-blend-multiply" onerror="this.style.display='none';"/>
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bf85033e5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Texture" class="w-full h-full object-cover mix-blend-multiply" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/be123c/be123c';"/>
                     </div>
-                    <div class="relative z-10 px-6 py-12 sm:py-24 text-center flex flex-col items-center">
-                        <span class="text-rose-200 font-bold tracking-widest uppercase text-[10px] sm:text-sm mb-3 sm:mb-4 block">Signature Service</span>
+                    <div class="relative z-10 px-6 py-12 sm:py-20 text-center flex flex-col items-center">
+                        <span class="text-rose-200 font-bold tracking-widest uppercase text-[10px] sm:text-sm mb-3 sm:mb-4 block">The Glow List</span>
                         <h2 class="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-4 sm:mb-6 leading-tight max-w-2xl">
-                            Don't let your wedding flowers wither away.
+                            Unlock your best skin ever.
                         </h2>
                         <p class="text-rose-100 text-sm sm:text-lg max-w-xl mb-6 sm:mb-8">
-                            Preserve the most precious garlands of your life in crystal-clear, non-yellowing resin frames forever.
+                            Join 15,000+ readers getting our weekly beauty secrets, product reviews, and exclusive giveaways directly in their inbox.
                         </p>
-                        <button onclick="navigate('shop')" class="bg-white text-rose-600 text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-xl hover:bg-gray-50 hover:-translate-y-1 transition-all">
-                            Book Your Preservation
-                        </button>
+                        <form class="w-full max-w-md flex flex-col sm:flex-row gap-2" onsubmit="event.preventDefault(); showToast('✨ Welcome to The Glow List!'); this.reset();">
+                            <input type="email" placeholder="Enter your email" required class="flex-grow px-5 py-3.5 rounded-full border-none focus:outline-none focus:ring-2 focus:ring-rose-300 text-sm shadow-inner" />
+                            <button type="submit" class="bg-gray-900 text-white px-8 py-3.5 rounded-full font-bold shadow-xl hover:bg-gray-800 transition-all text-sm whitespace-nowrap">
+                                Subscribe
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
-
-            <!-- 6. The Magic Process (NEW) -->
-            <div class="bg-[#faf8f7] py-12 sm:py-24">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 class="text-2xl sm:text-4xl font-serif font-bold text-gray-900 mb-10 sm:mb-16">The Magic Process</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 relative">
-                        <div class="hidden md:block absolute top-8 sm:top-10 left-[16%] right-[16%] h-[2px] border-t-2 border-dashed border-rose-200 z-0"></div>
-                        
-                        <div class="relative z-10 flex flex-col items-center">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white border-4 border-rose-100 rounded-full flex items-center justify-center text-rose-500 text-xl sm:text-2xl font-bold shadow-sm mb-4 sm:mb-6">1</div>
-                            <h3 class="font-bold text-gray-900 text-base sm:text-lg mb-1 sm:mb-2">Share Your Dream</h3>
-                            <p class="text-gray-500 text-xs sm:text-sm max-w-[200px] sm:max-w-xs leading-relaxed">Send us your fresh or dried varmala via secure courier.</p>
-                        </div>
-                        <div class="relative z-10 flex flex-col items-center">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white border-4 border-rose-100 rounded-full flex items-center justify-center text-rose-500 text-xl sm:text-2xl font-bold shadow-sm mb-4 sm:mb-6">2</div>
-                            <h3 class="font-bold text-gray-900 text-base sm:text-lg mb-1 sm:mb-2">We Craft Magic</h3>
-                            <p class="text-gray-500 text-xs sm:text-sm max-w-[200px] sm:max-w-xs leading-relaxed">We carefully treat flowers and pour premium resin over 15 days.</p>
-                        </div>
-                        <div class="relative z-10 flex flex-col items-center">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white border-4 border-rose-100 rounded-full flex items-center justify-center text-rose-500 text-xl sm:text-2xl font-bold shadow-sm mb-4 sm:mb-6">3</div>
-                            <h3 class="font-bold text-gray-900 text-base sm:text-lg mb-1 sm:mb-2">Delivered Safely</h3>
-                            <p class="text-gray-500 text-xs sm:text-sm max-w-[200px] sm:max-w-xs leading-relaxed">Your permanent, timeless memory is shipped securely to you.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 7. Instagram Grid (NEW) -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 mb-6 sm:mb-10">
-                <div class="text-center mb-8 sm:mb-10">
-                    <span class="text-rose-500 font-bold tracking-widest uppercase text-[10px] sm:text-xs mb-1.5 sm:mb-2 block">Follow Us</span>
-                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-gray-900 mb-2 sm:mb-4">@craftycure.studio</h2>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
-                    <div class="aspect-square rounded-[1rem] sm:rounded-[1.5rem] overflow-hidden group relative cursor-pointer shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1544967082-b9d25d840d44?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Insta 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/ffe4e6/be123c?text=Instagram';"/>
-                        <div class="absolute inset-0 bg-rose-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"><svg class="text-white w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-                    </div>
-                    <div class="aspect-square rounded-[1rem] sm:rounded-[1.5rem] overflow-hidden group relative cursor-pointer shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1580920461011-8f5bcaf8ccbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Insta 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/ffe4e6/be123c?text=Instagram';"/>
-                        <div class="absolute inset-0 bg-rose-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"><svg class="text-white w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-                    </div>
-                    <div class="aspect-square rounded-[1rem] sm:rounded-[1.5rem] overflow-hidden group relative cursor-pointer shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1602874801007-bd458cb6b896?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Insta 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/ffe4e6/be123c?text=Instagram';"/>
-                        <div class="absolute inset-0 bg-rose-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"><svg class="text-white w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-                    </div>
-                    <div class="aspect-square rounded-[1rem] sm:rounded-[1.5rem] overflow-hidden group relative cursor-pointer shadow-sm hidden md:block">
-                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Insta 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x600/ffe4e6/be123c?text=Instagram';"/>
-                        <div class="absolute inset-0 bg-rose-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"><svg class="text-white w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 8. VIP Newsletter (NEW) -->
-            <div class="bg-rose-50 border-t border-rose-100 py-12 sm:py-20 text-center px-4">
-                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-gray-900 mb-3 sm:mb-4">Join the VIP List</h2>
-                <p class="text-xs sm:text-sm text-gray-600 mb-6 sm:mb-8 max-w-md mx-auto">Subscribe to get first access to new resin collections, exclusive discounts, and studio updates.</p>
-                <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-2 sm:gap-3" onsubmit="event.preventDefault(); showToast('✨ Thanks for subscribing!'); this.reset();">
-                    <input type="email" placeholder="Your email address" required class="flex-grow px-5 py-3.5 sm:py-4 rounded-full border border-rose-200 focus:outline-none focus:border-rose-400 focus:ring-1 focus:ring-rose-400 shadow-inner text-sm" />
-                    <button type="submit" class="bg-gray-900 text-white px-8 py-3.5 sm:py-4 rounded-full text-sm font-bold hover:bg-gray-800 transition shadow-md whitespace-nowrap">Subscribe</button>
-                </form>
-            </div>
-
         </div>
 
-        <!-- ================= SHOP VIEW ================= -->
-        <div id="view-shop" class="page-view w-full">
+        <!-- ================= ALL ARTICLES VIEW ================= -->
+        <div id="view-articles" class="page-view w-full">
             <div class="pt-8 sm:pt-16 pb-16 sm:pb-24">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="mb-8 sm:mb-10 text-center max-w-2xl mx-auto">
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-2 sm:mb-4">The Collection</h1>
-                        <p class="text-gray-500 text-sm sm:text-lg">Every piece is uniquely crafted.</p>
+                    <div class="mb-10 sm:mb-12 text-center max-w-2xl mx-auto">
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-2 sm:mb-4">All Articles</h1>
+                        <p class="text-gray-500 text-sm sm:text-lg">Dive deep into our beauty archives.</p>
                     </div>
                     
-                    <div id="shop-filters" class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12"></div>
-                    <div id="shop-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"></div>
+                    <div id="articles-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
                 </div>
             </div>
         </div>
 
-        <!-- ================= REVIEWS VIEW ================= -->
-        <div id="view-reviews" class="page-view w-full">
-            <div class="pt-8 sm:pt-16 pb-16 sm:pb-24 min-h-screen">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-10 sm:mb-16">
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-2 sm:mb-4">Client Diaries</h1>
-                        <p class="text-gray-500 text-sm sm:text-lg">Hear what our lovely customers have to say.</p>
-                    </div>
-                    <div id="reviews-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"></div>
-                </div>
+        <!-- ================= SINGLE ARTICLE READING VIEW ================= -->
+        <div id="view-single-article" class="page-view w-full bg-white">
+            <div id="article-content-container" class="pt-6 pb-24">
+                <!-- Dynamically filled by JS -->
             </div>
         </div>
 
@@ -341,34 +265,36 @@
             <div class="pt-8 sm:pt-16 pb-16 sm:pb-24">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="bg-white rounded-[1.5rem] sm:rounded-[3rem] shadow-xl border border-rose-50 overflow-hidden flex flex-col lg:flex-row mb-10 sm:mb-16">
-                        <div class="lg:w-1/2 relative h-[250px] sm:h-[400px] lg:h-auto">
-                            <img src="https://images.unsplash.com/photo-1544967082-b9d25d840d44?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Artist at work" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x800/ffe4e6/be123c?text=Artist';"/>
+                        <div class="lg:w-1/2 relative h-[250px] sm:h-[500px] lg:h-auto">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Editor" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/800x800/ffe4e6/be123c?text=Editor';"/>
                         </div>
                         <div class="lg:w-1/2 p-6 sm:p-12 lg:p-16 flex flex-col justify-center">
-                            <h1 class="text-2xl sm:text-4xl font-serif font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">Crafting magic in <br/><span class="text-rose-500">Bhuj, Kutch.</span></h1>
-                            <div class="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
-                                <p>Hello! I am a certified resin artist dedicated to turning your fleeting moments into permanent masterpieces.</p>
-                                <p>Whether it's preserving your precious wedding Varmala or crafting custom aesthetic home decor, every single piece is poured, polished, and packaged with immense love and care.</p>
+                            <span class="text-rose-500 font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block">Meet The Editor</span>
+                            <h1 class="text-2xl sm:text-4xl font-serif font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">Hi, I'm Sarah. <br/><span class="text-rose-500">Beauty Enthusiast.</span></h1>
+                            <div class="space-y-3 sm:space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                                <p>Welcome to Aura Beauty! I started this blog because I was tired of the heavily filtered, perfectly edited beauty standards we see every day.</p>
+                                <p>Here, we talk about real skin, honest product reviews, and practical advice that actually fits into your daily routine. My mission is to help you decode complex skincare ingredients so you can achieve your best glow.</p>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Beauty FAQs -->
                     <div class="max-w-3xl mx-auto bg-white rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-12 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-rose-50">
-                        <h2 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 mb-6 sm:mb-8 text-center">Frequently Asked Questions</h2>
+                        <h2 class="text-xl sm:text-3xl font-serif font-bold text-gray-900 mb-6 sm:mb-8 text-center">Frequently Asked Questions</h2>
                         <div class="space-y-5 sm:space-y-6">
                             <div>
-                                <h4 class="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">How do I send my Varmala?</h4>
-                                <p class="text-xs sm:text-sm text-gray-600">Once you place the order, we share instructions and our address. Courier the flowers in a well-ventilated cardboard box.</p>
+                                <h4 class="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">How do I figure out my skin type?</h4>
+                                <p class="text-xs sm:text-sm text-gray-600">The easiest method is the bare-face test. Wash your face with a gentle cleanser, pat dry, and wait 30 minutes. If your face feels tight, you're dry. If you see shine all over, you're oily. Shine only on the T-zone means combination!</p>
                             </div>
                             <div class="h-px w-full bg-gray-100"></div>
                             <div>
-                                <h4 class="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">What is the processing time?</h4>
-                                <p class="text-xs sm:text-sm text-gray-600">Resin art requires precision. Please allow 15-20 business days for varmala pieces and 7-10 days for standard decor.</p>
+                                <h4 class="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">In what order should I apply my skincare?</h4>
+                                <p class="text-xs sm:text-sm text-gray-600">The golden rule is to go from thinnest to thickest consistency. Cleanse &rarr; Toner &rarr; Serum &rarr; Eye Cream &rarr; Moisturizer &rarr; Oils. And always finish with SPF during the day!</p>
                             </div>
                             <div class="h-px w-full bg-gray-100"></div>
                             <div>
-                                <h4 class="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Do you accept returns?</h4>
-                                <p class="text-xs sm:text-sm text-gray-600">Because every piece is 100% custom-made, we strictly do not accept returns or cancellations once production begins.</p>
+                                <h4 class="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">How often do you post new reviews?</h4>
+                                <p class="text-xs sm:text-sm text-gray-600">I publish deep-dive articles and product reviews every Tuesday and Friday. Make sure you're subscribed to the newsletter so you don't miss any new secrets.</p>
                             </div>
                         </div>
                     </div>
@@ -376,12 +302,25 @@
             </div>
         </div>
 
-        <!-- ================= CART VIEW ================= -->
-        <div id="view-cart" class="page-view w-full">
-            <div class="pt-8 sm:pt-16 pb-16 sm:pb-24 min-h-screen">
-                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h1 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-6 sm:mb-8">Your Cart</h1>
-                    <div id="cart-content"></div> 
+        <!-- ================= NEWSLETTER VIEW ================= -->
+        <div id="view-newsletter" class="page-view w-full">
+            <div class="pt-8 sm:pt-16 pb-16 sm:pb-24 min-h-[70vh] flex flex-col justify-center">
+                <div class="max-w-xl mx-auto px-4 w-full">
+                    <div class="bg-white rounded-[2rem] border border-rose-50 shadow-xl p-8 sm:p-12 text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-rose-100 rounded-full blur-2xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+                        <div class="w-16 h-16 bg-rose-50 rounded-full flex items-center justify-center mx-auto mb-6 text-rose-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h2 class="text-3xl font-serif font-bold text-gray-900 mb-3">Join The Glow List</h2>
+                        <p class="text-gray-500 text-sm sm:text-base mb-8">Get weekly beauty tips, product recommendations, and exclusive giveaways.</p>
+                        
+                        <form onsubmit="event.preventDefault(); showToast('✨ Thanks for subscribing!'); navigate('home');" class="space-y-4">
+                            <input type="text" placeholder="Your Name" required class="w-full px-5 py-3 sm:py-4 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-rose-400 focus:bg-white transition text-sm shadow-inner" />
+                            <input type="email" placeholder="Your Email Address" required class="w-full px-5 py-3 sm:py-4 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-rose-400 focus:bg-white transition text-sm shadow-inner" />
+                            <button type="submit" class="w-full bg-gray-900 text-white py-4 rounded-xl font-bold shadow-lg hover:bg-rose-500 transition text-sm mt-2">Subscribe Now</button>
+                        </form>
+                        <p class="text-[10px] text-gray-400 mt-6">We respect your privacy. No spam, ever.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -393,10 +332,14 @@
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h3 class="font-serif text-xl sm:text-2xl font-bold text-rose-900 mb-2 sm:mb-3 flex items-center justify-center gap-2 cursor-pointer" onclick="navigate('home')">
                 <svg class="w-4 h-4 sm:w-5 sm:h-5 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                Crafty Cure
+                Aura Beauty
             </h3>
-            <p class="text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6">Handcrafted in Bhuj, Kutch.</p>
-            <p class="text-[10px] sm:text-xs text-gray-400">&copy; <span id="year"></span> Crafty Cure Studio. All rights reserved.</p>
+            <p class="text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6">Unfiltered skincare, honest reviews, and pure glow.</p>
+            <div class="flex justify-center gap-6 text-[10px] sm:text-xs text-gray-400 mb-4">
+                <span class="hover:text-rose-500 cursor-pointer">Privacy Policy</span>
+                <span class="hover:text-rose-500 cursor-pointer">Terms of Service</span>
+            </div>
+            <p class="text-[10px] text-gray-400">&copy; <span id="year"></span> Aura Beauty Blog. All rights reserved.</p>
         </div>
     </footer>
 
@@ -410,45 +353,101 @@
     <!-- FLOATING ACTIVITY NOTIFICATION -->
     <div id="floating-activity" class="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 z-40 w-[calc(100vw-32px)] max-w-[280px] bg-white/95 backdrop-blur-md border border-rose-100 p-3 rounded-[1.5rem] sm:rounded-[2rem] shadow-[0_10px_30px_rgb(244,63,94,0.15)] flex items-start gap-2.5 sm:gap-3 pointer-events-none transition-all duration-700 opacity-0 translate-y-10">
         <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-rose-100 text-rose-500 flex items-center justify-center shrink-0 mt-0.5 shadow-inner">
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
         </div>
         <p id="floating-message" class="text-[11px] sm:text-sm text-gray-700 font-medium leading-snug"></p>
     </div>
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // --- DATA ---
-        const PRODUCTS = [
-            { id: 1, name: "Engaged Ring Platter", category: "Resin Art", price: 1500, image: "https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Customised resin ring platter with real dried flowers.", tag: "Bestseller" },
-            { id: 2, name: "Varmala Frame", category: "Preservation", price: 3500, image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Immortalize your wedding garlands in crystal clear resin.", tag: "Popular" },
-            { id: 3, name: "Onyx Coasters", category: "Home Decor", price: 800, image: "https://images.unsplash.com/photo-1616628188506-4bf98fc91176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Set of 4 hand-poured resin coasters mimicking onyx marble." },
-            { id: 4, name: "Vanilla Bean Candle", category: "Candles", price: 450, image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Aesthetic bubble candles made from 100% soy wax." },
-            { id: 5, name: "Floral Initial", category: "Accessories", price: 200, image: "https://images.unsplash.com/photo-1590736969955-71cc94801759?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Personalised initial keychains with baby's breath flowers." },
-            { id: 6, name: "Lipan Mirror Art", category: "Wall Art", price: 1200, image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Authentic mud and mirror work handcrafted from Kutch." },
-            { id: 7, name: "Ocean Wave Tray", category: "Resin Art", price: 1800, image: "https://images.unsplash.com/photo-1584589167171-541ce45f1eea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Serving tray with realistic 3D ocean waves.", tag: "New" },
-            { id: 8, name: "Rose Quartz Candle", category: "Candles", price: 650, image: "https://images.unsplash.com/photo-1602874801007-bd458cb6b896?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", description: "Infused with real rose quartz crystals and a soft peony scent." }
-        ];
+        // --- BLOG DATA ---
+        const ARTICLES = [
+            { 
+                id: 1, 
+                title: "5 Beauty Mistakes That Ruin Your Looks", 
+                category: "Skincare", 
+                readTime: "5 Min Read",
+                image: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+                excerpt: "We all want to look our absolute best, but sometimes our daily habits are doing the exact opposite. Are you making these errors?",
+                author: "Sarah Jenkins",
+                date: "May 4, 2026",
+                content: `
+                    <p>We all want to achieve that flawless, glowing look. We invest in high-end serums, watch hours of tutorials, and spend a significant portion of our morning routine trying to look our absolute best. But what if some of your daily habits are actively working against you?</p>
+                    <p>Here are the top 5 beauty mistakes that are silently ruining your look—and exactly how to fix them.</p>
+                    
+                    <h3>1. Sleeping with Your Makeup On</h3>
+                    <p>We've all been there: it's late, you're exhausted, and your bed is calling your name. Skipping the cleanser seems harmless just this once. Unfortunately, sleeping in makeup is one of the worst things you can do to your skin.</p>
+                    <p>Overnight, your skin goes into repair mode. Makeup traps environmental pollutants and free radicals inside your pores, leading to collagen degradation, premature aging, and severe breakouts. <strong>The Fix:</strong> Keep a pack of gentle micellar water wipes on your nightstand for emergencies.</p>
 
-        const REVIEWS = [
-            { id: 1, name: "Priya Sharma", rating: 5, date: "2 days ago", text: "The Varmala preservation brought me to tears. Absolutely stunning work, the flowers look exactly like they did on my wedding day!" },
-            { id: 2, name: "Ananya Desai", rating: 5, date: "1 week ago", text: "Ordered coasters for a bridal shower. Everyone loved the premium marble look. Packaging was 10/10." },
-            { id: 3, name: "Rohan Kapoor", rating: 5, date: "2 weeks ago", text: "Ring platter was exactly what we envisioned. Safe delivery to Mumbai without a single scratch." },
-            { id: 4, name: "Meera Patel", rating: 5, date: "1 month ago", text: "The Lipan art totally transformed my living room. You can feel the real Kutch craftsmanship." }
+                    <h3>2. Skipping Sunscreen on Cloudy Days</h3>
+                    <p>If you think you only need SPF when you're at the beach, think again. UV rays penetrate through clouds and even through your home or office windows. Daily sun exposure without protection leads to hyperpigmentation, uneven skin tone, and wrinkles.</p>
+                    <p><strong>The Fix:</strong> Make sunscreen as non-negotiable as brushing your teeth. Use a broad-spectrum SPF 30 or higher every single morning, rain or shine.</p>
+
+                    <h3>3. Using Dirty Makeup Brushes</h3>
+                    <p>When was the last time you washed your foundation brush? If you can't remember, it's been too long. Dirty brushes harbor bacteria, dead skin cells, and old oils. Sweeping that across your face daily guarantees clogged pores and dull makeup application.</p>
+                    <p><strong>The Fix:</strong> Wash your liquid/cream brushes weekly, and powder brushes bi-weekly using a gentle baby shampoo or dedicated brush cleanser.</p>
+
+                    <h3>4. Applying the Wrong Foundation Shade</h3>
+                    <p>Nothing ruins a look faster than a harsh foundation line along your jaw. Our skin tone changes throughout the seasons, but many of us use the exact same foundation bottle year-round.</p>
+                    <p><strong>The Fix:</strong> Always test foundation shades on your jawline in natural daylight—not on the back of your hand. Don't be afraid to mix two shades together as your skin transitions from summer to winter.</p>
+
+                    <h3>5. Neglecting Your Neck and Chest</h3>
+                    <p>Your skincare routine shouldn't stop at your chin. The skin on your neck and décolletage is incredibly thin and shows signs of aging much faster than your face.</p>
+                    <p><strong>The Fix:</strong> Whatever you apply to your face (cleanser, serums, moisturizer, and especially sunscreen), bring it down to your neck and chest. Treat this entire area as one continuous canvas.</p>
+                    
+                    <p><em>Which of these mistakes are you guilty of? Let us know over on our Instagram!</em></p>
+                `
+            },
+            { 
+                id: 2, 
+                title: "The Ultimate Guide to Real Glass Skin", 
+                category: "Skincare", 
+                readTime: "7 Min Read",
+                image: "https://images.unsplash.com/photo-1512496015851-a1fbaf6928e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+                excerpt: "Achieving a poreless, luminous complexion isn't just about makeup—it's about intense hydration and a solid routine."
+            },
+            { 
+                id: 3, 
+                title: "Drugstore vs. High-End: Worth the Hype?", 
+                category: "Makeup", 
+                readTime: "4 Min Read",
+                image: "https://images.unsplash.com/photo-1596462502278-27bf85033e5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+                excerpt: "We blind-tested viral luxury foundations against drugstore dupes. The results will definitely shock your wallet."
+            },
+            { 
+                id: 4, 
+                title: "Why You Need Vitamin C Every Morning", 
+                category: "Wellness", 
+                readTime: "3 Min Read",
+                image: "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+                excerpt: "The holy grail antioxidant explained. Here is exactly what Vitamin C does for your dark spots and overall glow."
+            },
+            { 
+                id: 5, 
+                title: "Heatless Curls: Bouncy Hair Without Damage", 
+                category: "Haircare", 
+                readTime: "5 Min Read",
+                image: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+                excerpt: "Stop frying your hair. Step-by-step guide to the viral sock-curl method for perfect morning waves."
+            },
+            { 
+                id: 6, 
+                title: "How to Layer Your Skincare Correctly", 
+                category: "Skincare", 
+                readTime: "6 Min Read",
+                image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+                excerpt: "Are you applying oil before moisturizer? Stop right now. The definitive guide to layering active ingredients."
+            }
         ];
 
         const LIVE_NOTIFICATIONS = [
-            "✨ Neha from Mumbai just bought a Varmala Frame!",
-            "⭐ Priya left a 5-star review: 'Absolutely stunning work!'",
-            "✨ Rahul from Delhi just bought Onyx Coasters!",
-            "🔥 4 people are currently looking at the Ring Platter",
-            "⭐ Meera left a 5-star review: 'Transformed my living room.'",
-            "✨ Simran from Pune just bought a Vanilla Bean Candle!"
+            "👁️ Priya is reading '5 Beauty Mistakes...'",
+            "✨ Neha just subscribed to The Glow List!",
+            "👁️ Sarah is reading 'Heatless Curls Guide'",
+            "💬 Meera left a comment on 'Drugstore vs High-End'",
+            "👁️ 14 people are currently reading about Skincare Layering",
+            "✨ Ananya joined the newsletter!"
         ];
-
-        // --- STATE ---
-        let cart = [];
-        let activeFilter = 'All';
-        let isCheckingOut = false;
 
         // --- HELPERS ---
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -494,216 +493,118 @@
             if(!menu.classList.contains('hidden')) toggleMobileMenu();
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            if(pageId === 'cart') renderCart();
         }
 
         // --- RENDER FUNCTIONS ---
-        function getProductCardHTML(product) {
-            const tagHTML = product.tag ? `<div class="absolute top-0 right-3 sm:right-4 -translate-y-1/2 z-10 bg-orange-400 text-white text-[9px] sm:text-[10px] md:text-xs font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-md uppercase tracking-wider">${product.tag}</div>` : '';
+        function getArticleCardHTML(article) {
             return `
-                <div class="bg-white rounded-[1.25rem] sm:rounded-[1.5rem] p-2.5 sm:p-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-rose-50 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full relative">
-                    ${tagHTML}
-                    <div class="relative aspect-square overflow-hidden rounded-[0.8rem] sm:rounded-[1rem] mb-3 sm:mb-4 bg-rose-50">
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" onerror="this.onerror=null; this.src='https://placehold.co/600x600/ffe4e6/be123c?text=${encodeURIComponent(product.name)}';"/>
-                        <div class="absolute top-1.5 sm:top-2 left-1.5 sm:left-2 bg-white/90 backdrop-blur text-[9px] sm:text-[10px] md:text-xs font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-rose-600 shadow-sm">${product.category}</div>
+                <div onclick="readArticle(${article.id})" class="bg-white rounded-[1.25rem] sm:rounded-[1.5rem] shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-rose-50 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full cursor-pointer overflow-hidden">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-rose-50 w-full">
+                        <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" onerror="this.onerror=null; this.src='https://placehold.co/600x400/ffe4e6/be123c?text=Beauty';"/>
                     </div>
-                    <div class="flex flex-col flex-grow justify-between px-0.5 sm:px-1">
-                        <div>
-                            <h3 class="text-[13px] sm:text-sm md:text-base font-bold text-gray-900 leading-tight mb-1 sm:mb-1.5 truncate sm:whitespace-normal sm:line-clamp-2">${product.name}</h3>
-                            <p class="text-[10px] sm:text-[11px] md:text-xs text-gray-500 line-clamp-2 mb-2 sm:mb-3 leading-relaxed">${product.description}</p>
+                    <div class="p-5 sm:p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-3">
+                            <span class="text-rose-500">${article.category}</span>
+                            <span class="text-gray-300">•</span>
+                            <span class="text-gray-400">${article.readTime}</span>
                         </div>
-                        <div class="flex items-center justify-between mt-auto pt-2.5 sm:pt-3 border-t border-gray-50">
-                            <span class="text-sm sm:text-base md:text-lg font-bold text-gray-900">₹${product.price}</span>
-                            <button onclick="addToCart(${product.id})" class="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-rose-50 text-rose-600 rounded-full hover:bg-rose-500 hover:text-white transition-colors shadow-sm" title="Add to cart">
-                                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                        <h3 class="text-lg sm:text-xl font-serif font-bold text-gray-900 leading-tight mb-2 group-hover:text-rose-600 transition-colors">${article.title}</h3>
+                        <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed mb-4">${article.excerpt}</p>
+                        <div class="mt-auto pt-4 border-t border-gray-50 flex items-center text-sm font-bold text-gray-900 group-hover:text-rose-500 transition-colors">
+                            Read Article <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderGrids() {
+            // Home View Grid (Exclude the first one as it's the hero)
+            const homeGrid = document.getElementById('home-articles-grid');
+            if (homeGrid) {
+                homeGrid.innerHTML = ARTICLES.slice(1, 4).map(getArticleCardHTML).join('');
+            }
+
+            // All Articles Grid
+            const articlesGrid = document.getElementById('articles-grid');
+            if (articlesGrid) {
+                articlesGrid.innerHTML = ARTICLES.map(getArticleCardHTML).join('');
+            }
+        }
+
+        function readArticle(id) {
+            const article = ARTICLES.find(a => a.id === id);
+            if (!article) return;
+
+            const articleBody = article.content || `
+                <p class="text-lg font-medium text-gray-700">${article.excerpt}</p>
+                <p>Welcome to this comprehensive guide on <strong>${article.title.toLowerCase()}</strong>. As beauty enthusiasts, we are constantly navigating a sea of information to find what truly works.</p>
+                <h3>The Basics</h3>
+                <p>Establishing a core routine is essential. Before diving into complex techniques or expensive products, ensure your fundamentals are strong. This involves understanding your specific needs and addressing them with consistency.</p>
+                <p>Many people make the mistake of following trends blindly. Instead, focus on ingredients and methods that have proven efficacy.</p>
+                <h3>Advanced Techniques</h3>
+                <p>Once you have the basics down, you can introduce advanced elements. This might mean incorporating active ingredients, specialized tools, or targeted treatments.</p>
+                <p>Remember, patience is key. True results come from diligent, long-term care rather than overnight miracles.</p>
+                <p><em>What are your thoughts on this topic? Share with us on social media!</em></p>
+            `;
+
+            const container = document.getElementById('article-content-container');
+            container.innerHTML = `
+                <!-- Article Header -->
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center mt-4 sm:mt-8">
+                    <div class="inline-flex items-center space-x-2 text-rose-500 text-xs sm:text-sm font-bold tracking-widest uppercase mb-4 sm:mb-6">
+                        <span>${article.category}</span> <span>•</span> <span>${article.readTime}</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-gray-900 leading-tight mb-6 sm:mb-8">
+                        ${article.title}
+                    </h1>
+                    <div class="flex items-center justify-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=100&q=80" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-sm object-cover" alt="Author">
+                        <div class="text-left">
+                            <p class="text-sm font-bold text-gray-900">${article.author || 'Sarah Jenkins'}</p>
+                            <p class="text-[10px] sm:text-xs text-gray-500">${article.date || 'May 4, 2026'}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Image -->
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
+                    <div class="aspect-video sm:aspect-[21/9] w-full rounded-[1.5rem] sm:rounded-[3rem] overflow-hidden shadow-2xl relative">
+                        <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1200x600/ffe4e6/be123c?text=Featured+Image';"/>
+                    </div>
+                </div>
+
+                <!-- Article Body -->
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="blog-content">
+                        ${articleBody}
+                    </div>
+                    
+                    <!-- Share & Tag Box -->
+                    <div class="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div class="flex gap-2">
+                            <span class="bg-gray-100 text-gray-600 px-4 py-1.5 rounded-full text-xs font-semibold">#BeautyTips</span>
+                            <span class="bg-gray-100 text-gray-600 px-4 py-1.5 rounded-full text-xs font-semibold">#${article.category.replace(' ', '')}</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm font-bold text-gray-900">Share:</span>
+                            <button onclick="showToast('Link copied to clipboard!')" class="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center hover:bg-rose-500 hover:text-white transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                             </button>
                         </div>
                     </div>
-                </div>
-            `;
-        }
-
-        function renderProducts() {
-            document.getElementById('home-trending-grid').innerHTML = PRODUCTS.slice(0,4).map(getProductCardHTML).join('');
-
-            const categories = ['All', ...new Set(PRODUCTS.map(p => p.category))];
-            document.getElementById('shop-filters').innerHTML = categories.map(cat => `
-                <button onclick="setFilter('${cat}')" class="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all duration-300 ${activeFilter === cat ? 'bg-rose-500 text-white shadow-md' : 'bg-white border border-gray-200 text-gray-600 hover:border-rose-300 hover:text-rose-500'}">
-                    ${cat}
-                </button>
-            `).join('');
-
-            const filteredProducts = activeFilter === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.category === activeFilter);
-            document.getElementById('shop-grid').innerHTML = filteredProducts.map(getProductCardHTML).join('');
-        }
-
-        function setFilter(cat) {
-            activeFilter = cat;
-            renderProducts();
-        }
-
-        function renderReviews() {
-            const grid = document.getElementById('reviews-grid');
-            const starSvg = `<svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
-            grid.innerHTML = REVIEWS.map(review => `
-                <div class="bg-white border border-rose-50 p-5 sm:p-6 md:p-8 rounded-[1.5rem] sm:rounded-[2rem] shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col hover:-translate-y-1 transition-transform">
-                    <div class="flex items-center justify-between mb-3 sm:mb-4">
-                        <div class="flex text-orange-400">${starSvg.repeat(review.rating)}</div>
-                        <span class="text-[10px] sm:text-xs text-gray-400">${review.date}</span>
-                    </div>
-                    <p class="text-gray-600 italic flex-grow text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6">"${review.text}"</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-rose-100 flex items-center justify-center font-bold text-rose-500 text-sm sm:text-lg shrink-0">${review.name.charAt(0)}</div>
-                        <div>
-                            <p class="font-bold text-gray-900 text-xs sm:text-sm">${review.name}</p>
-                            <p class="text-[9px] sm:text-xs text-gray-400 flex items-center mt-0.5">
-                                <svg class="w-2.5 h-2.5 sm:w-3 sm:h-3 mr-1 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                                Verified Buyer
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // --- CART LOGIC ---
-        function updateCartBadge() {
-            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const badge = document.getElementById('cart-badge');
-            if (count > 0) {
-                badge.textContent = count;
-                badge.classList.remove('hidden');
-            } else {
-                badge.classList.add('hidden');
-            }
-        }
-
-        function addToCart(id) {
-            const product = PRODUCTS.find(p => p.id === id);
-            const existing = cart.find(item => item.id === id);
-            if (existing) {
-                existing.quantity += 1;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-            updateCartBadge();
-            showToast(`✨ Added ${product.name}`);
-            if(document.getElementById('view-cart').classList.contains('active')) {
-                renderCart();
-            }
-        }
-
-        function updateQty(id, delta) {
-            const item = cart.find(i => i.id === id);
-            if(item) {
-                item.quantity += delta;
-                if(item.quantity <= 0) cart = cart.filter(i => i.id !== id);
-            }
-            updateCartBadge();
-            renderCart();
-        }
-
-        function removeItem(id) {
-            cart = cart.filter(i => i.id !== id);
-            updateCartBadge();
-            renderCart();
-        }
-
-        function handleStandardCheckout() {
-            if(cart.length === 0 || isCheckingOut) return;
-            isCheckingOut = true;
-            renderCart(); 
-            setTimeout(() => {
-                cart = [];
-                isCheckingOut = false;
-                updateCartBadge();
-                showToast("💖 Securely processed! Thank you.");
-                navigate('home');
-            }, 2000);
-        }
-
-        function handleWhatsAppCheckout() {
-            if(cart.length === 0) return;
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const phoneNumber = "917567586796"; 
-            let message = "Hello Crafty Cure Studio! 💖%0A%0AI would like to place an order:%0A%0A";
-            cart.forEach(item => { message += `▪ *${item.quantity}x* ${item.name} (₹${item.price})%0A`; });
-            message += `%0A*Total Estimate: ₹${total}*%0A%0A`;
-            message += `Please guide me with the payment and shipping details. Thank you! ✨`;
-            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-        }
-
-        function renderCart() {
-            const container = document.getElementById('cart-content');
-            if (cart.length === 0) {
-                container.innerHTML = `
-                    <div class="bg-white p-8 sm:p-12 md:p-20 text-center rounded-[1.5rem] sm:rounded-[2rem] border border-rose-50 shadow-sm mx-4 sm:mx-0">
-                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-rose-50 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                            <svg class="w-8 h-8 sm:w-10 sm:h-10 text-rose-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                        </div>
-                        <h2 class="text-lg sm:text-xl md:text-2xl font-serif font-bold text-gray-900 mb-3 sm:mb-4">It's empty here!</h2>
-                        <button onclick="navigate('shop')" class="bg-rose-500 text-white text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-lg hover:bg-rose-600 transition mt-2 sm:mt-4">
-                            Start Shopping
+                    
+                    <!-- Back Button -->
+                    <div class="mt-12 text-center">
+                        <button onclick="navigate('articles')" class="inline-flex items-center justify-center bg-white border border-gray-300 text-gray-700 text-sm font-bold px-8 py-3 rounded-full hover:bg-gray-50 transition shadow-sm">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                            Back to Articles
                         </button>
                     </div>
-                `;
-                return;
-            }
-
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
-            const cartItemsHTML = cart.map(item => `
-                <li class="p-3 sm:p-4 md:p-6 flex items-center">
-                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-cover rounded-[0.8rem] sm:rounded-[1rem] bg-rose-50 shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/200x200/ffe4e6/be123c';"/>
-                    <div class="ml-3 sm:ml-4 flex-grow">
-                        <h3 class="text-xs sm:text-sm md:text-base font-bold text-gray-900 mb-0.5 sm:mb-1 line-clamp-1 sm:line-clamp-none">${item.name}</h3>
-                        <p class="text-rose-500 font-bold text-[11px] sm:text-sm mb-2 sm:mb-3">₹${item.price}</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center bg-rose-50 rounded-full p-0.5 sm:p-1">
-                                <button onclick="updateQty(${item.id}, -1)" class="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-rose-600 bg-white rounded-full shadow-sm"><svg class="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4"/></svg></button>
-                                <span class="w-6 sm:w-8 text-center font-bold text-[10px] sm:text-xs">${item.quantity}</span>
-                                <button onclick="updateQty(${item.id}, 1)" class="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-rose-600 bg-white rounded-full shadow-sm"><svg class="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg></button>
-                            </div>
-                            <button onclick="removeItem(${item.id})" class="text-gray-400 hover:text-rose-500 p-1.5 sm:p-2 bg-gray-50 rounded-full ml-2"><svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
-                        </div>
-                    </div>
-                </li>
-            `).join('');
-
-            container.innerHTML = `
-                <div class="flex flex-col lg:flex-row gap-6 sm:gap-8">
-                    <div class="lg:w-2/3 bg-white rounded-[1.5rem] sm:rounded-[2rem] border border-rose-50 shadow-sm overflow-hidden h-fit">
-                        <ul class="divide-y divide-gray-100">${cartItemsHTML}</ul>
-                    </div>
-                    
-                    <div class="lg:w-1/3">
-                        <div class="bg-white rounded-[1.5rem] sm:rounded-[2rem] border border-rose-50 shadow-sm p-5 sm:p-6 sticky top-32">
-                            <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-gray-100">Order Summary</h3>
-                            <div class="flex justify-between items-center text-lg sm:text-xl font-bold text-gray-900 mb-6 sm:mb-8">
-                                <span>Total</span>
-                                <span class="text-rose-600">₹${total}</span>
-                            </div>
-                            
-                            <div class="space-y-3 sm:space-y-4">
-                                <button onclick="handleWhatsAppCheckout()" class="w-full bg-[#25D366] text-white text-sm sm:text-base py-3 sm:py-4 rounded-full font-bold hover:bg-[#20bd5a] transition shadow-lg flex justify-center items-center gap-2 transform hover:-translate-y-1">
-                                    <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                                    Order via WhatsApp
-                                </button>
-
-                                <div class="relative flex py-1.5 sm:py-2 items-center">
-                                    <div class="flex-grow border-t border-gray-200"></div>
-                                    <span class="flex-shrink-0 mx-3 sm:mx-4 text-gray-400 text-[10px] sm:text-xs uppercase tracking-wider font-bold">Or</span>
-                                    <div class="flex-grow border-t border-gray-200"></div>
-                                </div>
-
-                                <button onclick="handleStandardCheckout()" ${isCheckingOut ? 'disabled' : ''} class="w-full bg-gray-900 text-white text-sm sm:text-base py-3 sm:py-4 rounded-full font-bold hover:bg-gray-800 transition shadow-md flex justify-center items-center ${isCheckingOut ? 'opacity-70' : ''}">
-                                    ${isCheckingOut ? 'Processing...' : 'Proceed to Checkout'}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             `;
+            
+            navigate('single-article');
         }
 
         // --- FLOATING NOTIFICATIONS ---
@@ -724,13 +625,12 @@
             }
 
             setTimeout(cycleNotification, 3000);
-            setInterval(cycleNotification, 12000); 
+            setInterval(cycleNotification, 10000); 
         }
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
-            renderProducts();
-            renderReviews();
+            renderGrids();
             initFloatingActivity();
         });
 
