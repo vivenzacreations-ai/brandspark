@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Ad Network Script -->
+    <script src="https://quge5.com/88/tag.min.js" data-zone="236139" async data-cfasync="false"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Monetag Verification -->
     <meta name="monetag" content="1790af298f6b1fd4bde271af7e8c75a4">
+    
     <title>Aura Beauty | Unfiltered Skincare & Style</title>
     
     <!-- Tailwind CSS -->
@@ -102,11 +107,10 @@
                 </h1>
             </div>
 
-            <!-- Newsletter Button (Right) with FREE badge -->
+            <!-- Newsletter Button (Right) -->
             <div class="flex-1 flex items-center justify-end space-x-6">
-                <button onclick="navigate('newsletter')" class="flex items-center gap-1.5 bg-rose-50 text-rose-600 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-rose-500 hover:text-white transition shadow-sm group">
-                    <span>Join VIP</span>
-                    <span class="bg-orange-400 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold shadow-sm uppercase tracking-widest animate-pulse group-hover:bg-white group-hover:text-rose-500 transition-colors">Free</span>
+                <button onclick="navigate('newsletter')" class="bg-rose-50 text-rose-600 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider hover:bg-rose-500 hover:text-white transition shadow-sm">
+                    Join VIP
                 </button>
             </div>
         </nav>
@@ -133,26 +137,18 @@
             <button onclick="navigate('home')" class="text-lg font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">Home</button>
             <button onclick="navigate('articles')" class="text-lg font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">Latest Articles</button>
             <button onclick="navigate('about')" class="text-lg font-serif text-left text-gray-800 hover:text-rose-500 py-3 border-b border-rose-50">About The Editor</button>
-            <button onclick="navigate('newsletter')" class="text-lg font-serif text-left text-rose-500 py-3 border-b border-rose-50 font-bold flex items-center justify-between">
-                Join VIP Newsletter
-                <span class="bg-orange-400 text-white text-[10px] px-2 py-0.5 rounded-full font-sans uppercase tracking-widest shadow-sm">Free</span>
-            </button>
+            <button onclick="navigate('newsletter')" class="text-lg font-serif text-left text-rose-500 py-3 border-b border-rose-50 font-bold">Join VIP Newsletter</button>
         </div>
     </div>
 
     <!-- MAIN CONTENT -->
     <main class="flex-grow w-full max-w-[100vw] overflow-hidden">
         
-        <!-- TOP ADVERTISEMENT BANNER -->
-        <div class="max-w-7xl mx-auto px-4 w-full flex justify-center mt-6 min-h-[90px]">
-            <script src="https://quge5.com/88/tag.min.js" data-zone="236156" async data-cfasync="false"></script>
-        </div>
-
         <!-- ================= HOME VIEW ================= -->
         <div id="view-home" class="page-view active w-full">
             
             <!-- Featured Hero Article -->
-            <div class="relative pt-8 pb-12 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center w-full gap-10">
+            <div class="relative pt-8 pb-12 sm:pt-16 sm:pb-20 lg:pt-24 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center w-full gap-10">
                 <!-- Background Blobs -->
                 <div class="absolute top-0 right-0 w-[80vw] sm:w-[500px] h-[80vw] sm:h-[500px] bg-rose-200/50 rounded-full mix-blend-multiply filter blur-[60px] sm:blur-[80px] -z-10 translate-x-1/4 -translate-y-1/4"></div>
                 <div class="absolute bottom-0 left-0 w-[60vw] sm:w-[400px] h-[60vw] sm:h-[400px] bg-orange-200/40 rounded-full mix-blend-multiply filter blur-[60px] sm:blur-[80px] -z-10 -translate-x-1/4 translate-y-1/4"></div>
@@ -224,11 +220,6 @@
                 </div>
             </div>
 
-            <!-- MIDDLE ADVERTISEMENT BANNER -->
-            <div class="max-w-7xl mx-auto px-4 w-full flex justify-center mb-12 min-h-[90px]">
-                <script src="https://quge5.com/88/tag.min.js" data-zone="236156" async data-cfasync="false"></script>
-            </div>
-
             <!-- Newsletter Promo Banner -->
             <div class="px-4 sm:px-8 py-8 sm:py-12 mb-10">
                 <div class="max-w-7xl mx-auto bg-rose-500 rounded-[1.5rem] sm:rounded-[3rem] overflow-hidden relative shadow-2xl">
@@ -243,10 +234,10 @@
                         <p class="text-rose-100 text-sm sm:text-lg max-w-xl mb-6 sm:mb-8">
                             Join 15,000+ readers getting our weekly beauty secrets, product reviews, and exclusive giveaways directly in their inbox.
                         </p>
-                        <form class="w-full max-w-md flex flex-col sm:flex-row gap-2" onsubmit="event.preventDefault(); showToast('✨ Welcome to The Glow List!'); this.reset(); navigate('home');">
-                            <input type="email" placeholder="Enter your email" required class="flex-grow px-5 py-3.5 rounded-full border-none focus:outline-none focus:ring-2 focus:ring-rose-300 text-sm shadow-inner text-gray-900" />
+                        <form class="w-full max-w-md flex flex-col sm:flex-row gap-2" onsubmit="event.preventDefault(); showToast('✨ Welcome to The Glow List!'); this.reset();">
+                            <input type="email" placeholder="Enter your email" required class="flex-grow px-5 py-3.5 rounded-full border-none focus:outline-none focus:ring-2 focus:ring-rose-300 text-sm shadow-inner" />
                             <button type="submit" class="bg-gray-900 text-white px-8 py-3.5 rounded-full font-bold shadow-xl hover:bg-gray-800 transition-all text-sm whitespace-nowrap">
-                                Subscribe Free
+                                Subscribe
                             </button>
                         </form>
                     </div>
@@ -330,8 +321,8 @@
                         <p class="text-gray-500 text-sm sm:text-base mb-8">Get weekly beauty tips, product recommendations, and exclusive giveaways.</p>
                         
                         <form onsubmit="event.preventDefault(); showToast('✨ Thanks for subscribing!'); navigate('home');" class="space-y-4">
-                            <input type="text" placeholder="Your Name" required class="w-full px-5 py-3 sm:py-4 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-rose-400 focus:bg-white transition text-sm shadow-inner text-gray-900" />
-                            <input type="email" placeholder="Your Email Address" required class="w-full px-5 py-3 sm:py-4 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-rose-400 focus:bg-white transition text-sm shadow-inner text-gray-900" />
+                            <input type="text" placeholder="Your Name" required class="w-full px-5 py-3 sm:py-4 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-rose-400 focus:bg-white transition text-sm shadow-inner" />
+                            <input type="email" placeholder="Your Email Address" required class="w-full px-5 py-3 sm:py-4 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-rose-400 focus:bg-white transition text-sm shadow-inner" />
                             <button type="submit" class="w-full bg-gray-900 text-white py-4 rounded-xl font-bold shadow-lg hover:bg-rose-500 transition text-sm mt-2">Subscribe Now</button>
                         </form>
                         <p class="text-[10px] text-gray-400 mt-6">We respect your privacy. No spam, ever.</p>
@@ -410,7 +401,7 @@
                     <p>Your skincare routine shouldn't stop at your chin. The skin on your neck and décolletage is incredibly thin and shows signs of aging much faster than your face.</p>
                     <p><strong>The Fix:</strong> Whatever you apply to your face (cleanser, serums, moisturizer, and especially sunscreen), bring it down to your neck and chest. Treat this entire area as one continuous canvas.</p>
                     
-                    <p><em>Which of these mistakes are you guilty of? Let us know over on our Instagram <span class="text-rose-500 font-bold cursor-pointer">@aurabeauty</span>!</em></p>
+                    <p><em>Which of these mistakes are you guilty of? Let us know over on our Instagram!</em></p>
                 `
             },
             { 
@@ -551,7 +542,6 @@
             const article = ARTICLES.find(a => a.id === id);
             if (!article) return;
 
-            // Use the detailed content if it exists, otherwise generate placeholder content based on excerpt
             const articleBody = article.content || `
                 <p class="text-lg font-medium text-gray-700">${article.excerpt}</p>
                 <p>Welcome to this comprehensive guide on <strong>${article.title.toLowerCase()}</strong>. As beauty enthusiasts, we are constantly navigating a sea of information to find what truly works.</p>
