@@ -44,63 +44,94 @@
         .bento-hover:hover img { transform: scale(1.05); }
     </style>
 </head>
-<body class="antialiased font-sans selection:bg-neon selection:text-black">
+<body class="antialiased font-sans selection:bg-neon selection:text-black relative">
 
-    <!-- HERO SECTION (Dark Theme, Image on top) -->
-    <section class="bg-black text-white rounded-b-[2rem] md:rounded-b-[4rem] relative overflow-hidden px-6 pt-4 pb-20 md:pb-40 z-10" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8), #050505), url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <!-- Page Transition Overlay -->
+    <div id="page-transition" class="fixed inset-0 bg-neon z-[100] transform scale-y-0 origin-bottom transition-transform duration-[600ms] ease-[cubic-bezier(0.85,0,0.15,1)] pointer-events-none flex items-center justify-center">
+        <div id="transition-text" class="text-black text-3xl md:text-6xl font-black tracking-tighter uppercase transform scale-50 opacity-0 transition-all duration-300 text-center px-4">
+            LOADING...
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[60] transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8 text-2xl font-bold">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:text-neon transition-colors">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="#portfolio" class="hover:text-neon transition-colors nav-link">Portfolio</a>
+        <a href="#why-me" class="hover:text-neon transition-colors nav-link">The Unfair Advantage</a>
+        <a href="#reviews" class="hover:text-neon transition-colors nav-link">Results</a>
+        <a href="#faq" class="hover:text-neon transition-colors nav-link">FAQ</a>
+        <a href="https://wa.me/916005229202?text=hi%20Syed%2C%20I%20needed%20a%20website%20for%20my%20car%20rental%20business%2C%20are%20you%20available%3F" target="_blank" rel="noopener noreferrer" class="bg-neon text-black px-8 py-4 rounded-full mt-4 text-xl shadow-[0_0_20px_rgba(163,255,0,0.3)]">
+            Claim Your Fleet
+        </a>
+    </div>
+
+    <!-- Fixed Sticky Navbar -->
+    <nav id="main-nav" class="fixed top-4 left-0 right-0 mx-4 md:mx-auto max-w-7xl z-50 flex justify-between items-center bg-white/5 backdrop-blur-md border border-white/10 text-white rounded-full px-4 py-2.5 md:px-8 md:py-2.5 shadow-2xl transition-colors duration-300">
+        <div class="flex items-center gap-2 font-bold text-xl md:text-2xl tracking-tight">
+            <div class="w-3 h-3 md:w-4 md:h-4 bg-neon rounded-full"></div>
+            BrandSpark<span class="text-neon">.Pro</span>
+        </div>
         
-        <!-- Navbar (Thinner) -->
-        <nav class="relative z-20 max-w-7xl mx-auto flex justify-between items-center bg-white/5 backdrop-blur-md border border-white/10 text-white rounded-full px-6 py-2 md:px-8 md:py-2.5 mb-16 shadow-2xl">
-            <div class="flex items-center gap-2 font-bold text-2xl tracking-tight">
-                <div class="w-4 h-4 bg-neon rounded-full"></div>
-                BrandSpark<span class="text-neon">.Pro</span>
-            </div>
-            <div class="hidden md:flex gap-8 text-sm font-medium">
-                <a href="#portfolio" class="hover:text-neon transition-colors">Portfolio</a>
-                <a href="#why-me" class="hover:text-neon transition-colors">The Unfair Advantage</a>
-                <a href="#reviews" class="hover:text-neon transition-colors">Results</a>
-                <a href="#faq" class="hover:text-neon transition-colors">FAQ</a>
-            </div>
-            <a href="https://wa.me/916005229202?text=hi%20Syed%2C%20I%20needed%20a%20website%20for%20my%20car%20rental%20business%2C%20are%20you%20available%3F" target="_blank" rel="noopener noreferrer" class="bg-neon text-black px-5 py-1.5 md:px-6 md:py-2 rounded-full text-sm font-bold hover:bg-white hover:text-black transition-all shadow-[0_0_15px_rgba(163,255,0,0.4)]">
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex gap-8 text-sm font-medium">
+            <a href="#portfolio" class="hover:text-neon transition-colors nav-link">Portfolio</a>
+            <a href="#why-me" class="hover:text-neon transition-colors nav-link">The Unfair Advantage</a>
+            <a href="#reviews" class="hover:text-neon transition-colors nav-link">Results</a>
+            <a href="#faq" class="hover:text-neon transition-colors nav-link">FAQ</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <a href="https://wa.me/916005229202?text=hi%20Syed%2C%20I%20needed%20a%20website%20for%20my%20car%20rental%20business%2C%20are%20you%20available%3F" target="_blank" rel="noopener noreferrer" class="hidden sm:block bg-neon text-black px-5 py-1.5 md:px-6 md:py-2 rounded-full text-sm font-bold hover:bg-white hover:text-black transition-all shadow-[0_0_15px_rgba(163,255,0,0.4)]">
                 Claim Your Fleet
             </a>
-        </nav>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden p-1.5 bg-white/10 rounded-full text-white hover:text-neon hover:bg-white/20 transition-colors">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </nav>
 
+    <!-- HERO SECTION (Dark Theme, Image on top) -->
+    <section class="bg-black text-white rounded-b-[2rem] md:rounded-b-[4rem] relative overflow-hidden px-4 md:px-6 pt-32 md:pt-40 pb-20 md:pb-40 z-10" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9), #050505), url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        
         <!-- Hero Content (Centered) -->
-        <div class="relative z-20 max-w-5xl mx-auto text-center space-y-8 mt-10 md:mt-20">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/20">
-                <span class="relative flex h-3 w-3">
+        <div class="relative z-20 max-w-5xl mx-auto text-center space-y-6 md:space-y-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs md:text-sm font-semibold border border-white/20">
+                <span class="relative flex h-2 w-2 md:h-3 md:w-3">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-3 w-3 bg-neon"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-neon"></span>
                 </span>
                 Accepting 2 new clients this month
             </div>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-2xl">
-                Stop Losing <br class="hidden md:block"> Bookings To <br class="hidden md:block"> <span class="text-gray-400">Average</span> Websites.
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-2xl">
+                Stop Losing <br class="hidden sm:block"> Bookings To <br class="hidden sm:block"> <span class="text-gray-400">Average</span> Websites.
             </h1>
-            <p class="text-lg md:text-xl text-gray-300 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+            <p class="text-base sm:text-lg md:text-xl text-gray-300 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-md px-2">
                 I build hyper-optimized, visually aggressive websites <strong class="text-white">exclusively for car rental businesses</strong>. If you want a basic template, go elsewhere. If you want to dominate your local market, keep reading.
             </p>
-            <div class="flex flex-wrap gap-4 pt-4 justify-center">
-                <a href="https://wa.me/916005229202?text=hi%20Syed%2C%20I%20needed%20a%20website%20for%20my%20car%20rental%20business%2C%20are%20you%20available%3F" target="_blank" rel="noopener noreferrer" class="bg-neon text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(163,255,0,0.3)]">
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 pt-4 justify-center items-center">
+                <a href="https://wa.me/916005229202?text=hi%20Syed%2C%20I%20needed%20a%20website%20for%20my%20car%20rental%20business%2C%20are%20you%20available%3F" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto justify-center bg-neon text-black px-6 md:px-8 py-3.5 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-white transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(163,255,0,0.3)]">
                     Build My Booking Machine <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </a>
             </div>
             
-            <div class="flex items-center justify-center gap-4 pt-8">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-6 md:pt-8">
                 <div class="flex -space-x-4">
-                    <img class="w-12 h-12 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Client">
-                    <img class="w-12 h-12 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Client">
-                    <img class="w-12 h-12 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="Client">
+                    <img class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Client">
+                    <img class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Client">
+                    <img class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80" alt="Client">
                 </div>
-                <div class="text-sm font-semibold text-left">
-                    <div class="flex text-neon">★★★★★</div>
+                <div class="text-xs md:text-sm font-semibold text-center sm:text-left">
+                    <div class="flex text-neon justify-center sm:justify-start">★★★★★</div>
                     <div class="text-gray-300">Trusted by 50+ Fleet Owners</div>
                 </div>
             </div>
         </div>
 
-        <!-- Floating UI Element -->
+        <!-- Floating UI Element (Hidden on small screens) -->
         <div class="hidden lg:block absolute bottom-12 right-12 z-20 bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-white shadow-2xl">
             <div class="flex justify-between items-end gap-8">
                 <div>
@@ -115,56 +146,56 @@
     </section>
 
     <!-- STATS STRIP -->
-    <section class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-white/10 -mt-10 relative z-0">
+    <section class="max-w-7xl mx-auto px-4 py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 border-b border-white/10 -mt-6 md:-mt-10 relative z-0">
         <div class="text-center">
-            <h3 class="text-4xl md:text-5xl font-bold text-neon mb-2">50+</h3>
-            <p class="text-gray-400 text-sm font-medium uppercase tracking-wider">Fleets Scaled</p>
+            <h3 class="text-3xl md:text-5xl font-bold text-neon mb-1 md:mb-2">50+</h3>
+            <p class="text-gray-400 text-xs md:text-sm font-medium uppercase tracking-wider">Fleets Scaled</p>
         </div>
         <div class="text-center border-l border-white/10">
-            <h3 class="text-4xl md:text-5xl font-bold text-neon mb-2">2.5X</h3>
-            <p class="text-gray-400 text-sm font-medium uppercase tracking-wider">Avg. Booking Increase</p>
+            <h3 class="text-3xl md:text-5xl font-bold text-neon mb-1 md:mb-2">2.5X</h3>
+            <p class="text-gray-400 text-xs md:text-sm font-medium uppercase tracking-wider">Avg. Booking Increase</p>
         </div>
-        <div class="text-center border-l border-white/10">
-            <h3 class="text-4xl md:text-5xl font-bold text-neon mb-2">100%</h3>
-            <p class="text-gray-400 text-sm font-medium uppercase tracking-wider">Car Rental Focus</p>
+        <div class="text-center border-none md:border-l border-white/10 pt-4 md:pt-0 border-t md:border-t-0">
+            <h3 class="text-3xl md:text-5xl font-bold text-neon mb-1 md:mb-2">100%</h3>
+            <p class="text-gray-400 text-xs md:text-sm font-medium uppercase tracking-wider">Car Rental Focus</p>
         </div>
-        <div class="text-center border-l border-white/10">
-            <h3 class="text-4xl md:text-5xl font-bold text-neon mb-2"><$0</h3>
-            <p class="text-gray-400 text-sm font-medium uppercase tracking-wider">Wasted on templates</p>
+        <div class="text-center border-l border-white/10 pt-4 md:pt-0 border-t md:border-t-0">
+            <h3 class="text-3xl md:text-5xl font-bold text-neon mb-1 md:mb-2"><$0</h3>
+            <p class="text-gray-400 text-xs md:text-sm font-medium uppercase tracking-wider">Wasted on templates</p>
         </div>
     </section>
 
     <!-- PORTFOLIO / CRAZY DESIGNS -->
-    <section id="portfolio" class="max-w-7xl mx-auto px-6 py-24">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+    <section id="portfolio" class="max-w-7xl mx-auto px-6 py-16 md:py-24 scroll-mt-20">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
             <div class="max-w-2xl">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6">Turning <span class="text-neon">Inventory</span> <br> Into Masterpieces.</h2>
-                <p class="text-gray-400 text-lg">I don't build brochures. I build immersive, high-performance sales engines that make your vehicles look irresistible and the booking process frictionless.</p>
+                <h2 class="text-3xl md:text-6xl font-bold mb-4 md:mb-6">Turning <span class="text-neon">Inventory</span> <br> Into Masterpieces.</h2>
+                <p class="text-gray-400 text-base md:text-lg">I don't build brochures. I build immersive, high-performance sales engines that make your vehicles look irresistible and the booking process frictionless.</p>
             </div>
-            <p class="text-sm text-neon font-bold uppercase tracking-widest text-right max-w-xs">
+            <p class="text-xs md:text-sm text-neon font-bold uppercase tracking-widest text-left md:text-right max-w-xs border-l-2 md:border-l-0 border-neon pl-3 md:pl-0">
                 // Warning: These designs are known to cause extreme envy among competitors.
             </p>
         </div>
 
         <!-- Bento Grid Portfolio -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px] md:auto-rows-[300px]">
             <!-- Item 1 (Wide) -->
             <div class="md:col-span-2 relative rounded-3xl overflow-hidden group bento-hover">
                 <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all z-10"></div>
                 <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80" alt="Exotic Car Site" class="w-full h-full object-cover transition-transform duration-700">
-                <div class="absolute bottom-0 left-0 p-8 z-20 w-full bg-gradient-to-t from-black via-black/80 to-transparent">
-                    <span class="bg-neon text-black px-3 py-1 text-xs font-bold rounded-sm mb-3 inline-block">EXOTIC FLEET</span>
-                    <h3 class="text-2xl font-bold text-white">Miami Luxe Rentals</h3>
+                <div class="absolute bottom-0 left-0 p-6 md:p-8 z-20 w-full bg-gradient-to-t from-black via-black/80 to-transparent">
+                    <span class="bg-neon text-black px-3 py-1 text-[10px] md:text-xs font-bold rounded-sm mb-2 md:mb-3 inline-block">EXOTIC FLEET</span>
+                    <h3 class="text-xl md:text-2xl font-bold text-white">Miami Luxe Rentals</h3>
                 </div>
             </div>
             <!-- Item 2 (Tall/Square) -->
-            <div class="relative rounded-3xl overflow-hidden group bento-hover bg-surface p-8 flex flex-col justify-between border border-white/5">
+            <div class="relative rounded-3xl overflow-hidden group bento-hover bg-surface p-6 md:p-8 flex flex-col justify-between border border-white/5">
                 <div>
-                    <h3 class="text-2xl font-bold text-white mb-2">The Secret Sauce</h3>
-                    <p class="text-gray-400 text-sm">Custom booking engines integrated directly with your fleet management software. No double bookings. No headaches.</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-2">The Secret Sauce</h3>
+                    <p class="text-gray-400 text-xs md:text-sm">Custom booking engines integrated directly with your fleet management software. No double bookings. No headaches.</p>
                 </div>
-                <div class="mt-8 bg-black rounded-xl p-4 border border-neon/30">
-                    <div class="flex justify-between items-center text-sm mb-2">
+                <div class="mt-4 md:mt-8 bg-black rounded-xl p-4 border border-neon/30">
+                    <div class="flex justify-between items-center text-xs md:text-sm mb-2">
                         <span class="text-gray-400">Conversion Rate</span>
                         <span class="text-neon font-bold">+18.4%</span>
                     </div>
@@ -177,138 +208,138 @@
             <div class="relative rounded-3xl overflow-hidden group bento-hover border border-neon">
                 <div class="absolute inset-0 bg-neon/90 z-10 mix-blend-multiply transition-all group-hover:bg-neon/70"></div>
                 <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80" alt="UI Dashboard" class="w-full h-full object-cover transition-transform duration-700 grayscale">
-                <div class="absolute inset-0 z-20 p-8 flex flex-col justify-end">
-                    <h3 class="text-3xl font-black text-black leading-tight">CUSTOM UI/UX THAT SELLS</h3>
+                <div class="absolute inset-0 z-20 p-6 md:p-8 flex flex-col justify-end">
+                    <h3 class="text-2xl md:text-3xl font-black text-black leading-tight">CUSTOM UI/UX THAT SELLS</h3>
                 </div>
             </div>
             <!-- Item 4 (Wide) -->
             <div class="md:col-span-2 relative rounded-3xl overflow-hidden group bento-hover">
                 <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-10"></div>
                 <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1200&q=80" alt="SUV Fleet" class="w-full h-full object-cover transition-transform duration-700">
-                <div class="absolute top-8 left-8 z-20">
-                    <span class="bg-white text-black px-3 py-1 text-xs font-bold rounded-sm mb-3 inline-block">AIRPORT RENTALS</span>
-                    <h3 class="text-3xl font-bold text-white max-w-sm mt-2">Automated Drop-off Booking Flows</h3>
+                <div class="absolute top-6 left-6 md:top-8 md:left-8 z-20 pr-4">
+                    <span class="bg-white text-black px-3 py-1 text-[10px] md:text-xs font-bold rounded-sm mb-2 md:mb-3 inline-block">AIRPORT RENTALS</span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white max-w-sm mt-1 md:mt-2">Automated Drop-off Booking Flows</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- MARQUEE DIVIDER -->
-    <div class="w-full bg-neon py-4 overflow-hidden border-y-4 border-black rotate-[-1deg] scale-105 my-12">
-        <div class="whitespace-nowrap animate-marquee flex items-center gap-8">
-            <span class="text-black text-2xl font-black uppercase">DOMINATE YOUR MARKET</span>
-            <i data-lucide="zap" class="text-black w-6 h-6 fill-black"></i>
-            <span class="text-black text-2xl font-black uppercase text-outline">MORE BOOKINGS</span>
-            <i data-lucide="zap" class="text-black w-6 h-6 fill-black"></i>
-            <span class="text-black text-2xl font-black uppercase">SCALABLE FLEETS</span>
-            <i data-lucide="zap" class="text-black w-6 h-6 fill-black"></i>
-            <span class="text-black text-2xl font-black uppercase text-outline">ZERO COMMISSIONS TO OTA's</span>
-            <i data-lucide="zap" class="text-black w-6 h-6 fill-black"></i>
-            <span class="text-black text-2xl font-black uppercase">DOMINATE YOUR MARKET</span>
-            <i data-lucide="zap" class="text-black w-6 h-6 fill-black"></i>
-            <span class="text-black text-2xl font-black uppercase text-outline">MORE BOOKINGS</span>
-            <i data-lucide="zap" class="text-black w-6 h-6 fill-black"></i>
-            <span class="text-black text-2xl font-black uppercase">SCALABLE FLEETS</span>
+    <div class="w-full bg-neon py-3 md:py-4 overflow-hidden border-y-4 border-black rotate-[-1deg] scale-105 my-8 md:my-12">
+        <div class="whitespace-nowrap animate-marquee flex items-center gap-6 md:gap-8">
+            <span class="text-black text-lg md:text-2xl font-black uppercase">DOMINATE YOUR MARKET</span>
+            <i data-lucide="zap" class="text-black w-5 h-5 md:w-6 md:h-6 fill-black"></i>
+            <span class="text-black text-lg md:text-2xl font-black uppercase text-outline">MORE BOOKINGS</span>
+            <i data-lucide="zap" class="text-black w-5 h-5 md:w-6 md:h-6 fill-black"></i>
+            <span class="text-black text-lg md:text-2xl font-black uppercase">SCALABLE FLEETS</span>
+            <i data-lucide="zap" class="text-black w-5 h-5 md:w-6 md:h-6 fill-black"></i>
+            <span class="text-black text-lg md:text-2xl font-black uppercase text-outline">ZERO COMMISSIONS TO OTA's</span>
+            <i data-lucide="zap" class="text-black w-5 h-5 md:w-6 md:h-6 fill-black"></i>
+            <span class="text-black text-lg md:text-2xl font-black uppercase">DOMINATE YOUR MARKET</span>
+            <i data-lucide="zap" class="text-black w-5 h-5 md:w-6 md:h-6 fill-black"></i>
+            <span class="text-black text-lg md:text-2xl font-black uppercase text-outline">MORE BOOKINGS</span>
+            <i data-lucide="zap" class="text-black w-5 h-5 md:w-6 md:h-6 fill-black"></i>
+            <span class="text-black text-lg md:text-2xl font-black uppercase">SCALABLE FLEETS</span>
         </div>
     </div>
 
     <!-- WHY ME / SERVICES (The Pitch) -->
-    <section id="why-me" class="max-w-7xl mx-auto px-6 py-24">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
+    <section id="why-me" class="max-w-7xl mx-auto px-6 py-16 md:py-24 scroll-mt-20">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
-                <span class="text-neon font-bold tracking-wider text-sm uppercase bg-neon/10 px-3 py-1 rounded-sm mb-6 inline-block">The Unfair Advantage</span>
-                <h2 class="text-4xl md:text-5xl font-bold mb-8">Why buy from me? <br> Because I don't build for anyone else.</h2>
-                <p class="text-gray-400 mb-8 text-lg">
+                <span class="text-neon font-bold tracking-wider text-xs md:text-sm uppercase bg-neon/10 px-3 py-1 rounded-sm mb-4 md:mb-6 inline-block">The Unfair Advantage</span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 md:mb-8">Why buy from me? <br class="hidden md:block"> Because I don't build for anyone else.</h2>
+                <p class="text-gray-400 mb-8 text-base md:text-lg">
                     Generic agencies don't understand deposit authorizations, fleet tracking, or seasonal pricing models. I do. I build websites specifically engineered to eliminate tire-kickers and lock in high-ticket renters.
                 </p>
                 
-                <div class="space-y-6">
+                <div class="space-y-4 md:space-y-6">
                     <!-- Service 1 -->
-                    <div class="group border border-white/10 rounded-2xl p-6 hover:bg-surface hover:border-neon/50 transition-all cursor-pointer">
-                        <div class="flex items-center gap-4 mb-2">
-                            <div class="text-neon font-bold">01</div>
-                            <h4 class="text-xl font-bold text-white">Conversion-Obsessed UX</h4>
+                    <div class="group border border-white/10 rounded-2xl p-5 md:p-6 hover:bg-surface hover:border-neon/50 transition-all cursor-pointer">
+                        <div class="flex items-center gap-3 md:gap-4 mb-2">
+                            <div class="text-neon font-bold text-sm md:text-base">01</div>
+                            <h4 class="text-lg md:text-xl font-bold text-white">Conversion-Obsessed UX</h4>
                         </div>
-                        <p class="text-gray-400 text-sm pl-9">Streamlined 3-step checkout. Mobile-first design because 70% of your bookings happen on a phone while they wait for their luggage.</p>
+                        <p class="text-gray-400 text-xs md:text-sm pl-7 md:pl-9">Streamlined 3-step checkout. Mobile-first design because 70% of your bookings happen on a phone while they wait for their luggage.</p>
                     </div>
                     <!-- Service 2 -->
-                    <div class="group border border-white/10 rounded-2xl p-6 hover:bg-surface hover:border-neon/50 transition-all cursor-pointer">
-                        <div class="flex items-center gap-4 mb-2">
-                            <div class="text-neon font-bold">02</div>
-                            <h4 class="text-xl font-bold text-white">Direct WhatsApp Inquiries</h4>
+                    <div class="group border border-white/10 rounded-2xl p-5 md:p-6 hover:bg-surface hover:border-neon/50 transition-all cursor-pointer">
+                        <div class="flex items-center gap-3 md:gap-4 mb-2">
+                            <div class="text-neon font-bold text-sm md:text-base">02</div>
+                            <h4 class="text-lg md:text-xl font-bold text-white">Direct WhatsApp Inquiries</h4>
                         </div>
-                        <p class="text-gray-400 text-sm pl-9">Forget complicated checkouts. I optimize your site to funnel high-intent renters directly to your WhatsApp, delivering 5-10 hot leads per day ready to book.</p>
+                        <p class="text-gray-400 text-xs md:text-sm pl-7 md:pl-9">Forget complicated checkouts. I optimize your site to funnel high-intent renters directly to your WhatsApp, delivering 5-10 hot leads per day ready to book.</p>
                     </div>
                     <!-- Service 3 -->
-                    <div class="group border border-white/10 rounded-2xl p-6 hover:bg-surface hover:border-neon/50 transition-all cursor-pointer">
-                        <div class="flex items-center gap-4 mb-2">
-                            <div class="text-neon font-bold">03</div>
-                            <h4 class="text-xl font-bold text-white">Local SEO Dominance</h4>
+                    <div class="group border border-white/10 rounded-2xl p-5 md:p-6 hover:bg-surface hover:border-neon/50 transition-all cursor-pointer">
+                        <div class="flex items-center gap-3 md:gap-4 mb-2">
+                            <div class="text-neon font-bold text-sm md:text-base">03</div>
+                            <h4 class="text-lg md:text-xl font-bold text-white">Local SEO Dominance</h4>
                         </div>
-                        <p class="text-gray-400 text-sm pl-9">Built-in technical SEO that makes you show up when they search "luxury car rental near me".</p>
+                        <p class="text-gray-400 text-xs md:text-sm pl-7 md:pl-9">Built-in technical SEO that makes you show up when they search "luxury car rental near me".</p>
                     </div>
                 </div>
             </div>
             
-            <div class="relative h-[600px] rounded-3xl overflow-hidden border border-white/10">
+            <div class="relative h-[400px] md:h-[600px] rounded-3xl overflow-hidden border border-white/10">
                 <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80" alt="Coding" class="w-full h-full object-cover opacity-60">
                 <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
                 
                 <!-- Floating code/tech aesthetic box -->
-                <div class="absolute bottom-10 right-10 left-10 bg-black/80 backdrop-blur-md border border-neon/40 rounded-2xl p-6">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div class="w-3 h-3 rounded-full bg-neon"></div>
+                <div class="absolute bottom-6 right-6 left-6 md:bottom-10 md:right-10 md:left-10 bg-black/80 backdrop-blur-md border border-neon/40 rounded-2xl p-4 md:p-6">
+                    <div class="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                        <div class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500"></div>
+                        <div class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-neon"></div>
                     </div>
-                    <p class="text-neon font-mono text-sm">> npm run deploy:market-dominance</p>
-                    <p class="text-gray-300 font-mono text-sm mt-2">Loading custom booking logic...</p>
-                    <p class="text-white font-mono text-sm mt-1">Successfully hijacked local competitors' traffic. [OK]</p>
+                    <p class="text-neon font-mono text-xs md:text-sm">> npm run deploy:market-dominance</p>
+                    <p class="text-gray-300 font-mono text-xs md:text-sm mt-1 md:mt-2">Loading custom booking logic...</p>
+                    <p class="text-white font-mono text-xs md:text-sm mt-1">Successfully hijacked competitors' traffic. [OK]</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAKE REVIEWS (Proof) -->
-    <section id="reviews" class="bg-surface py-24 border-y border-white/5">
+    <section id="reviews" class="bg-surface py-16 md:py-24 border-y border-white/5 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Don't take my word for it. <br><span class="text-neon">Listen to the owners printing money.</span></h2>
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 md:mb-16">Don't take my word for it. <br class="hidden md:block"><span class="text-neon">Listen to the owners printing money.</span></h2>
             
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Review 1 -->
-                <div class="bg-dark p-8 rounded-3xl border border-white/5 hover:border-neon/30 transition-colors">
-                    <div class="flex text-neon mb-6">★★★★★</div>
-                    <p class="text-gray-300 mb-8 text-lg font-medium">"Before him, we relied entirely on Turo. He built us an independent site and integrated our inventory. We doubled our direct bookings in 30 days and stopped paying 30% fees. He is the ONLY web dev you should hire if you rent cars."</p>
+                <div class="bg-dark p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon/30 transition-colors">
+                    <div class="flex text-neon mb-4 md:mb-6 text-sm md:text-base">★★★★★</div>
+                    <p class="text-gray-300 mb-6 md:mb-8 text-base md:text-lg font-medium">"Before him, we relied entirely on Turo. He built us an independent site and integrated our inventory. We doubled our direct bookings in 30 days and stopped paying 30% fees. He is the ONLY web dev you should hire if you rent cars."</p>
                     <div class="flex items-center gap-4 mt-auto">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Marcus" class="w-12 h-12 rounded-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Marcus" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover">
                         <div>
-                            <h4 class="font-bold text-white">Marcus V.</h4>
-                            <p class="text-neon text-sm">Exotic Auto Miami</p>
+                            <h4 class="font-bold text-white text-sm md:text-base">Marcus V.</h4>
+                            <p class="text-neon text-xs md:text-sm">Exotic Auto Miami</p>
                         </div>
                     </div>
                 </div>
                 <!-- Review 2 -->
-                <div class="bg-neon text-black p-8 rounded-3xl shadow-[0_0_30px_rgba(163,255,0,0.15)] relative transform md:-translate-y-4">
-                    <i data-lucide="quote" class="absolute top-6 right-6 w-12 h-12 text-black/10"></i>
-                    <div class="flex text-black mb-6">★★★★★</div>
-                    <p class="text-black mb-8 text-lg font-bold">"Absolutely lethal. My old site looked like a high school project. The new build makes my fleet of 5 SUVs look like a Fortune 500 company. We can now charge premium rates because the brand looks so high-end."</p>
+                <div class="bg-neon text-black p-6 md:p-8 rounded-3xl shadow-[0_0_30px_rgba(163,255,0,0.15)] relative transform md:-translate-y-4 mt-4 md:mt-0">
+                    <i data-lucide="quote" class="absolute top-4 right-4 md:top-6 md:right-6 w-8 h-8 md:w-12 md:h-12 text-black/10"></i>
+                    <div class="flex text-black mb-4 md:mb-6 text-sm md:text-base">★★★★★</div>
+                    <p class="text-black mb-6 md:mb-8 text-base md:text-lg font-bold">"Absolutely lethal. My old site looked like a high school project. The new build makes my fleet of 5 SUVs look like a Fortune 500 company. We can now charge premium rates because the brand looks so high-end."</p>
                     <div class="flex items-center gap-4 mt-auto">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80" alt="Sarah" class="w-12 h-12 rounded-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80" alt="Sarah" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover">
                         <div>
-                            <h4 class="font-bold text-black">Sarah Jenkins</h4>
-                            <p class="text-black/70 text-sm font-semibold">Elevate Rentals LA</p>
+                            <h4 class="font-bold text-black text-sm md:text-base">Sarah Jenkins</h4>
+                            <p class="text-black/70 text-xs md:text-sm font-semibold">Elevate Rentals LA</p>
                         </div>
                     </div>
                 </div>
                 <!-- Review 3 -->
-                <div class="bg-dark p-8 rounded-3xl border border-white/5 hover:border-neon/30 transition-colors">
-                    <div class="flex text-neon mb-6">★★★★★</div>
-                    <p class="text-gray-300 mb-8 text-lg font-medium">"I was skeptical about the price at first. But the custom checkout flow he built reduced our abandoned bookings by 60%. The site paid for itself in week two. Stop thinking about it and just hire him."</p>
+                <div class="bg-dark p-6 md:p-8 rounded-3xl border border-white/5 hover:border-neon/30 transition-colors mt-4 md:mt-0">
+                    <div class="flex text-neon mb-4 md:mb-6 text-sm md:text-base">★★★★★</div>
+                    <p class="text-gray-300 mb-6 md:mb-8 text-base md:text-lg font-medium">"I was skeptical about the price at first. But the custom checkout flow he built reduced our abandoned bookings by 60%. The site paid for itself in week two. Stop thinking about it and just hire him."</p>
                     <div class="flex items-center gap-4 mt-auto">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="David" class="w-12 h-12 rounded-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="David" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover">
                         <div>
-                            <h4 class="font-bold text-white">David Chen</h4>
-                            <p class="text-neon text-sm">Velocity Airport Cars</p>
+                            <h4 class="font-bold text-white text-sm md:text-base">David Chen</h4>
+                            <p class="text-neon text-xs md:text-sm">Velocity Airport Cars</p>
                         </div>
                     </div>
                 </div>
@@ -317,47 +348,47 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section id="faq" class="max-w-4xl mx-auto px-6 py-24">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">No BS <span class="text-neon">FAQ</span></h2>
+    <section id="faq" class="max-w-4xl mx-auto px-6 py-16 md:py-24 scroll-mt-20">
+        <h2 class="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-12">No BS <span class="text-neon">FAQ</span></h2>
         
-        <div class="space-y-4">
+        <div class="space-y-3 md:space-y-4">
             <!-- FAQ 1 -->
             <div class="border border-white/10 rounded-2xl bg-surface overflow-hidden">
-                <button class="w-full px-6 py-5 text-left font-bold text-lg flex justify-between items-center hover:text-neon transition-colors" onclick="toggleFaq(this)">
-                    Why do you only build for car rentals?
-                    <i data-lucide="plus" class="w-5 h-5 transition-transform duration-300"></i>
+                <button class="w-full px-5 md:px-6 py-4 md:py-5 text-left font-bold text-base md:text-lg flex justify-between items-center hover:text-neon transition-colors" onclick="toggleFaq(this)">
+                    <span class="pr-4">Why do you only build for car rentals?</span>
+                    <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 transition-transform duration-300"></i>
                 </button>
-                <div class="px-6 pb-5 text-gray-400 hidden text-base leading-relaxed">
+                <div class="px-5 md:px-6 pb-4 md:pb-5 text-gray-400 hidden text-sm md:text-base leading-relaxed">
                     Because generalists build generic websites. I know exactly what features a car rental site needs (age verification, dynamic pricing, insurance upsells, fleet availability sync) without having to guess. I don't reinvent the wheel; I build a faster car.
                 </div>
             </div>
             <!-- FAQ 2 -->
             <div class="border border-white/10 rounded-2xl bg-surface overflow-hidden">
-                <button class="w-full px-6 py-5 text-left font-bold text-lg flex justify-between items-center hover:text-neon transition-colors" onclick="toggleFaq(this)">
-                    Can you integrate with my specific fleet management software?
-                    <i data-lucide="plus" class="w-5 h-5 transition-transform duration-300"></i>
+                <button class="w-full px-5 md:px-6 py-4 md:py-5 text-left font-bold text-base md:text-lg flex justify-between items-center hover:text-neon transition-colors" onclick="toggleFaq(this)">
+                    <span class="pr-4">Can you integrate with my specific software?</span>
+                    <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 transition-transform duration-300"></i>
                 </button>
-                <div class="px-6 pb-5 text-gray-400 hidden text-base leading-relaxed">
+                <div class="px-5 md:px-6 pb-4 md:pb-5 text-gray-400 hidden text-sm md:text-base leading-relaxed">
                     Yes. Whether you use HQ Rental, RentWorks, Turo, Navotar, or custom spreadsheets, I build API connections and iFrame integrations that make the frontend look flawless while your backend stays perfectly synced.
                 </div>
             </div>
             <!-- FAQ 3 -->
             <div class="border border-white/10 rounded-2xl bg-surface overflow-hidden">
-                <button class="w-full px-6 py-5 text-left font-bold text-lg flex justify-between items-center hover:text-neon transition-colors" onclick="toggleFaq(this)">
-                    How fast can we launch?
-                    <i data-lucide="plus" class="w-5 h-5 transition-transform duration-300"></i>
+                <button class="w-full px-5 md:px-6 py-4 md:py-5 text-left font-bold text-base md:text-lg flex justify-between items-center hover:text-neon transition-colors" onclick="toggleFaq(this)">
+                    <span class="pr-4">How fast can we launch?</span>
+                    <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 transition-transform duration-300"></i>
                 </button>
-                <div class="px-6 pb-5 text-gray-400 hidden text-base leading-relaxed">
+                <div class="px-5 md:px-6 pb-4 md:pb-5 text-gray-400 hidden text-sm md:text-base leading-relaxed">
                     If you have your photos and vehicle data ready, we can launch a fully custom, high-converting booking machine in 2 to 4 weeks. I work fast because I know this industry inside out.
                 </div>
             </div>
             <!-- FAQ 4 -->
             <div class="border border-white/10 rounded-2xl bg-surface overflow-hidden">
-                <button class="w-full px-6 py-5 text-left font-bold text-lg flex justify-between items-center hover:text-neon transition-colors" onclick="toggleFaq(this)">
-                    Do I actually need this if I'm already on Turo?
-                    <i data-lucide="plus" class="w-5 h-5 transition-transform duration-300"></i>
+                <button class="w-full px-5 md:px-6 py-4 md:py-5 text-left font-bold text-base md:text-lg flex justify-between items-center hover:text-neon transition-colors" onclick="toggleFaq(this)">
+                    <span class="pr-4">Do I actually need this if I'm already on Turo?</span>
+                    <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 transition-transform duration-300"></i>
                 </button>
-                <div class="px-6 pb-5 text-gray-400 hidden text-base leading-relaxed">
+                <div class="px-5 md:px-6 pb-4 md:pb-5 text-gray-400 hidden text-sm md:text-base leading-relaxed">
                     If you want to keep giving up 15-30% of your revenue to a platform you don't control, stick with Turo. If you want to build actual equity in a brand, own your customer list, and keep 100% of your profits, you need an independent, killer website.
                 </div>
             </div>
@@ -365,31 +396,31 @@
     </section>
 
     <!-- FOOTER / CTA (Neon Green) -->
-    <footer id="contact" class="bg-neon text-black rounded-t-[2rem] md:rounded-t-[4rem] px-6 pt-20 pb-10 mt-20 relative overflow-hidden">
+    <footer id="contact" class="bg-neon text-black rounded-t-[2rem] md:rounded-t-[4rem] px-6 pt-16 md:pt-20 pb-8 md:pb-10 mt-12 md:mt-20 relative overflow-hidden">
         <!-- Abstract shape decoration -->
-        <div class="absolute -top-40 -right-40 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
+        <div class="absolute -top-40 -right-40 w-64 h-64 md:w-96 md:h-96 bg-white/20 rounded-full blur-3xl"></div>
         
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-12 relative z-10">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-10 md:gap-12 relative z-10 text-center md:text-left">
             <div class="md:w-1/2">
-                <h2 class="text-5xl md:text-6xl font-black mb-6 leading-tight">Ready to leave them in the dust?</h2>
-                <p class="text-lg font-medium text-black/80 mb-8 max-w-md">I only take on 2 new car rental clients per month to ensure maximum quality and exclusivity. Book your discovery call now.</p>
-                <a href="https://wa.me/916005229202?text=hi%20Syed%2C%20I%20needed%20a%20website%20for%20my%20car%20rental%20business%2C%20are%20you%20available%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-full font-bold text-xl hover:bg-white hover:text-black transition-all shadow-2xl">
-                    Claim Your Spot <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                <h2 class="text-4xl md:text-6xl font-black mb-4 md:mb-6 leading-tight">Ready to leave them in the dust?</h2>
+                <p class="text-base md:text-lg font-medium text-black/80 mb-6 md:mb-8 max-w-md mx-auto md:mx-0">I only take on 2 new car rental clients per month to ensure maximum quality and exclusivity. Book your discovery call now.</p>
+                <a href="https://wa.me/916005229202?text=hi%20Syed%2C%20I%20needed%20a%20website%20for%20my%20car%20rental%20business%2C%20are%20you%20available%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-black text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-lg md:text-xl hover:bg-white hover:text-black transition-all shadow-2xl">
+                    Claim Your Spot <i data-lucide="arrow-up-right" class="w-5 h-5 md:w-6 md:h-6"></i>
                 </a>
             </div>
             
-            <div class="md:w-1/3 bg-black/5 rounded-3xl p-8 backdrop-blur-sm border border-black/10 w-full">
-                <h4 class="font-bold text-xl mb-6">Direct Line</h4>
-                <div class="space-y-4 font-medium">
+            <div class="md:w-1/3 bg-black/5 rounded-3xl p-6 md:p-8 backdrop-blur-sm border border-black/10 w-full text-left">
+                <h4 class="font-bold text-lg md:text-xl mb-4 md:mb-6">Direct Line</h4>
+                <div class="space-y-3 md:space-y-4 font-medium text-sm md:text-base">
                     <a href="https://wa.me/916005229202?text=hi%20Syed%2C%20I%20needed%20a%20website%20for%20my%20car%20rental%20business%2C%20are%20you%20available%3F" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:opacity-70 transition-opacity">
-                        <div class="w-10 h-10 bg-black text-neon rounded-full flex items-center justify-center">
-                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        <div class="w-8 h-8 md:w-10 md:h-10 bg-black text-neon rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="mail" class="w-4 h-4 md:w-5 md:h-5"></i>
                         </div>
                         Inquire via WhatsApp
                     </a>
                     <a href="#" class="flex items-center gap-3 hover:opacity-70 transition-opacity">
-                        <div class="w-10 h-10 bg-black text-neon rounded-full flex items-center justify-center">
-                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        <div class="w-8 h-8 md:w-10 md:h-10 bg-black text-neon rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="twitter" class="w-4 h-4 md:w-5 md:h-5"></i>
                         </div>
                         @BrandSparkPro
                     </a>
@@ -397,9 +428,9 @@
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-black/10 flex flex-col md:flex-row justify-between items-center gap-4 font-medium text-sm text-black/60 relative z-10">
+        <div class="max-w-7xl mx-auto mt-12 md:mt-20 pt-6 md:pt-8 border-t border-black/10 flex flex-col md:flex-row justify-between items-center gap-4 font-medium text-xs md:text-sm text-black/60 relative z-10 text-center md:text-left">
             <p>&copy; 2026 BrandSpark.Pro. All rights reserved.</p>
-            <div class="flex gap-6">
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6">
                 <a href="#" class="hover:text-black transition-colors">Privacy Policy</a>
                 <a href="#" class="hover:text-black transition-colors">Terms of Service</a>
             </div>
@@ -409,6 +440,90 @@
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if(window.scrollY > 50) {
+                nav.classList.add('bg-black/80');
+                nav.classList.remove('bg-white/5');
+            } else {
+                nav.classList.remove('bg-black/80');
+                nav.classList.add('bg-white/5');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            // Prevent scrolling when menu is open
+            document.body.style.overflow = mobileMenu.classList.contains('translate-x-full') ? '' : 'hidden';
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        closeMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Custom Page Transition Animation
+        const overlay = document.getElementById('page-transition');
+        const overlayText = document.getElementById('transition-text');
+
+        const sectionNames = {
+            '#portfolio': 'INITIALIZING PORTFOLIO...',
+            '#why-me': 'LOADING ADVANTAGE...',
+            '#reviews': 'FETCHING RESULTS...',
+            '#faq': 'ACCESSING FAQ...'
+        };
+
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    // Close mobile menu immediately if it's open
+                    if (!mobileMenu.classList.contains('translate-x-full')) {
+                        toggleMobileMenu();
+                    }
+
+                    // Set Dynamic Text based on section
+                    overlayText.textContent = sectionNames[targetId] || 'LOADING...';
+                    
+                    // Pop Overlay In (Wipe up)
+                    overlay.style.transformOrigin = 'bottom';
+                    overlay.classList.remove('scale-y-0');
+                    overlay.classList.add('scale-y-100');
+                    
+                    // Show Text
+                    setTimeout(() => {
+                        overlayText.classList.remove('scale-50', 'opacity-0');
+                        overlayText.classList.add('scale-100', 'opacity-100');
+                    }, 300);
+
+                    // Execute Scroll and Animate Out
+                    setTimeout(() => {
+                        // Scroll to section instantly in background
+                        targetSection.scrollIntoView({ behavior: 'auto' });
+                        
+                        // Hide Text
+                        overlayText.classList.remove('scale-100', 'opacity-100');
+                        overlayText.classList.add('scale-50', 'opacity-0');
+                        
+                        // Pop Overlay Out (Wipe up)
+                        setTimeout(() => {
+                            overlay.style.transformOrigin = 'top';
+                            overlay.classList.remove('scale-y-100');
+                            overlay.classList.add('scale-y-0');
+                        }, 200);
+                        
+                    }, 1000); // Wait 1 second before revealing the new section
+                }
+            });
+        });
 
         // Simple FAQ Accordion Logic
         function toggleFaq(button) {
